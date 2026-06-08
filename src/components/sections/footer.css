@@ -1,0 +1,263 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   FOOTER COMPONENT STYLES — GRINT FURNITURE BUILD
+   Theme: Minimalist Gallery Light (Perfect Match with Portfolio & Services)
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --primary-dark: #1e1b18;          /* Hitam arang kayu untuk teks utama */
+  --ft-accent: #c5a880;             /* Emas industrial (Antique Gold) */
+  
+  --ft-bg-main: #f6f6f6;            /* Latar belakang abu-abu galeri cerah */
+  --ft-bg-bottom: #eeeeee;          /* Area copyright sewarna dengan #EEEEEE */
+  --palette-mid: #dddddd;           /* Warna pembatas arsitektural #DDDDDD */
+  
+  --ft-text-main: #2b2825;          /* Menggantikan ft-text-light agar kontras tajam */
+  --ft-text-muted: #66615c;         /* Menggantikan abu-abu pudar lama */
+  --ft-easing: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.footer-section {
+  background-color: var(--ft-bg-main);
+  color: var(--ft-text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding-top: 100px;
+  /* Garis batas atas abu-abu tegas yang menyambung mulus dari section di atasnya */
+  border-top: 1px solid var(--palette-mid);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container pembatas lebar konten */
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Tata Letak Atas: Grid Brand vs Tautan */
+.footer-inner-layout {
+  display: grid;
+  grid-template-columns: 4fr 7fr;
+  gap: 80px;
+  padding-bottom: 80px;
+}
+
+/* ─── KOLOM KIRI: BRAND PANEL ─── */
+.footer-brand-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+
+.footer-logo-main {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--primary-dark); /* Diubah ke hitam arang agar logo menonjol */
+}
+
+.footer-logo-sub {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--ft-accent);
+  margin-top: 2px;
+}
+
+.footer-tagline-en {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ft-text-muted);
+  font-style: italic;
+  margin: 0 0 12px 0;
+  max-width: 320px;
+}
+
+.footer-tagline-id {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(102, 97, 92, 0.7); /* Disesuaikan untuk keterbacaan di latar terang */
+  margin: 0;
+}
+
+/* ─── KOLOM KANAN: LINKS GRID ─── */
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ft-accent);
+  margin: 0 0 28px 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Garis aksen kecil di bawah judul kolom */
+.footer-column-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: var(--ft-accent);
+  opacity: 0.4;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start; /* Mengunci jangkauan klik tombol/link agar tidak melebar semu */
+}
+
+/* Link Interaktif (Navigasi & Socials) */
+.footer-action-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--ft-text-muted);
+  font-size: 14.5px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: color 0.3s var(--ft-easing), transform 0.3s var(--ft-easing);
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-action-link:hover {
+  color: var(--ft-accent); /* Berubah menjadi keemasan saat di-hover seperti elemen Portfolio */
+  transform: translateX(4px); /* Efek bergeser tipis saat disorot */
+}
+
+/* Teks Statis (Daftar Layanan) */
+.footer-plain-text {
+  color: var(--ft-text-main);
+  font-size: 14.5px;
+  font-weight: 400;
+}
+
+/* ─── BOTTOM BAR (COPYRIGHT) ─── */
+.footer-bottom-bar {
+  background-color: var(--ft-bg-bottom);
+  border-top: 1px solid var(--palette-mid); /* Batas atas presisi #DDDDDD */
+  padding: 30px 0;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copyright-text {
+  font-size: 13px;
+  color: var(--ft-text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Tombol Back To Top (Kombinasi style tombol filter non-aktif di Portfolio) */
+.footer-back-to-top-btn {
+  background: #ffffff;
+  border: 1px solid var(--palette-mid); /* Bingkai tegas #DDDDDD */
+  color: var(--primary-dark);
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 30px; /* Diubah menjadi melingkar penuh agar serasi dengan filter-btn */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s var(--ft-easing);
+}
+
+.back-to-top-icon {
+  transition: transform 0.3s var(--ft-easing);
+}
+
+.footer-back-to-top-btn:hover {
+  border-color: var(--ft-accent);
+  color: var(--ft-accent);
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 27, 24, 0.05);
+}
+
+/* Efek ikon panah melompat sedikit ke atas saat di-hover */
+.footer-back-to-top-btn:hover .back-to-top-icon {
+  transform: translateY(-3px);
+}
+
+
+/* ─── MEDIA QUERIES (RESPONSIVE DESIGN) ─── */
+
+@media (max-width: 1024px) {
+  .footer-inner-layout {
+    grid-template-columns: 1fr; /* Tumpuk satu kolom penuh antara Brand dan Grid Link */
+    gap: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .footer-brand-panel {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    padding-top: 80px;
+  }
+
+  .footer-container {
+    padding: 0 24px;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 1fr); /* Ubah menjadi 2 kolom di tablet/layar sedang */
+    gap: 40px 30px;
+  }
+  
+  .footer-bottom-inner {
+    flex-direction: column-reverse; /* Tombol naik ke atas teks copyright pada mobile */
+    gap: 20px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links-grid {
+    grid-template-columns: 1fr; /* Tumpuk semua kolom links secara vertikal pada mobile kecil */
+    gap: 36px;
+  }
+
+  .footer-column-title {
+    margin-bottom: 20px;
+  }
+}

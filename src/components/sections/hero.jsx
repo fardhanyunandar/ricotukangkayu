@@ -15,7 +15,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // 5 detik memberikan waktu baca yang lebih nyaman untuk gambar premium
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [images.length]);
@@ -29,16 +29,22 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero-section">
+      {/* Elemen Dekoratif Background Mekar Modern */}
+      <div className="hero-bg-glow-1"></div>
+      <div className="hero-bg-glow-2"></div>
+
       <div className="hero-container hero-grid">
 
         {/* Kolom Kiri: Informasi Utama & Call to Action */}
         <div className="hero-content">
           <div className="hero-badge animate-fade-in">
+            <span className="badge-dot"></span>
             <span>Handcrafted in Indonesia</span>
           </div>
 
           <h1 className="hero-title animate-slide-up">
-            Furniture Kayu <span className="title-accent">Custom</span><br />
+            Furniture Kayu <br />
+            <span className="title-accent">Custom Bespoke</span><br />
             Berkualitas Tinggi
           </h1>
 
@@ -53,18 +59,18 @@ export default function Hero() {
 
           <div className="hero-btns animate-slide-up-delayed">
             <button className="btn-primary" onClick={() => scrollTo('#contact')}>
-              <MessageSquare size={18} />
+              <MessageSquare size={19} />
               <span>Konsultasi Gratis</span>
             </button>
             <button className="btn-secondary" onClick={() => scrollTo('#portfolio')}>
               <span>Lihat Karya</span>
-              <ArrowRight size={18} className="arrow-icon" />
+              <ArrowRight size={19} className="arrow-icon" />
             </button>
           </div>
         </div>
 
         {/* Kolom Kanan: Slideshow Gambar Premium */}
-        <div className="hero-media-wrapper">
+        <div className="hero-media-wrapper animate-fade-in-delayed">
           <div className="hero-media-inner">
             {images.map((img, index) => (
               <img
@@ -75,9 +81,11 @@ export default function Hero() {
                 loading={index === 0 ? "eager" : "lazy"} 
               />
             ))}
+            {/* Overlay Gradasi Elegan di Atas Gambar */}
+            <div className="media-overlay"></div>
           </div>
           
-          {/* Navigasi Indikator Titik (Dots) */}
+          {/* Navigasi Indikator Titik (Dots) dengan Line Effect */}
           <div className="hero-slider-dots">
             {images.map((_, index) => (
               <button 
@@ -85,34 +93,13 @@ export default function Hero() {
                 className={`dot-indicator ${index === currentIndex ? 'active' : ''}`}
                 onClick={() => setCurrentIndex(index)}
                 aria-label={`Go to slide ${index + 1}`}
-              />
+              >
+                <span className="dot-line"></span>
+              </button>
             ))}
           </div>
         </div>
 
-      </div>
-
-      {/* Bagian Statistik Bawah */}
-      <div className="hero-stats-panel">
-        <div className="stats-container">
-          <div className="stats-row">
-            {[
-              { num: '200+', label: 'Proyek Selesai', sub: 'Projects Completed' },
-              { num: '5+', label: 'Tahun Pengalaman', sub: 'Years of Experience' },
-              { num: '100%', label: 'Custom & Handmade', sub: 'Every piece bespoke' },
-            ].map((s, idx) => (
-              <div className="stat-item" key={idx}>
-                <div className="stat-num-wrapper">
-                  <span className="stat-num">{s.num}</span>
-                </div>
-                <div className="stat-text-group">
-                  <span className="stat-label">{s.label}</span>
-                  <span className="stat-sub" lang="en">{s.sub}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

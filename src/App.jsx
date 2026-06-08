@@ -4,9 +4,10 @@ import About from './components/sections/about'
 import Services from './components/sections/services'
 import Portfolio from './components/sections/portofolio'
 import Testimonials from './components/sections/testimonials'
-import FAQ from './components/sections/FAQ'
-// import Contact from './components/sections/Contact'
-// import Footer from './components/footer'
+import FAQ from './components/sections/faq'
+import Contact from './components/sections/contact'
+import Footer from './components/sections/footer'
+
 import './styles/global.css'
 
 export default function App() {
@@ -20,9 +21,9 @@ export default function App() {
         <Portfolio />
         <Testimonials />
         <FAQ />
-        {/* <Contact /> */}
+        <Contact />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

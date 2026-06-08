@@ -1,5 +1,5 @@
 import { Sofa, Bed, ChefHat, Store, Palette, Wrench } from 'lucide-react';
-import './Services.css';
+import './services.css';
 
 const services = [
   {
@@ -15,7 +15,7 @@ const services = [
     desc: 'Ranjang, lemari pakaian, nakas, hingga meja rias custom dengan berbagai pilihan finishing.'
   },
   {
-    icon: ChefHat, // Menggunakan ChefHat / Refrigerator / Utensils yang stabil di Lucide untuk Kitchen
+    icon: ChefHat,
     name: 'Kitchen Set',
     en: 'Kitchen Cabinet & Set',
     desc: 'Kitchen set upper & base cabinet, island, dengan material multiplek HPL maupun solid wood.'
@@ -50,6 +50,9 @@ const steps = [
 export default function Services() {
   return (
     <section id="services" className="services-section">
+      {/* Background Subtle Lines untuk tekstur arsitektur */}
+      <div className="services-bg-pattern"></div>
+
       <div className="services-container">
 
         {/* Header Section */}
@@ -66,8 +69,9 @@ export default function Services() {
             const IconComponent = s.icon;
             return (
               <div className="service-card" key={index}>
+                <div className="service-card-bg-hover"></div>
                 <div className="service-icon-wrapper">
-                  <IconComponent size={24} strokeWidth={1.75} />
+                  <IconComponent className="service-icon" size={26} strokeWidth={1.5} />
                 </div>
                 <div className="service-info">
                   <h3 className="service-name">{s.name}</h3>
@@ -84,6 +88,7 @@ export default function Services() {
           <div className="process-header">
             <h3 className="process-main-title">Alur Kerja Kami</h3>
             <p className="process-sub-title">Our Step-by-Step Process</p>
+            <div className="process-decorator" />
           </div>
 
           <div className="process-row">
@@ -92,13 +97,17 @@ export default function Services() {
                 <div className="step-node-container">
                   <div className="step-node">
                     <span className="step-num">{s.num}</span>
+                    <div className="step-node-pulse"></div>
                   </div>
-                  {/* Garis diletakkan di sini agar bebas menjangkau step berikutnya tanpa merusak lingkaran */}
-                  {i < steps.length - 1 && <div className="step-connector-line" aria-hidden="true" />}
+                  {i < steps.length - 1 && (
+                    <div className="step-connector-line" aria-hidden="true">
+                      <div className="step-connector-progress"></div>
+                    </div>
+                  )}
                 </div>
                 <div className="step-text-content">
                   <h4 className="step-title">{s.title}</h4>
-                  <p className="step-sub">{s.sub}</p>
+                  <p className="step-sub" lang="en">{s.sub}</p>
                 </div>
               </div>
             ))}

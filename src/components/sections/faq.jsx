@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './FAQ.css';
+import './faq.css';
 
 const faqs = [
   {
@@ -43,21 +43,23 @@ export default function FAQ() {
         
         {/* Left Side: Header Sticky Info */}
         <div className="faq-header-panel">
-          <span className="faq-badge">FAQ / Pertanyaan Umum</span>
-          <h2 className="faq-title">Yang Sering Ditanyakan</h2>
-          <p className="faq-subtitle">Frequently asked questions</p>
-          <div className="faq-decorator-line" />
-          
-          <div className="faq-contact-card">
-            <p className="faq-contact-text">
-              Punya pertanyaan khusus mengenai proyek kustom Anda?
-            </p>
-            <button
-              className="faq-wa-button"
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Hubungi via WhatsApp
-            </button>
+          <div className="faq-sticky-content">
+            <span className="faq-badge">FAQ / Pertanyaan Umum</span>
+            <h2 className="faq-title">Yang Sering Ditanyakan</h2>
+            <p className="faq-subtitle">Frequently asked questions</p>
+            <div className="faq-decorator-line" />
+            
+            <div className="faq-contact-card">
+              <p className="faq-contact-text">
+                Punya pertanyaan khusus mengenai proyek kustom Anda?
+              </p>
+              <button
+                className="faq-wa-button"
+                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Hubungi via WhatsApp
+              </button>
+            </div>
           </div>
         </div>
 
@@ -71,6 +73,7 @@ export default function FAQ() {
                   className="faq-trigger"
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
                 >
                   <span className="faq-question-text">
                     {item.q}
@@ -90,11 +93,15 @@ export default function FAQ() {
                   </div>
                 </button>
                 
-                {/* Panel jawaban selalu di-render di DOM agar transisi CSS lancar */}
-                <div className="faq-panel-content">
+                {/* Panel jawaban dengan animasi tinggi berbasis CSS Grid */}
+                <div 
+                  id={`faq-panel-${i}`} 
+                  className="faq-panel-content"
+                  aria-hidden={!isOpen}
+                >
                   <div className="faq-panel-inner">
                     <p className="faq-answer-id">{item.a}</p>
-                    <p className="faq-answer-en">{item.aen}</p>
+                    <p className="faq-answer-en" lang="en">{item.aen}</p>
                   </div>
                 </div>
               </div>

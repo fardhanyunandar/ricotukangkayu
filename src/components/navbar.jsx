@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Navbar.css';
+import './navbar.css';
 
 const links = [
   { label: 'Tentang', href: '#about' },

@@ -1,0 +1,429 @@
+/* --- Core Variables & Reset --- */
+:root {
+  --primary-dark: #1e1b18;     /* Tetap dipertahankan sebagai warna teks utama & tombol agar kontras maksimal */
+  --accent-gold: #c5a880;      /* Emas/Bronze kayu premium */
+  --accent-gold-hover: #b3956b;
+  
+  /* ─── UPGRADE PALET MINIMALIS GALERI ─── */
+  --bg-light: #f6f6f6;         /* Dasar putih abu-abu super bersih */
+  --palette-light: #eeeeee;    /* Warna target 1 */
+  --palette-mid: #dddddd;      /* Warna target 2 */
+  
+  --text-main: #2b2825;        /* Dipekatkan sedikit agar super kontras di atas warna baru */
+  --text-muted: #66615c;
+  --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-section {
+  position: relative;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  padding: 140px 0 100px 0;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Background Aesthetic Glows — Menggunakan kombinasi #EEEEEE dan #DDDDDD */
+.hero-bg-glow-1, .hero-bg-glow-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(130px);
+  z-index: 1;
+  opacity: 0.6; /* Dinaikkan sedikit agar pendaran abu-abunya tetap berdimensi */
+}
+.hero-bg-glow-1 {
+  width: 450px;
+  height: 450px;
+  background: var(--palette-light); /* Menggunakan #EEEEEE */
+  top: -8%;
+  left: -5%;
+}
+.hero-bg-glow-2 {
+  width: 550px;
+  height: 550px;
+  background: var(--palette-mid);   /* Menggunakan #DDDDDD */
+  bottom: 8%;
+  right: -8%;
+}
+
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* --- Left Column: Content --- */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD agar batas badge terlihat tegas */
+  padding: 8px 16px;
+  border-radius: 100px;
+  width: fit-content;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hero-title {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--primary-dark);
+  margin-top: 24px;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.title-accent {
+  color: var(--accent-gold);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-description {
+  margin-bottom: 36px;
+  border-left: 3px solid var(--accent-gold);
+  padding-left: 20px;
+}
+
+.hero-sub-id {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin: 0 0 8px 0;
+}
+
+.hero-sub-en {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* --- Buttons --- */
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.btn-primary {
+  background-color: var(--primary-dark);
+  color: #ffffff;
+  border: 1px solid var(--primary-dark);
+  box-shadow: 0 10px 25px rgba(30, 27, 24, 0.12);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(197, 168, 128, 0.25);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-dark);
+  border: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD untuk border tombol sekunder */
+}
+
+.btn-secondary:hover {
+  background-color: #ffffff;
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.arrow-icon {
+  transition: transform 0.3s var(--transition-smooth);
+}
+
+.btn-secondary:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Social Proof Rating */
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD sebagai garis pembatas */
+  padding-top: 24px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rating-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+
+/* --- Right Column: Premium Slider --- */
+.hero-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+}
+
+.hero-media-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(30, 27, 24, 0.06);
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.2s ease-in-out, transform 1.6s var(--transition-smooth);
+  z-index: 1;
+}
+
+.hero-image.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(30,27,24,0.08) 0%, transparent 40%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Slider Nav Dots */
+.hero-slider-dots {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.3); /* Dibuat sedikit lebih kontras untuk light mode */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 8px 14px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.dot-indicator {
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dot-line {
+  width: 16px;
+  height: 3px;
+  background-color: rgba(30, 27, 24, 0.25); /* Garis indikator tidak aktif diubah menjadi gelap transparan */
+  border-radius: 2px;
+  display: inline-block;
+  transition: all 0.4s var(--transition-smooth);
+}
+
+.dot-indicator.active .dot-line {
+  width: 32px;
+  background-color: var(--primary-dark); /* Indikator aktif berwarna arang pekat */
+}
+
+.dot-indicator:hover .dot-line {
+  background-color: var(--primary-dark);
+}
+
+
+/* --- Bottom Panels: Floating Stats (High Glass Effect) --- */
+.hero-stats-panel {
+  margin-top: 80px;
+}
+
+.stats-container {
+  /* Menggunakan basis warna putih kristal di atas pendaran abu-abu */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(221, 221, 221, 0.7); /* Menggunakan warna dasar #DDDDDD untuk frame kaca */
+  border-radius: 16px;
+  padding: 30px 40px;
+  box-shadow: 0 16px 36px rgba(30, 27, 24, 0.03);
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+
+.stat-item:not(:last-child) {
+  border-right: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD untuk sekat antar angka */
+  padding-right: 20px;
+}
+
+.stat-num {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  letter-spacing: -0.03em;
+}
+
+.stat-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.stat-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+
+/* --- Animations --- */
+.animate-fade-in {
+  animation: fadeIn 0.8s var(--transition-smooth) forwards;
+}
+.animate-fade-in-delayed {
+  animation: fadeIn 1s var(--transition-smooth) 0.3s forwards;
+  opacity: 0;
+}
+.animate-slide-up {
+  animation: slideUp 0.8s var(--transition-smooth) forwards;
+}
+.animate-slide-up-delayed {
+  animation: slideUp 0.8s var(--transition-smooth) 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .hero-section {
+    padding-top: 100px;
+  }
+  .hero-title {
+    font-size: 44px;
+  }
+  .stats-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .stat-item:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD pada mobile pembatas bawah */
+    padding-right: 0;
+    padding-bottom: 16px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 0 20px;
+  }
+  .hero-title {
+    font-size: 34px;
+  }
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-media-wrapper {
+    height: 380px;
+  }
+}

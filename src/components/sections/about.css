@@ -1,0 +1,400 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   ABOUT COMPONENT STYLES — GRINT FURNITURE BUILD
+   Theme: Warm Industrial Studio (Contrasting Next Section Layout)
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --primary-dark: #1e1b18;      /* Hitam arang kayu pekat */
+  --accent-gold: #c5a880;       /* Emas/Bronze kustom */
+  --text-main: #3a3530;         /* Cokelat arang teks utama */
+  --text-muted: #706961;
+  
+  /* ─── KONTRASTING TRANSITION PALETTE ─── */
+  --bg-section: #f6f5f2;        /* Krem pasir galeri sangat tipis agar kontras dengan abu-abu Hero */
+  --bg-card: #ffffff;           /* Boks putih murni agar menonjol */
+  --border-subtle: #dddddd;     /* Integrasi palet penghubung agar transisi halus */
+  --border-warm: #e3dac9;       /* Bingkai elemen kayu hangat */
+  
+  --transition-cubic: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.about-section {
+  background-color: var(--bg-section);
+  padding: 140px 0;             /* Diperlebar sedikit untuk ruang bernapas antar bagian */
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  /* Garis pembatas atas halus menggunakan warna transisi #DDDDDD */
+  border-top: 1px solid var(--border-subtle); 
+}
+
+/* Penambahan aksen arsitektural berupa bayangan geometris abstrak di pojok section */
+.about-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--border-subtle), var(--primary-dark));
+  opacity: 0.15;
+}
+
+.about-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr; /* Kalibrasi ulang rasio grid agar seimbang */
+  gap: 80px;
+  align-items: start;
+}
+
+/* ─── LEFT COLUMN: BRAND STORY ─── */
+.about-header {
+  margin-bottom: 36px;
+}
+
+.about-badge {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* Jarak huruf dilebarkan agar berkarakter */
+  color: var(--accent-gold);
+  margin-bottom: 14px;
+}
+
+.about-title {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--primary-dark);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.about-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 6px 0 20px 0;
+}
+
+.about-decorator-line {
+  width: 80px; /* Diperpanjang agar lebih tegas secara visual */
+  height: 3px;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+}
+
+.about-story {
+  margin-bottom: 54px;
+}
+
+.story-paragraph {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-main);
+  margin-bottom: 20px;
+}
+
+.story-paragraph strong {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.story-paragraph--en {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-style: italic;
+  border-left: 3px solid var(--accent-gold); /* Menggunakan warna aksen emas */
+  padding-left: 18px;
+  margin: 24px 0;
+  background: rgba(255, 255, 255, 0.4); /* Efek highlight tipis di balik teks Inggris */
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 12px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* VALUES CARDS GRID (Sisi Kiri Bawah) */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.value-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle); /* Memakai #DDDDDD agar terlihat rapi dan presisi */
+  border-radius: 12px;
+  padding: 26px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  box-shadow: 0 4px 20px rgba(30, 27, 24, 0.02);
+  /* Perbaikan struktur transisi dari kode asal */
+  transition: opacity 0.8s var(--transition-cubic), transform 0.8s var(--transition-cubic), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px) scale(1.01); /* Efek melayang dioptimalkan */
+  box-shadow: 0 20px 38px rgba(30, 27, 24, 0.07);
+  border-color: var(--accent-gold);
+}
+
+.value-icon-wrapper {
+  background: #f5ede0; /* Warna latar ikon diselaraskan lebih hangat */
+  color: var(--accent-gold);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Mencegah ikon menyusut jika teks di samping terlalu panjang */
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.value-card:hover .value-icon-wrapper {
+  background: var(--primary-dark);
+  color: #ffffff;
+  transform: rotate(-4deg); /* Efek interaksi mikro artistik */
+}
+
+.value-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.value-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.value-sub {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+
+/* ─── RIGHT COLUMN: SIDE PROFILES & SOCIALS ─── */
+.about-side-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Profile Card (Owner / Founder Space) */
+.profile-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 36px;
+  border: 1px solid var(--border-warm); /* Garis batas hangat khas material workshop */
+  position: relative;
+  box-shadow: 0 12px 40px rgba(30, 27, 24, 0.03);
+}
+
+/* Mengubah dekorator pinggir kiri menjadi indikator pilar kayu artistik */
+.profile-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: var(--accent-gold);
+  border-radius: 16px 0 0 16px;
+}
+
+.profile-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.profile-avatar {
+  width: 56px;
+  height: 56px;
+  background-color: var(--primary-dark);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 15px rgba(30,27,24,0.1);
+}
+
+.profile-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.profile-role {
+  font-size: 13px;
+  color: var(--accent-gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 2px 0 0 0;
+}
+
+.quote-id {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text-main);
+  font-style: italic;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.quote-en {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Socials Link Card (Menggunakan warna kontras gelap-terang bergantian) */
+.socials-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle); /* Memakai #DDDDDD */
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 6px 24px rgba(30, 27, 24, 0.01);
+}
+
+.socials-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin: 0 0 20px 0;
+}
+
+.socials-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.3s var(--transition-cubic);
+}
+
+/* Modifikasi tombol Instagram: Transisi ke skema warna premium modern */
+.btn-ig {
+  background: #faf9f6;
+  color: var(--text-main);
+  border: 1px solid var(--border-warm);
+}
+
+.btn-ig:hover {
+  background: #fff6f6;
+  border-color: #e1306c;
+  color: #e1306c;
+  transform: translateX(6px);
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.1);
+}
+
+/* Modifikasi tombol TikTok: Kontras monokrom industrial */
+.btn-tt {
+  background: #faf9f6;
+  color: var(--text-main);
+  border: 1px solid var(--border-warm);
+}
+
+.btn-tt:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: #ffffff;
+  transform: translateX(6px);
+  box-shadow: 0 6px 18px rgba(30, 27, 24, 0.15);
+}
+
+
+/* ─── ENGINE ANIMASI SCROLL ─── */
+.about-main-content,
+.about-side-content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--transition-cubic), transform 1s var(--transition-cubic);
+}
+
+.about-section.is-visible .about-main-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-section.is-visible .about-side-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+/* Logika delay bertahap untuk masing-masing kartu value */
+.about-section.is-visible .value-card {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition-delay: calc(0.3s + var(--delay));
+}
+
+
+/* ─── RESPONSIVITAS ELEGAN ─── */
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .about-section {
+    padding: 90px 0;
+  }
+  .about-title {
+    font-size: 38px;
+  }
+  .profile-card, .socials-card {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .about-container {
+    padding: 0 24px;
+  }
+  .about-title {
+    font-size: 32px;
+  }
+  .social-button {
+    padding: 14px 18px;
+  }
+}

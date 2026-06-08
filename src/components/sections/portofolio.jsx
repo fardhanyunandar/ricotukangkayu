@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Portofolio.css'; // Pastikan penulisan sesuai dengan nama file fisik Anda (Portofolio.css atau Portfolio.css)
+import './portofolio.css';
 
 const items = [
   {
@@ -7,7 +7,7 @@ const items = [
     tag: 'Bedroom',
     name: 'Ranjang Minimalis Kayu Jati',
     mat: 'Solid Teak · Natural Oil Finish',
-    img: '/image/portofolio/badroom.png',
+    img: '/image/portofolio/bedroom.png',
   },
   {
     id: 2,
@@ -52,12 +52,14 @@ function Placeholder({ tag }) {
   return (
     <div className="portfolio-fallback">
       <div className="fallback-grain-pattern" />
-      <span className="fallback-text">{tag} Project</span>
+      <div className="fallback-box">
+        <span className="fallback-tag">{tag}</span>
+        <span className="fallback-text">Grint Project Photo</span>
+      </div>
     </div>
   );
 }
 
-// Custom Instagram Icon mandiri tanpa bergantung pada paket external lucide
 function InstagramIcon({ className }) {
   return (
     <svg
@@ -81,12 +83,19 @@ function InstagramIcon({ className }) {
 
 export default function Portfolio() {
   const [active, setActive] = useState('Semua');
+  const [imageErrors, setImageErrors] = useState({});
+
+  const handleImageError = (id) => {
+    setImageErrors((prev) => ({ ...prev, [id]: true }));
+  };
+
   const filtered = active === 'Semua' ? items : items.filter(i => i.tag === active);
 
   return (
     <section id="portfolio" className="portfolio-section">
       <div className="portfolio-container">
         
+        {/* Header Section */}
         <header className="portfolio-header">
           <span className="portfolio-badge">Portofolio / Our Work</span>
           <h2 className="portfolio-title">Karya Terbaru Kami</h2>
@@ -94,6 +103,7 @@ export default function Portfolio() {
           <div className="portfolio-decorator-line" />
         </header>
 
+        {/* Filter Navigation Bar */}
         <nav className="portfolio-filters" role="group" aria-label="Filter portofolio">
           {filters.map(f => (
             <button
@@ -106,28 +116,47 @@ export default function Portfolio() {
           ))}
         </nav>
 
+        {/* Portfolio Cards Grid */}
         <div className="portfolio-grid">
-          {filtered.map(item => (
-            <article className="portfolio-card" key={item.id}>
-              <div className="portfolio-thumb-wrapper">
-                {item.img ? (
-                  <img src={item.img} alt={item.name} className="portfolio-img" loading="lazy" />
-                ) : (
-                  <Placeholder tag={item.tag} />
-                )}
-                <div className="portfolio-hover-overlay">
-                  <span className="portfolio-mat-tag">{item.mat}</span>
+          {filtered.map(item => {
+            const hasError = imageErrors[item.id];
+            return (
+              <article className="portfolio-card is-animated" key={item.id}>
+                <div className="portfolio-thumb-wrapper">
+                  {/* Perbaikan struktur ternary operator di bawah ini */}
+                  {item.img && !hasError ? (
+                    <img 
+                      src={item.img} 
+                      alt={item.name} 
+                      className="portfolio-img" 
+                      loading="lazy" 
+                      onError={() => handleImageError(item.id)}
+                    />
+                  ) : (
+                    <Placeholder tag={item.tag} />
+                  )}
+                  
+                  {/* Hover Overlay Mask */}
+                  <div className="portfolio-hover-overlay">
+                    <div className="overlay-content">
+                      <span className="overlay-zoom-icon" aria-hidden="true">+</span>
+                      <span className="portfolio-mat-tag">{item.mat}</span>
+                    </div>
+                  </div>
+                  
+                  <span className="portfolio-tag-badge">{item.tag}</span>
                 </div>
-                <span className="portfolio-tag-badge">{item.tag}</span>
-              </div>
-              <div className="portfolio-meta-info">
-                <h3 className="portfolio-item-title">{item.name}</h3>
-                <p className="portfolio-item-mat">{item.mat}</p>
-              </div>
-            </article>
-          ))}
+
+                <div className="portfolio-meta-info">
+                  <h3 className="portfolio-item-title">{item.name}</h3>
+                  <p className="portfolio-item-mat">{item.mat}</p>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
+        {/* CTA Bottom Section */}
         <div className="portfolio-cta-wrapper">
           <a
             href="https://www.instagram.com/ricotukangkayuindonesia_/"
@@ -135,7 +164,7 @@ export default function Portfolio() {
             rel="noopener noreferrer"
             className="portfolio-cta-button"
           >
-            <InstagramIcon />
+            <InstagramIcon className="cta-ig-icon" />
             <span>Lihat Semua Karya di Instagram</span>
           </a>
         </div>

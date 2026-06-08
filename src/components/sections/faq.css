@@ -1,0 +1,288 @@
+:root {
+  --bg-faq: #f8f6f2;             /* Warna bone/off-white cerah premium */
+  --primary-dark: #1e1b18;       /* Hitam arang */
+  --accent-gold: #c5a880;        /* Bronze kayu signature */
+  --text-main: #3a3530;          /* Hitam kayu redup */
+  --text-muted: #787066;         /* Abu-abu hangat */
+  --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.faq-section {
+  background-color: var(--bg-faq);
+  padding: 140px 0;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.faq-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* --- Layout Grid (Split 2 Kolom) --- */
+.faq-layout {
+  display: grid;
+  grid-template-columns: 4fr 7fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* --- Sisi Kiri: Sticky Panel --- */
+.faq-header-panel {
+  position: relative;
+}
+
+.faq-sticky-content {
+  position: sticky;
+  top: 100px; /* Menjaga komponen tetap di layar saat di-scroll */
+}
+
+.faq-badge {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--accent-gold);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.faq-title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.faq-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 6px 0 24px 0;
+}
+
+.faq-decorator-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+  margin-bottom: 40px;
+}
+
+/* Kotak Kontak WA */
+.faq-contact-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(58, 53, 48, 0.03);
+}
+
+.faq-contact-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin: 0 0 20px 0;
+}
+
+.faq-wa-button {
+  width: 100%;
+  background-color: var(--primary-dark);
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.faq-wa-button:hover {
+  background-color: var(--accent-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(197, 168, 128, 0.2);
+}
+
+/* --- Sisi Kanan: Accordion List --- */
+.faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-row-item {
+  background: #ffffff;
+  border: 1px solid #edebe6;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.4s var(--transition-smooth);
+}
+
+.faq-row-item:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 24px rgba(58, 53, 48, 0.04);
+}
+
+/* Tombol Trigger Akordeon */
+.faq-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+  gap: 20px;
+}
+
+.faq-question-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  line-height: 1.4;
+}
+
+.faq-question-en {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Wrapper Ikon Bulat */
+.faq-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  background-color: #fcfbfa;
+  border: 1px solid #edebe6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-dark);
+  flex-shrink: 0;
+  transition: all 0.4s var(--transition-smooth);
+}
+
+.faq-chevron-icon {
+  transition: transform 0.4s var(--transition-smooth);
+}
+
+/* State Aktif Terbuka */
+.faq-row-item.is-open {
+  border-color: var(--accent-gold);
+}
+
+.faq-row-item.is-open .faq-icon-wrapper {
+  background-color: var(--accent-gold);
+  color: #ffffff;
+  border-color: var(--accent-gold);
+}
+
+.faq-row-item.is-open .faq-chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* --- Animasi Transisi Konten (Trik CSS Grid) --- */
+.faq-panel-content {
+  display: grid;
+  grid-template-rows: 0fr; /* Awalnya tertutup rapat */
+  transition: grid-template-rows 0.4s var(--transition-smooth);
+}
+
+.faq-row-item.is-open .faq-panel-content {
+  grid-template-rows: 1fr; /* Membuka mengikuti tinggi konten asli */
+}
+
+.faq-panel-inner {
+  overflow: hidden; /* Mencegah teks meluap saat animasi berproses */
+  padding: 0 30px 24px 30px;
+}
+
+.faq-answer-id {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin: 0 0 8px 0;
+}
+
+.faq-answer-en {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 1024px) {
+  .faq-layout {
+    grid-template-columns: 1fr; /* Menjadi satu kolom pada tablet */
+    gap: 50px;
+  }
+  .faq-sticky-content {
+    position: relative;
+    top: 0;
+  }
+  .faq-title {
+    font-size: 36px;
+  }
+  .faq-decorator-line {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .faq-section {
+    padding: 100px 0;
+  }
+  .faq-container {
+    padding: 0 24px;
+  }
+  .faq-trigger {
+    padding: 20px;
+  }
+  .faq-panel-inner {
+    padding: 0 20px 20px 20px;
+  }
+  .faq-question-text {
+    font-size: 15.5px;
+  }
+  .faq-title {
+    font-size: 30px;
+  }
+}
+/* --- Cari bagian ini di faq.css Anda dan sesuaikan --- */
+.faq-panel-content {
+  display: grid;
+  grid-template-rows: 0fr; /* Tertutup total */
+  visibility: hidden;      /* Menyembunyikan elemen dari render layar */
+  opacity: 0;
+  transition: 
+    grid-template-rows 0.4s var(--transition-smooth),
+    opacity 0.3s var(--transition-smooth),
+    visibility 0.4s;
+}
+
+/* --- Saat Akordeon Terbuka --- */
+.faq-row-item.is-open .faq-panel-content {
+  grid-template-rows: 1fr; /* Membuka penuh */
+  visibility: visible;     /* Memunculkan kembali secara aman */
+  opacity: 1;
+}
+
+/* Pastikan inner container memotong overflow dengan paksa */
+.faq-panel-inner {
+  overflow: hidden; 
+  padding: 0 30px 0 30px; /* Hapus padding bawah saat tertutup */
+  transition: padding 0.4s var(--transition-smooth);
+}
+
+.faq-row-item.is-open .faq-panel-inner {
+  padding: 0 30px 24px 30px; /* Kembalikan padding bawah hanya saat terbuka */
+}
