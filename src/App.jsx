@@ -6,7 +6,7 @@ import Portfolio from './components/sections/portofolio'
 import Testimonials from './components/sections/testimonials'
 import FAQ from './components/sections/FAQ'
 // import Contact from './components/sections/Contact'
-// import Footer from './components/Footer'
+// import Footer from './components/footer'
 import './styles/global.css'
 
 export default function App() {
