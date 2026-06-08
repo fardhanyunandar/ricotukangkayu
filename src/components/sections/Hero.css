@@ -1,0 +1,317 @@
+/* --- Variabel Desain Hero --- */
+:root {
+  --hero-brand-color: #1e3a8a; /* Sesuaikan dengan warna brand Grint Furniture */
+  --hero-bg-light: #f8fafc;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --transition-cubic: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-section {
+  position: relative;
+  background-color: var(--hero-bg-light);
+  padding: 140px 24px 80px 24px;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* --- Kolom Kiri: Teks & Aksi --- */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--hero-brand-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+}
+
+.badge-icon {
+  color: #eab308; /* Warna bintang emas murni */
+}
+
+.hero-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  margin: 0 0 24px 0;
+}
+
+.title-accent {
+  color: var(--hero-brand-color);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.hero-description {
+  margin-bottom: 40px;
+  border-left: 3px solid #cbd5e1;
+  padding-left: 20px;
+}
+
+.hero-sub-id {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #334155;
+  margin: 0 0 8px 0;
+}
+
+.hero-sub-en {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* --- Tombol Aksi --- */
+.hero-btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition-cubic);
+}
+
+.btn-primary {
+  background-color: var(--hero-brand-color);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 10px 20px -10px rgba(30, 58, 138, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(30, 58, 138, 0.5);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-dark);
+  border: 1px solid #cbd5e1;
+}
+
+.btn-secondary:hover {
+  background-color: #ffffff;
+  border-color: var(--text-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+/* --- Kolon Kanan: Slideshow Premium --- */
+.hero-media-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.hero-media-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 115%; /* Rasio aspek vertikal elegan kontemporer */
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+  background-color: #e2e8f0;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+}
+
+.hero-image.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+/* Dots Navigasi */
+.hero-slider-dots {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+}
+
+.dot-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--transition-cubic);
+}
+
+.dot-indicator.active {
+  background-color: #ffffff;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* --- Panel Statistik Bawah --- */
+.hero-stats-panel {
+  margin-top: 90px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 40px;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.stat-num {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.stat-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.stat-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --- Animasi Masuk Awal (CSS Animations) --- */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up-delayed {
+  opacity: 0;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Media Queries Responsif --- */
+@media (max-width: 968px) {
+  .hero-section {
+    padding-top: 100px;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-media-inner {
+    padding-top: 70px; /* Rasio landscape untuk mobile */
+    height: 400px;
+  }
+  .stats-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Palette - Dipertajam tingkat kontrasnya agar lebih premium */
+  --wood-dark:    #3A230F; /* Sedikit lebih gelap untuk keterbacaan teks utama */
+  --wood-mid:     #663F1F;
+  --wood-light:   #966236;
+  --wood-pale:    #BD8F60;
+  --cream:        #F9F6F0; /* Lebih bersih namun tetap hangat */
+  --cream-dark:   #F0E6D2;
+  --cream-border: #E3D7BF; /* Garis pembatas diperlembut agar tidak kaku */
+  --text-dark:    #24150B;
+  --text-mid:     #52351A;
+  --text-light:   #7D5E43;
+  --text-muted:   #9C8263;
+  --green:        #35522B;
+  --white:        #FFFFFF;
+  
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+  
+  /* Spacing System (Kunci tampilan rapi & konsisten) */
+  --space-xs:     0.5rem;  /* 8px */
+  --space-sm:     0.75rem; /* 12px */
+  --space-md:     1.25rem; /* 20px */
+  --space-lg:     2rem;    /* 32px */
+  --space-xl:     3.5rem;  /* 56px */
+  
+  /* Borders & Shadows */
+  --radius-sm:    6px;
+  --radius-md:    12px;    /* Sedikit dinaikkan agar lebih modern */
+  --radius-lg:    20px;    /* Lebih melengkung halus */
+  --radius-xl:    32px;
+  --shadow-soft:  0 4px 24px rgba(58, 35, 15, 0.04), 0 1px 2px rgba(58, 35, 15, 0.02);
+  --transition:   all 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Efek transisi lebih smooth */
+}
+
+/* Reset & Base Rules */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text-dark);
+  font-size: 16px; /* Standar profesional modern (16px) untuk keterbacaan optimal */
+  line-height: 1.75; /* Jarak antar baris teks diperlonggar sedikit */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.3; /* Sedikit kelonggaran untuk judul berlapis */
+  color: var(--wood-dark);
+  letter-spacing: -0.01em; /* Menjaga judul tetap rapi saat ukurannya besar */
+}
+
+a { 
+  color: inherit; 
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-dark);
+}
+
+img { 
+  max-width: 100%; 
+  height: auto;
+  display: block; 
+}
+
+section { 
+  scroll-margin-top: 80px; /* Disesuaikan dengan tinggi header standar */
+}
+
+/* Layout Containers */
+.container {
+  max-width: 1200px; /* Diperlebar agar layout bernapas di layar besar */
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.section-pad { 
+  padding: 7.5rem 0; /* Menaikkan padding (dari 5rem) agar antar section terasa lega dan eksklusif */
+}
+
+/* Section Headers */
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.2em; /* Jarak antar huruf diperlebar agar tegas */
+  text-transform: uppercase;
+  color: var(--wood-pale);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.section-title {
+  font-size: 40px; /* Ukuran dinaikkan untuk kontras yang lebih dramatis */
+  color: var(--wood-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.section-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-xl); /* Jarak ke konten di bawahnya diperluas */
+}
+
+.divider {
+  width: 48px;
+  height: 2px; /* Lebih tipis memberikan kesan lebih elegan dan minimalis */
+  background: var(--wood-light);
+  border-radius: 2px;
+  margin: var(--space-md) 0 var(--space-xl);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--wood-dark);
+  color: var(--white);
+  padding: 14px 30px; /* Padding ditambah agar tombol terasa mantap diklik */
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 14px rgba(74, 46, 20, 0.15);
+  transition: var(--transition);
+}
+.btn-primary:hover { 
+  background: var(--wood-mid); 
+  transform: translateY(-1px); /* Efek hover modern mengangkat sedikit */
+  box-shadow: 0 6px 20px rgba(74, 46, 20, 0.2);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--wood-dark);
+  border: 1px solid var(--cream-border);
+  padding: 13px 28px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.btn-secondary:hover {
+  border-color: var(--wood-light);
+  background: var(--white); /* Mengubah latar belakang ke putih bersih saat hover */
+  transform: translateY(-1px);
+}
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Components */
+.card {
+  background: var(--white);
+  border: 1px solid rgba(227, 215, 191, 0.6); /* Border dibuat semi-transparan agar sangat halus */
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg); /* Menggunakan spacing system untuk konsistensi */
+  box-shadow: var(--shadow-soft); /* Drop shadow halus ala web modern */
+  transition: var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px); /* Efek interaktif yang elegan */
+  box-shadow: 0 12px 32px rgba(74, 46, 20, 0.06);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(24px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+.fade-up { 
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; 
+}

@@ -1,0 +1,389 @@
+/* --- Variabel Scope Layanan --- */
+:root {
+  --services-brand: #1e3a8a; /* Samakan dengan warna brand utama Anda */
+  --services-text-dark: #0f172a;
+  --services-text-muted: #64748b;
+  --services-card-bg: #ffffff;
+  --services-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.services-section {
+  padding: 100px 24px;
+  background-color: #ffffff; /* Kontras bersih jika hero/about menggunakan abu-abu tipis */
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Header --- */
+.services-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.services-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--services-brand);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.services-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--services-text-dark);
+  margin: 0;
+}
+
+.services-subtitle {
+  font-size: 1.05rem;
+  color: var(--services-text-muted);
+  font-style: italic;
+  margin: 4px 0 0 0;
+}
+
+.services-decorator-line {
+  width: 50px;
+  height: 4px;
+  background-color: var(--services-brand);
+  margin: 16px auto 0 auto;
+  border-radius: 2px;
+}
+
+/* --- Grid Layanan --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 96px;
+}
+
+.service-card {
+  background-color: var(--services-card-bg);
+  border: 1px solid #f1f5f9;
+  padding: 32px;
+  border-radius: 16px;
+  transition: var(--services-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: #cbd5e1;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+}
+
+.service-icon-wrapper {
+  color: var(--services-brand);
+  background-color: #f0f4ff;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--services-transition);
+}
+
+.service-card:hover .service-icon-wrapper {
+  background-color: var(--services-brand);
+  color: #ffffff;
+}
+
+.service-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--services-text-dark);
+  margin: 0 0 4px 0;
+}
+
+.service-name-en {
+  font-size: 0.85rem;
+  color: var(--services-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.service-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+/* --- Alur Kerja (Roadmap Process) --- */
+.process-wrapper {
+  background-color: #f8fafc;
+  border-radius: 24px;
+  padding: 48px;
+  border: 1px solid #f1f5f9;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.process-main-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--services-text-dark);
+  margin: 0;
+}
+
+.process-sub-title {
+  font-size: 0.9rem;
+  color: var(--services-text-muted);
+  margin: 4px 0 0 0;
+}
+
+.process-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.process-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.step-node {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-num {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  color: var(--services-text-dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: var(--services-transition);
+}
+
+.process-step:hover .step-num {
+  border-color: var(--services-brand);
+  color: var(--services-brand);
+  transform: scale(1.05);
+}
+
+.step-connector-line {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: calc(100% * 2.5); /* Menghubungkan otomatis antar node */
+  height: 2px;
+  background-color: #e2e8f0;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.step-text-content {
+  z-index: 2;
+}
+
+.step-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--services-text-dark);
+  margin: 0 0 4px 0;
+}
+
+.step-sub {
+  font-size: 0.85rem;
+  color: var(--services-text-muted);
+  margin: 0;
+}
+
+/* --- Responsif --- */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .step-connector-line {
+    display: none; /* Hilangkan garis penghubung horisontal di tablet/mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .process-row {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .process-step {
+    flex-direction: row;
+    text-align: left;
+    gap: 20px;
+  }
+  .step-node {
+    margin-bottom: 0;
+  }
+}
+
+/* --- Alur Kerja (Roadmap Process) Perbaikan Lingkaran & Garis --- */
+.process-wrapper {
+  background-color: #f8fafc;
+  border-radius: 24px;
+  padding: 48px;
+  border: 1px solid #f1f5f9;
+  margin-top: 60px;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.process-main-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--services-text-dark);
+  margin: 0;
+}
+
+.process-sub-title {
+  font-size: 0.9rem;
+  color: var(--services-text-muted);
+  margin: 4px 0 0 0;
+}
+
+.process-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.process-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Pembungkus node angka dan garis penghubung */
+.step-node-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.step-node {
+  width: 44px;
+  height: 44px;
+  aspect-ratio: 1 / 1; /* Memaksa perbandingan tinggi dan lebar selalu 1:1 */
+  flex-shrink: 0;      /* Mencegah flexbox menciutkan atau memanjangkan lingkaran */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.step-num {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  color: var(--services-text-dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 50%; /* Menjamin bentuk bulat sempurna */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--services-transition);
+}
+
+.process-step:hover .step-num {
+  border-color: var(--services-brand);
+  color: var(--services-brand);
+  transform: scale(1.05);
+}
+
+/* Garis penghubung yang ditarik tepat dari tengah lingkaran ke tengah lingkaran berikutnya */
+.step-connector-line {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 22px); /* Mulai dari tepi kanan lingkaran */
+  width: calc(100% - 44px); /* Membentang penuh sampai lingkaran berikutnya */
+  height: 2px;
+  background-color: #e2e8f0;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.step-text-content {
+  position: relative;
+  z-index: 2;
+}
+
+.step-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--services-text-dark);
+  margin: 0 0 4px 0;
+}
+
+.step-sub {
+  font-size: 0.85rem;
+  color: var(--services-text-muted);
+  margin: 0;
+}
+
+/* --- Responsif --- */
+@media (max-width: 1024px) {
+  .step-connector-line {
+    display: none; /* Sembunyikan garis di tablet/mobile agar layout vertikal rapi */
+  }
+}
+
+@media (max-width: 768px) {
+  .process-row {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .process-step {
+    flex-direction: row;
+    text-align: left;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .step-node-container {
+    width: auto;
+    margin-bottom: 0;
+  }
+}
