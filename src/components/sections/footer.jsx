@@ -1,4 +1,4 @@
-import './Footer.css'; // Pastikan penulisan huruf kapital sesuai dengan nama file fisik Anda
+import './footer.css'; // Pastikan penulisan huruf kapital sesuai dengan nama file fisik Anda
 
 export default function Footer() {
   const year = new Date().getFullYear();
