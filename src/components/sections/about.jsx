@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Leaf, Hammer, Ruler, Check } from 'lucide-react';
-import './About.css';
+import './about.css';
 
 const companyValues = [
   {
