@@ -7,7 +7,7 @@ const items = [
     tag: 'Bedroom',
     name: 'Ranjang Minimalis Kayu Jati',
     mat: 'Solid Teak · Natural Oil Finish',
-    img: '/image/portofolio/badroom.png',
+    img: '/image/portofolio/bedroom.png',
   },
   {
     id: 2,
