@@ -59,7 +59,7 @@ export default function Contact() {
     if (!form.name.trim()) return WA_DEFAULT_MSG;
     
     return encodeURIComponent(
-      `Halo Rico, saya *${form.name.trim()}*.\n` +
+      `Halo Bapak Rico, saya *${form.name.trim()}*.\n` +
       `No. WA: ${form.phone || '-'}\n\n` +
       `Saya ingin konsultasi mengenai proyek kustom: *${form.type || 'Furniture Custom'}*.\n\n` +
       `*Deskripsi Kebutuhan:*\n${form.desc || 'Belum ada deskripsi spesifik.'}`

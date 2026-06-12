@@ -140,7 +140,12 @@ export default function About() {
             <div className="profile-card-inner">
               <div className="profile-meta-row">
                 <div className="profile-avatar-wrapper">
-                  <div className="profile-avatar">R</div>
+                  <img
+                    className="profile-avatar-img"
+                    src="/image/about/ricoaris.png"
+                    alt="Foto Rico - Founder Grint Furniture Build"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="profile-info">
                   <h3 className="profile-name">Rico</h3>

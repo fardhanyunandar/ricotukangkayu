@@ -1,0 +1,17 @@
+{
+  "name": "Grint Furniture",
+  "short_name": "Grint",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1e1b18",
+  "background_color": "#f6f5f2"
+}
+
