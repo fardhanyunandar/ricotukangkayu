@@ -100,7 +100,7 @@ export default function About() {
 
           <div className="about-story">
             <p className="story-paragraph">
-              Grint Furniture Build didirikan oleh <strong>Rico</strong>, seorang pengrajin kayu berpengalaman yang mencintai setiap detail dalam proses pembuatan furniture. Kami percaya bahwa furniture yang baik bukan hanya soal fungsi — tapi juga cerita dan karakter.
+              Grint Furniture Build didirikan sejak tahun 2015 oleh <strong>Rico</strong>, seorang pengrajin kayu berpengalaman yang mencintai setiap detail dalam proses pembuatan furniture. Kami percaya bahwa furniture yang baik bukan hanya soal fungsi — tapi juga cerita dan karakter.
             </p>
             <p className="story-paragraph story-paragraph--en" lang="en">
               Founded by Rico, a passionate woodworker who believes great furniture tells a story. Every piece is crafted with care, precision, and a deep respect for natural materials.

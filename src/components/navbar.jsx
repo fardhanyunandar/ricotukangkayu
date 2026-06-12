@@ -50,7 +50,7 @@ export default function Navbar() {
     <>
       <nav className={`navbar-section ${scrolled ? 'is-scrolled' : ''} ${menuOpen ? 'is-menu-active' : ''}`}>
         <div className="navbar-container">
-          
+
           {/* Brand Logo */}
           <div className="navbar-brand-wrapper" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span className="brand-main">GRINT</span>
@@ -68,7 +68,10 @@ export default function Navbar() {
             ))}
             {/* Tombol duplikasi khusus di dalam menu mobile */}
             <li className="navbar-item mobile-only-cta">
-              <button className="navbar-mobile-cta" onClick={() => scrollTo('#contact')}>
+              <button
+                className="navbar-desktop-cta"
+                onClick={() => window.open('https://wa.me/6281513135325?text=Halo%20Grint%20Furniture%20Build!%20Saya%20ingin%20konsultasi%20mengenai%20furniture%20custom.', '_blank')}
+              >
                 Pesan Sekarang
               </button>
             </li>
@@ -76,7 +79,10 @@ export default function Navbar() {
 
           {/* Action Button Desktop */}
           <div className="navbar-actions">
-            <button className="navbar-desktop-cta" onClick={() => scrollTo('#contact')}>
+            <button
+              className="navbar-desktop-cta"
+              onClick={() => window.open('https://wa.me/6281513135325?text=Halo%20Grint%20Furniture%20Build!%20Saya%20ingin%20konsultasi%20mengenai%20furniture%20custom.', '_blank')}
+            >
               Pesan Sekarang
             </button>
 
