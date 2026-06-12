@@ -55,7 +55,7 @@ export default function Navbar() {
           <div className="navbar-brand-wrapper" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
               className="navbar-brand-logo"
-              src="/src/assets/favicon.png"
+              src="/logo.png"
               alt="GRINT logo"
             />
             <span className="brand-text">
