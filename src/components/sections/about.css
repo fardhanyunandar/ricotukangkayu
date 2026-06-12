@@ -409,6 +409,20 @@
   .about-title {
     font-size: 32px;
   }
+
+  /* Pastikan foto Rico tetap bulat di mode mobile */
+.profile-avatar-img {
+    width: 88px;
+    height: 88px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 9999px;
+    /* Anti lonjong: pastikan rasio selalu 1:1 */
+    max-width: 100%;
+    min-width: 88px;
+  }
+
   .social-button {
     padding: 14px 18px;
   }
