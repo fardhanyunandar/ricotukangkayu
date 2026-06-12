@@ -40,7 +40,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="faq-section">
       <div className="faq-container faq-layout">
-        
+
         {/* Left Side: Header Sticky Info */}
         <div className="faq-header-panel">
           <div className="faq-sticky-content">
@@ -48,14 +48,14 @@ export default function FAQ() {
             <h2 className="faq-title">Yang Sering Ditanyakan</h2>
             <p className="faq-subtitle">Frequently asked questions</p>
             <div className="faq-decorator-line" />
-            
+
             <div className="faq-contact-card">
               <p className="faq-contact-text">
                 Punya pertanyaan khusus mengenai proyek kustom Anda?
               </p>
               <button
                 className="faq-wa-button"
-                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.open('https://wa.me/6281513135325?text=Halo%20Grint%20Furniture%20Build!%20Saya%20ingin%20konsultasi%20mengenai%20furniture%20custom.', '_blank')}
               >
                 Hubungi via WhatsApp
               </button>
@@ -88,14 +88,14 @@ export default function FAQ() {
                       strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
                       aria-hidden="true"
                     >
-                      <polyline points="6 9 12 15 18 9"/>
+                      <polyline points="6 9 12 15 18 9" />
                     </svg>
                   </div>
                 </button>
-                
+
                 {/* Panel jawaban dengan animasi tinggi berbasis CSS Grid */}
-                <div 
-                  id={`faq-panel-${i}`} 
+                <div
+                  id={`faq-panel-${i}`}
                   className="faq-panel-content"
                   aria-hidden={!isOpen}
                 >
