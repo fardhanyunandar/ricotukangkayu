@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="footer-logo-wrapper">
             <img
               className="footer-logo-img"
-              src="/src/assets/favicon.png"
+              src="/favicon.png"
               alt="GRINT logo"
             />
             <span className="footer-logo-text">
