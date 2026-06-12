@@ -68,32 +68,77 @@
 /* ─── BRAND LOGO ─── */
 .navbar-brand-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
   line-height: 1.1;
   cursor: pointer;
   user-select: none;
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.brand-text .brand-main {
+  margin: 0;
+}
+
+.brand-text .brand-sub {
+  margin-top: 2px;
+}
+
+
+
+.navbar-brand-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  margin: 0 0 6px 0;
+}
+
+@media (max-width: 900px) {
+  .navbar-brand-logo {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 4px;
+  }
+}
+
+
+
 .brand-main {
   font-size: 24px;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: var(--text-heading); /* Teks putih bersih */
+  color: var(--accent-yellow); /* GRINT: kuning */
   transition: color 0.3s ease;
 }
 
+
+
 .brand-sub {
+
   font-size: 9px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.35em;
-  color: var(--brand-green); /* Sub-branding diselaraskan dengan warna Clover Green */
+  color: var(--text-heading); /* Furniture Build: putih */
   margin-top: 2px;
 }
 
+
 .navbar-brand-wrapper:hover .brand-main {
-  color: var(--accent-yellow); /* Menyala kuning aksen saat logo di-hover */
+  color: var(--accent-yellow); /* GRINT tetap kuning saat hover */
 }
+
+.brand-text .brand-sub {
+  margin-top: 2px;
+}
+
+
 
 /* ─── MENU LINKS (Kontras Tinggi Minimalis) ─── */
 .navbar-menu-links {

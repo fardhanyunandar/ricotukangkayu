@@ -28,9 +28,17 @@ export default function Footer() {
         {/* Kolom Kiri: Brand & Deskripsi */}
         <div className="footer-brand-panel">
           <div className="footer-logo-wrapper">
-            <span className="footer-logo-main">GRINT</span>
-            <span className="footer-logo-sub">Furniture Build</span>
+            <img
+              className="footer-logo-img"
+              src="/src/assets/favicon.png"
+              alt="GRINT logo"
+            />
+            <span className="footer-logo-text">
+              <span className="footer-logo-main">GRINT</span>
+              <span className="footer-logo-sub">Furniture Build</span>
+            </span>
           </div>
+
           <p className="footer-tagline-en">
             Handcrafted wood furniture — made with care, built to last.
           </p>

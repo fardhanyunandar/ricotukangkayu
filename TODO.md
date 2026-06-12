@@ -1,7 +1,7 @@
 # TODO
 
-- [ ] Rapikan tampilan section Testimoni agar jarak (spacing) lebih konsisten dan terlihat profesional.
-- [x] Update `src/components/sections/Testimonials.css` (grid gap, padding, height consistency, typography spacing).
-
-- [ ] Jalankan `npm run lint` untuk memastikan tidak ada error.
-- [ ] Jalankan `npm run dev` (opsional) untuk verifikasi visual secara cepat.
+## Navbar & Footer
+- [x] Ubah warna GRINT menjadi kuning dan Furniture Build menjadi putih di navbar dan footer.
+- [x] Tambahkan logo di navbar dan footer menggunakan logo favicon (src/assets/favicon.png).
+- [x] Update CSS agar layout logo + teks rapi (ukuran, jarak, responsif).
+- [ ] Jalankan build/dev untuk memastikan tidak ada error.

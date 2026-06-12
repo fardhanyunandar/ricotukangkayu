@@ -53,8 +53,16 @@ export default function Navbar() {
 
           {/* Brand Logo */}
           <div className="navbar-brand-wrapper" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="brand-main">GRINT</span>
-            <span className="brand-sub">Furniture Build</span>
+            <img
+              className="navbar-brand-logo"
+              src="/src/assets/favicon.png"
+              alt="GRINT logo"
+            />
+            <span className="brand-text">
+              <span className="brand-main">GRINT</span>
+              <span className="brand-sub">Furniture Build</span>
+            </span>
+
           </div>
 
           {/* Navigation Center Links */}
