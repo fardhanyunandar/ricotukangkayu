@@ -1,39 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Palette - Dipertajam tingkat kontrasnya agar lebih premium */
-  --wood-dark:    #3A230F; /* Sedikit lebih gelap untuk keterbacaan teks utama */
-  --wood-mid:     #663F1F;
-  --wood-light:   #966236;
-  --wood-pale:    #BD8F60;
-  --cream:        #F9F6F0; /* Lebih bersih namun tetap hangat */
-  --cream-dark:   #F0E6D2;
-  --cream-border: #E3D7BF; /* Garis pembatas diperlembut agar tidak kaku */
-  --text-dark:    #24150B;
-  --text-mid:     #52351A;
-  --text-light:   #7D5E43;
-  --text-muted:   #9C8263;
-  --green:        #35522B;
-  --white:        #FFFFFF;
+  /* Palette - Modern Dark Mode */
+  --bg-main:       #0B0B0B; /* Primary Black */
+  --bg-card:       #242424; /* Dark Gray */
+  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
+  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  
+  /* Text Colors */
+  --text-heading:  #FFFFFF; /* White */
+  --text-body:     #F3F3F3; /* Light Gray */
+  --text-muted:    #A0A0A0; /* Medium Gray untuk teks sekunder/informasi tambahan */
+  --text-dark:     #0B0B0B; /* Digunakan untuk teks di atas tombol Accent Yellow */
   
   /* Typography */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-family:   'Poppins', sans-serif;
   
-  /* Spacing System (Kunci tampilan rapi & konsisten) */
-  --space-xs:     0.5rem;  /* 8px */
-  --space-sm:     0.75rem; /* 12px */
-  --space-md:     1.25rem; /* 20px */
-  --space-lg:     2rem;    /* 32px */
-  --space-xl:     3.5rem;  /* 56px */
+  /* Spacing System (Kunci tampilan rapi, lega, & eksklusif) */
+  --space-xs:      0.5rem;  /* 8px */
+  --space-sm:      0.75rem; /* 12px */
+  --space-md:      1.25rem; /* 20px */
+  --space-lg:      2rem;    /* 32px */
+  --space-xl:      3.5rem;  /* 56px */
   
-  /* Borders & Shadows */
-  --radius-sm:    6px;
-  --radius-md:    12px;    /* Sedikit dinaikkan agar lebih modern */
-  --radius-lg:    20px;    /* Lebih melengkung halus */
-  --radius-xl:    32px;
-  --shadow-soft:  0 4px 24px rgba(58, 35, 15, 0.04), 0 1px 2px rgba(58, 35, 15, 0.02);
-  --transition:   all 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Efek transisi lebih smooth */
+  /* Borders, Radius & Shadows */
+  --radius-sm:     6px;
+  --radius-md:     12px;    /* Radius modern untuk tombol & elemen kecil */
+  --radius-lg:     20px;    /* Melengkung halus untuk Cards & Container */
+  --radius-xl:     32px;
+  
+  /* Border halus untuk memisahkan komponen gelap agar tidak menyatu */
+  --border-light:  rgba(255, 255, 255, 0.05); 
+  
+  /* Drop shadow neon lembut khusus dark mode */
+  --shadow-soft:   0 8px 32px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(255, 255, 255, 0.02);
+  --transition:    all 0.3s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
 /* Reset & Base Rules */
@@ -48,23 +49,24 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--text-dark);
-  font-size: 16px; /* Standar profesional modern (16px) untuk keterbacaan optimal */
-  line-height: 1.75; /* Jarak antar baris teks diperlonggar sedikit */
+  font-family: var(--font-family);
+  background: var(--bg-main);
+  color: var(--text-body);
+  font-size: 16px; 
+  line-height: 1.75; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Typography Hierarchy */
 h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  line-height: 1.3; /* Sedikit kelonggaran untuk judul berlapis */
-  color: var(--wood-dark);
-  letter-spacing: -0.01em; /* Menjaga judul tetap rapi saat ukurannya besar */
+  color: var(--text-heading);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
+
+h1 { font-weight: 700; }
+h2, h3 { font-weight: 600; }
 
 a { 
   color: inherit; 
@@ -73,16 +75,20 @@ a {
 }
 
 button {
-  font-family: var(--font-body);
+  font-family: var(--font-family);
   cursor: pointer;
   border: none;
   background: none;
 }
 
 input, select, textarea {
-  font-family: var(--font-body);
+  font-family: var(--font-family);
   font-size: 15px;
-  color: var(--text-dark);
+  color: var(--text-heading);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 10px var(--space-md);
 }
 
 img { 
@@ -92,47 +98,48 @@ img {
 }
 
 section { 
-  scroll-margin-top: 80px; /* Disesuaikan dengan tinggi header standar */
+  scroll-margin-top: 80px; 
 }
 
 /* Layout Containers */
 .container {
-  max-width: 1200px; /* Diperlebar agar layout bernapas di layar besar */
+  max-width: 1200px; 
   margin: 0 auto;
   padding: 0 var(--space-lg);
 }
 
 .section-pad { 
-  padding: 7.5rem 0; /* Menaikkan padding (dari 5rem) agar antar section terasa lega dan eksklusif */
+  padding: 7.5rem 0; 
 }
 
 /* Section Headers */
 .section-label {
   font-size: 12px;
-  letter-spacing: 0.2em; /* Jarak antar huruf diperlebar agar tegas */
+  letter-spacing: 0.2em; 
   text-transform: uppercase;
-  color: var(--wood-pale);
+  color: var(--brand-green); /* Clover Green */
   font-weight: 600;
   margin-bottom: var(--space-sm);
 }
 
 .section-title {
-  font-size: 40px; /* Ukuran dinaikkan untuk kontras yang lebih dramatis */
-  color: var(--wood-dark);
+  font-size: 40px; 
+  color: var(--text-heading);
+  font-weight: 700;
   margin-bottom: var(--space-xs);
 }
 
 .section-sub {
   font-size: 15px;
   color: var(--text-muted);
-  font-style: italic;
-  margin-bottom: var(--space-xl); /* Jarak ke konten di bawahnya diperluas */
+  font-weight: 400;
+  margin-bottom: var(--space-xl); 
 }
 
 .divider {
   width: 48px;
-  height: 2px; /* Lebih tipis memberikan kesan lebih elegan dan minimalis */
-  background: var(--wood-light);
+  height: 3px; 
+  background: var(--accent-yellow); /* Menggunakan aksen kuning agar menjadi focal point */
   border-radius: 2px;
   margin: var(--space-md) 0 var(--space-xl);
 }
@@ -143,20 +150,20 @@ section {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: var(--wood-dark);
-  color: var(--white);
-  padding: 14px 30px; /* Padding ditambah agar tombol terasa mantap diklik */
+  background: var(--accent-yellow); /* Accent Yellow */
+  color: var(--text-dark); /* Teks hitam gelap untuk kontras maksimal */
+  padding: 14px 30px; 
   border-radius: var(--radius-md);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600; /* Dibuat lebih tebal agar terbaca jelas */
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 14px rgba(74, 46, 20, 0.15);
+  box-shadow: 0 4px 14px rgba(232, 225, 20, 0.15);
   transition: var(--transition);
 }
 .btn-primary:hover { 
-  background: var(--wood-mid); 
-  transform: translateY(-1px); /* Efek hover modern mengangkat sedikit */
-  box-shadow: 0 6px 20px rgba(74, 46, 20, 0.2);
+  background: #FFFF33; /* Kuning yang sedikit lebih terang saat hover */
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 20px rgba(232, 225, 20, 0.3);
 }
 .btn-primary:active {
   transform: translateY(0);
@@ -168,8 +175,8 @@ section {
   justify-content: center;
   gap: 10px;
   background: transparent;
-  color: var(--wood-dark);
-  border: 1px solid var(--cream-border);
+  color: var(--brand-green); /* Teks Clover Green */
+  border: 1px solid var(--brand-green); /* Border Clover Green */
   padding: 13px 28px;
   border-radius: var(--radius-md);
   font-size: 15px;
@@ -177,26 +184,26 @@ section {
   transition: var(--transition);
 }
 .btn-secondary:hover {
-  border-color: var(--wood-light);
-  background: var(--white); /* Mengubah latar belakang ke putih bersih saat hover */
-  transform: translateY(-1px);
+  background: rgba(164, 207, 98, 0.1); /* Efek tint hijau transparan saat hover */
+  transform: translateY(-2px);
 }
 .btn-secondary:active {
   transform: translateY(0);
 }
 
-/* Components */
+/* Components / Cards */
 .card {
-  background: var(--white);
-  border: 1px solid rgba(227, 215, 191, 0.6); /* Border dibuat semi-transparan agar sangat halus */
+  background: var(--bg-card); /* Dark Gray */
+  border: 1px solid var(--border-light); /* Border sangat tipis agar menyatu elegan */
   border-radius: var(--radius-lg);
-  padding: var(--space-lg); /* Menggunakan spacing system untuk konsistensi */
-  box-shadow: var(--shadow-soft); /* Drop shadow halus ala web modern */
+  padding: var(--space-lg); 
+  box-shadow: var(--shadow-soft); 
   transition: var(--transition);
 }
 .card:hover {
-  transform: translateY(-4px); /* Efek interaktif yang elegan */
-  box-shadow: 0 12px 32px rgba(74, 46, 20, 0.06);
+  transform: translateY(-6px); /* Efek interaktif sedikit lebih tegas */
+  border-color: rgba(164, 207, 98, 0.3); /* Border menyala tipis dengan warna Clover Green saat di-hover */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* Animations */

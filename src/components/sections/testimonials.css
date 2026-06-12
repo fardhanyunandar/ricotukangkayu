@@ -1,34 +1,37 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   TESTIMONIALS COMPONENT STYLES — GRINT FURNITURE BUILD
-   Theme: Minimalist Gallery Light (Perfect Match with Services & Hero)
+   TESTIMONIALS COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
+   Theme: Technical Dark Mode (High-Contrast Glass & Dynamic Review Grid)
    ───────────────────────────────────────────────────────────────────────── */
 
 :root {
-  --primary-dark: #1e1b18;        /* Hitam arang kayu untuk teks utama */
-  --accent-gold: #c5a880;         /* Emas bronze kustom tetap dipertahankan */
+  /* Palette - Modern Dark Mode (Synchronized) */
+  --bg-main:       #0B0B0B; /* Primary Black */
+  --bg-card:       #242424; /* Dark Gray */
+  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
+  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
   
-  /* ─── PENYELARASAN WARNA DENGAN SERVICES COMPONENT ─── */
-  --bg-testi: #f6f6f6;            /* Latar belakang section, disamakan dengan Services */
-  --palette-light: #eeeeee;       /* Warna target 1 */
-  --palette-mid: #dddddd;         /* Warna target 2 */
+  /* Text Colors */
+  --text-heading:  #FFFFFF; /* White */
+  --text-body:     #F3F3F3; /* Light Gray */
+  --text-muted:    #A0A0A0; /* Medium Gray */
+  --text-dark:     #0B0B0B; /* Dark Text */
   
-  /* Kartu diubah menjadi kristal transparan terang bertekstur glassmorphic */
-  --card-testi-glass: rgba(255, 255, 255, 0.75); 
-  --text-main: #2b2825;           /* Menggantikan text-light agar kontras tajam */
-  --text-muted: #66615c;          /* Menggantikan text-muted-light */
+  /* Borders & Layering */
+  --border-subtle:       rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
+  --border-active:       rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
+  --card-testi-glass:    rgba(36, 36, 36, 0.55);    /* Premium Dark Glassmorphism */
   
   --transition-cubic: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .testimonials-section {
-  background-color: var(--bg-testi);
-  color: var(--text-main);
+  background-color: var(--bg-main);
+  color: var(--text-body);
   padding: 140px 0;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
   overflow: hidden;
   position: relative;
-  /* Garis batas atas abu-abu halus pembatas antar bagian seperti di Services */
-  border-top: 1px solid var(--palette-mid); 
+  border-top: 1px solid var(--border-subtle); 
 }
 
 .testimonials-container {
@@ -48,10 +51,10 @@
 
 .testimonials-badge {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent-gold);
+  letter-spacing: 0.15em;
+  color: var(--brand-green); /* Menggunakan Clover Green */
   margin-bottom: 12px;
 }
 
@@ -60,21 +63,20 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: var(--primary-dark); /* Mengganti #f5f2eb agar teks terbaca jelas di latar cerah */
+  color: var(--text-heading);
   margin: 0;
 }
 
 .testimonials-subtitle {
   font-size: 16px;
   color: var(--text-muted);
-  font-style: italic;
   margin: 6px 0 20px 0;
 }
 
 .testimonials-decorator-line {
   width: 80px;
   height: 3px;
-  background-color: var(--accent-gold);
+  background-color: var(--accent-yellow); /* Titik fokus aksen kuning */
   border-radius: 2px;
 }
 
@@ -90,8 +92,7 @@
   background: var(--card-testi-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  /* Menggunakan bingkai #DDDDDD agar selaras sempurna dengan boks di Services */
-  border: 1px solid var(--palette-mid); 
+  border: 1px solid var(--border-subtle); 
   padding: 40px;
   border-radius: 16px;
   position: relative;
@@ -100,46 +101,46 @@
   justify-content: space-between;
   gap: 30px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(30, 27, 24, 0.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
   transition: all 0.4s var(--transition-cubic);
 }
 
-/* Efek Glow & Angkat saat Hover (Sama dengan interaksi Service Card) */
+/* Efek Glow & Angkat saat Hover (Sinkron dengan Service Card) */
 .testi-card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent-gold);
-  background: #ffffff; /* Berubah menjadi putih pekat murni saat di-hover */
-  box-shadow: 0 20px 40px rgba(30, 27, 24, 0.05);
+  border-color: var(--border-active); /* Batas menyala hijau daun tipis */
+  background: var(--bg-card); /* Berubah menjadi boks abu-abu jernih saat di-hover */
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
 }
 
-/* Dekorasi Tanda Petik Latar Belakang (Disesuaikan untuk latar belakang terang) */
+/* Dekorasi Tanda Petik Latar Belakang (Disesuaikan untuk tema gelap) */
 .testi-quote-bg {
   position: absolute;
   top: 30px;
   right: 30px;
-  color: rgba(30, 27, 24, 0.03); /* Diubah ke warna gelap transparan tipis */
-  transition: color 0.4s ease;
+  color: rgba(255, 255, 255, 0.02); /* Putih transparan super tipis */
+  transition: color 0.4s ease, transform 0.4s var(--transition-cubic);
   pointer-events: none;
 }
 
 .testi-card:hover .testi-quote-bg {
-  color: rgba(197, 168, 128, 0.12); /* Berubah menjadi keemasan saat di-hover */
+  color: rgba(164, 207, 98, 0.06); /* Berubah menjadi semburat hijau daun saat di-hover */
+  transform: scale(1.05);
 }
 
 /* ─── STAR RATING ROW ─── */
 .testi-stars-row {
   display: flex;
   gap: 4px;
-  color: var(--accent-gold);
+  color: var(--accent-yellow); /* Bintang utama menyala kuning */
 }
 
 .testi-star.is-filled {
-  color: var(--accent-gold);
+  color: var(--accent-yellow);
 }
 
 .testi-star.is-empty {
-  /* Diubah agar warna bintang kosong terlihat jelas di latar belakang terang */
-  color: rgba(30, 27, 24, 0.12); 
+  color: rgba(255, 255, 255, 0.1); /* Bintang kosong abu-abu redup transparan */
 }
 
 /* ─── QUOTE CONTENT ─── */
@@ -151,7 +152,7 @@
 .testi-text {
   font-size: 16px;
   line-height: 1.7;
-  color: var(--text-main); /* Mengganti warna krem pudar kuno dengan arang modern */
+  color: var(--text-body);
   margin: 0;
   font-style: normal;
   font-weight: 400;
@@ -162,8 +163,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  /* Garis pembatas internal diubah ke warna abu-abu #DDDDDD transparan */
-  border-top: 1px solid rgba(30, 27, 24, 0.08); 
+  border-top: 1px solid var(--border-subtle); 
   padding-top: 24px;
   margin-top: auto;
 }
@@ -171,24 +171,23 @@
 .testi-avatar {
   width: 46px;
   height: 46px;
-  /* Latar belakang lingkaran inisial nama diselaraskan dengan ikon Services */
-  background-color: rgba(30, 27, 24, 0.03); 
-  color: var(--accent-gold);
+  background-color: rgba(255, 255, 255, 0.03); 
+  color: var(--accent-yellow); /* Inisial huruf menggunakan aksen kuning */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.03em;
-  border: 1px solid rgba(197, 168, 128, 0.25);
+  border: 1px solid rgba(232, 225, 20, 0.2);
   transition: all 0.4s var(--transition-cubic);
 }
 
 .testi-card:hover .testi-avatar {
-  background-color: var(--primary-dark);
-  color: #ffffff;
-  border-color: var(--primary-dark);
+  background-color: var(--accent-yellow);
+  color: var(--text-dark); /* Profil avatar bertukar menjadi kuning solid kontras tinggi saat di-hover */
+  border-color: var(--accent-yellow);
 }
 
 .testi-meta {
@@ -199,8 +198,8 @@
 
 .testi-name {
   font-size: 15px;
-  font-weight: 700;
-  color: var(--primary-dark); /* Mengganti warna teks putih */
+  font-weight: 600;
+  color: var(--text-heading);
   font-style: normal;
 }
 

@@ -1,22 +1,29 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   NAVBAR COMPONENT STYLES — GRINT FURNITURE BUILD
-   Theme: Warm Luxury Crystal Glassmorphism (Light/Warm Edition)
+   NAVBAR COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
+   Theme: Technical Dark Glassmorphism (High-Contrast Cyber-Minimalist Nav)
    ───────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Diambil langsung dari palet warna Hero Section di image_b1192d.jpg */
-  --nv-brand-dark: #231b12;       /* Cokelat kayu gelap (warna tombol Konsultasi) */
-  --nv-accent-gold: #c2a37d;      /* Emas sawo matang hangat */
-  --nv-text-active: #231b12;      /* Teks aktif (kontras tinggi) */
-  --nv-text-muted: #6e655b;       /* Teks biasa (abu-abu cokelat, sangat jelas dibaca) */
+  /* Palette - Modern Dark Mode (Synchronized) */
+  --bg-main:       #0B0B0B; /* Primary Black */
+  --bg-card:       #242424; /* Dark Gray */
+  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
+  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  
+  /* Text Colors */
+  --text-heading:  #FFFFFF; /* White */
+  --text-body:     #F3F3F3; /* Light Gray */
+  --text-muted:    #A0A0A0; /* Medium Gray */
+  --text-dark:     #0B0B0B; /* Dark Text */
+  
   --nv-easing: cubic-bezier(0.25, 1, 0.5, 1);
   
-  /* Efek Kaca Kristal Hangat (Bukan Hitam Lagi) */
-  --nv-glass-bg: rgba(253, 251, 247, 0.65);       /* Kaca putih gading transparan */
-  --nv-glass-bg-scroll: rgba(253, 251, 247, 0.9);  /* Lebih rapat saat di-scroll */
-  --nv-glass-blur: 20px;                           /* Pemburaman kaca super jernih */
-  --nv-glass-border: rgba(35, 27, 18, 0.08);       /* Garis batas transparan tipis cokelat */
-  --nv-glass-shadow: 0 8px 32px 0 rgba(35, 27, 18, 0.06);
+  /* Efek Kaca Kristal Gelap Premium */
+  --nv-glass-bg:       rgba(11, 11, 11, 0.75);  /* Kaca hitam arang transparan */
+  --nv-glass-bg-scroll: rgba(11, 11, 11, 0.92);  /* Lebih rapat pekat saat di-scroll */
+  --nv-glass-blur:     20px;                     /* Pemburaman kaca super jernih */
+  --nv-glass-border:   rgba(255, 255, 255, 0.05);/* Garis batas transparan tipis khas dark mode */
+  --nv-glass-shadow:   0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 /* ─── MAIN BAR CONTAINER ─── */
@@ -32,20 +39,20 @@
   box-sizing: border-box;
   transition: all 0.4s var(--nv-easing);
   
-  /* Efek Kaca Transparan Terang */
+  /* Efek Kaca Transparan Gelap */
   background-color: var(--nv-glass-bg);
-  backdrop-filter: blur(var(--nv-glass-blur)) saturate(160%);
-  -webkit-backdrop-filter: blur(var(--nv-glass-blur)) saturate(160%);
+  backdrop-filter: blur(var(--nv-glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--nv-glass-blur)) saturate(140%);
   border-bottom: 1px solid var(--nv-glass-border);
   box-shadow: var(--nv-glass-shadow);
 }
 
-/* Saat di-scroll, navbar menjadi sedikit lebih padat untuk menjaga keterbacaan teks di atas konten */
+/* Saat di-scroll, navbar menjadi sedikit lebih ramping & padat */
 .navbar-section.is-scrolled {
   height: 76px;
   background-color: var(--nv-glass-bg-scroll);
-  border-bottom-color: rgba(35, 27, 18, 0.12);
-  box-shadow: 0 10px 35px 0 rgba(35, 27, 18, 0.08);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
 }
 
 .navbar-container {
@@ -71,7 +78,7 @@
   font-size: 24px;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: var(--nv-brand-dark); /* Menggunakan warna gelap utama agar terbaca jelas */
+  color: var(--text-heading); /* Teks putih bersih */
   transition: color 0.3s ease;
 }
 
@@ -80,15 +87,15 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.35em;
-  color: var(--nv-accent-gold);
+  color: var(--brand-green); /* Sub-branding diselaraskan dengan warna Clover Green */
   margin-top: 2px;
 }
 
 .navbar-brand-wrapper:hover .brand-main {
-  color: var(--nv-accent-gold);
+  color: var(--accent-yellow); /* Menyala kuning aksen saat logo di-hover */
 }
 
-/* ─── MENU LINKS (Kini Sangat Jelas & Kontras) ─── */
+/* ─── MENU LINKS (Kontras Tinggi Minimalis) ─── */
 .navbar-menu-links {
   display: flex;
   list-style: none;
@@ -102,20 +109,20 @@
   background: none;
   border: none;
   padding: 8px 0;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
   font-size: 14px;
-  font-weight: 600;            /* Diubah ke 600 agar font lebih tegas */
-  color: var(--nv-text-muted); /* Warna abu-abu cokelat tua, dijamin kontras */
+  font-weight: 600;
+  color: var(--text-muted); /* Warna abu-abu medium aman */
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
 }
 
 .navbar-link-btn:hover {
-  color: var(--nv-text-active); /* Berubah ke warna gelap pekat saat disorot */
+  color: var(--text-heading); /* Berubah menjadi putih jernih saat disorot */
 }
 
-/* Garis bawah meluncur emas */
+/* Garis bawah meluncur menyala (Accent Yellow) */
 .navbar-link-btn::after {
   content: '';
   position: absolute;
@@ -123,7 +130,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--nv-accent-gold);
+  background-color: var(--accent-yellow);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s var(--nv-easing);
@@ -138,7 +145,7 @@
   display: none;
 }
 
-/* ─── BUTTON CTA "PESAN SEKARANG" (Menyesuaikan Gaya Berkelas di Image Anda) ─── */
+/* ─── BUTTON CTA DESKTOP (High Contrast Outline) ─── */
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -147,22 +154,22 @@
 
 .navbar-desktop-cta {
   background-color: transparent;
-  color: var(--nv-brand-dark);
-  border: 1px solid rgba(35, 27, 18, 0.3); /* Batas tipis gelap sesuai elemen tombol di kanan atas gambar */
+  color: var(--text-heading);
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bingkai tipis transparan putih */
   padding: 10px 22px;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 13.5px;
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s var(--nv-easing);
 }
 
 .navbar-desktop-cta:hover {
-  background-color: var(--nv-brand-dark);
-  border-color: var(--nv-brand-dark);
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(35, 27, 18, 0.15);
+  background-color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+  color: var(--text-dark); /* Teks menjadi hitam pekat agar terbaca murni */
+  box-shadow: 0 8px 24px rgba(232, 225, 20, 0.2);
   transform: translateY(-1px);
 }
 
@@ -183,14 +190,14 @@
 .hamburger-line {
   width: 100%;
   height: 2px;
-  background-color: var(--nv-brand-dark);
+  background-color: var(--text-heading); /* Garis hamburger putih terang */
   transition: all 0.3s var(--nv-easing);
   transform-origin: left center;
 }
 
 .navbar-hamburger-trigger.is-transformed .hamburger-line:nth-child(1) {
   transform: rotate(45deg) translate(1px, -1px);
-  background-color: var(--nv-accent-gold);
+  background-color: var(--accent-yellow); /* Berubah kuning saat dibuka */
 }
 
 .navbar-hamburger-trigger.is-transformed .hamburger-line:nth-child(2) {
@@ -200,10 +207,10 @@
 
 .navbar-hamburger-trigger.is-transformed .hamburger-line:nth-child(3) {
   transform: rotate(-45deg) translate(1px, 1px);
-  background-color: var(--nv-accent-gold);
+  background-color: var(--accent-yellow);
 }
 
-/* ─── MOBILE DRAWER (RESPONSIVE) ─── */
+/* ─── MOBILE DRAWER (RESPONSIVE GLASSMOURPHISM) ─── */
 @media (max-width: 900px) {
   .navbar-container {
     padding: 0 24px;
@@ -231,11 +238,11 @@
     box-sizing: border-box;
     z-index: 1050;
     
-    /* Efek Kaca Terang Premium khusus Laci Mobile */
-    background-color: rgba(253, 251, 247, 0.95);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
-    border-left: 1px solid rgba(35, 27, 18, 0.08);
+    /* Efek Kaca Gelap Premium khusus Laci Mobile */
+    background-color: rgba(36, 36, 36, 0.95);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border-left: 1px solid var(--border-subtle);
     
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -243,7 +250,7 @@
 
   .navbar-menu-links.is-open {
     transform: translateX(0);
-    box-shadow: -10px 0 40px rgba(35, 27, 18, 0.1);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
   }
 
   .navbar-item {
@@ -255,11 +262,11 @@
     width: 100%;
     text-align: left;
     padding: 10px 0;
-    color: var(--nv-text-muted);
+    color: var(--text-muted);
   }
   
-  .navbar-link-btn:active {
-    color: var(--nv-text-active);
+  .navbar-link-btn:active, .navbar-link-btn:hover {
+    color: var(--accent-yellow);
   }
 
   .mobile-only-cta {
@@ -270,16 +277,17 @@
 
   .navbar-mobile-cta {
     width: 100%;
-    background-color: var(--nv-brand-dark);
-    color: #ffffff;
+    background-color: var(--accent-yellow);
+    color: var(--text-dark); /* Tombol penuh kuning pekat dengan teks hitam murni */
     border: none;
     padding: 14px;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: 700;
     border-radius: 6px;
     cursor: pointer;
     text-align: center;
+    box-shadow: 0 8px 20px rgba(232, 225, 20, 0.15);
   }
 }
 
@@ -290,7 +298,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(35, 27, 18, 0.15); /* Bayangan hangat tipis */
+  background-color: rgba(0, 0, 0, 0.5); /* Bayangan gelap murni penutup konten latar belakang */
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 999;

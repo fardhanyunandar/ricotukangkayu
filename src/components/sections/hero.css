@@ -1,47 +1,58 @@
-/* --- Core Variables & Reset --- */
+/* ─────────────────────────────────────────────────────────────────────────
+   HERO COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
+   Theme: Minimalist Gallery Dark (High-Contrast Hero Section)
+   ───────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --primary-dark: #1e1b18;     /* Tetap dipertahankan sebagai warna teks utama & tombol agar kontras maksimal */
-  --accent-gold: #c5a880;      /* Emas/Bronze kayu premium */
-  --accent-gold-hover: #b3956b;
+  /* Palette - Modern Dark Mode (Synchronized) */
+  --bg-main:       #0B0B0B; /* Primary Black */
+  --bg-card:       #242424; /* Dark Gray */
+  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
+  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
   
-  /* ─── UPGRADE PALET MINIMALIS GALERI ─── */
-  --bg-light: #f6f6f6;         /* Dasar putih abu-abu super bersih */
-  --palette-light: #eeeeee;    /* Warna target 1 */
-  --palette-mid: #dddddd;      /* Warna target 2 */
+  /* Text Colors */
+  --text-heading:  #FFFFFF; /* White */
+  --text-body:     #F3F3F3; /* Light Gray */
+  --text-muted:    #A0A0A0; /* Medium Gray */
+  --text-dark:     #0B0B0B; /* Dark Text */
   
-  --text-main: #2b2825;        /* Dipekatkan sedikit agar super kontras di atas warna baru */
-  --text-muted: #66615c;
+  /* Borders & Glassmorphism */
+  --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
+  --border-active: rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
+  --card-glass:    rgba(36, 36, 36, 0.65);    /* Premium Glassmorphism Gelap */
+  
   --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .hero-section {
   position: relative;
-  background-color: var(--bg-light);
-  color: var(--text-main);
+  background-color: var(--bg-main);
+  color: var(--text-body);
   padding: 140px 0 100px 0;
   overflow: hidden;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Background Aesthetic Glows — Menggunakan kombinasi #EEEEEE dan #DDDDDD */
+/* Background Aesthetic Glows — Menggunakan kombinasi warna brand transparan */
 .hero-bg-glow-1, .hero-bg-glow-2 {
   position: absolute;
   border-radius: 50%;
-  filter: blur(130px);
+  filter: blur(140px);
   z-index: 1;
-  opacity: 0.6; /* Dinaikkan sedikit agar pendaran abu-abunya tetap berdimensi */
+  opacity: 0.15; /* Diturunkan agar pendaran di latar belakang hitam tetap elegan & tidak menusuk mata */
 }
 .hero-bg-glow-1 {
   width: 450px;
   height: 450px;
-  background: var(--palette-light); /* Menggunakan #EEEEEE */
+  background: var(--brand-green); /* Pendaran Clover Green di sisi kiri atas */
   top: -8%;
   left: -5%;
 }
 .hero-bg-glow-2 {
   width: 550px;
   height: 550px;
-  background: var(--palette-mid);   /* Menggunakan #DDDDDD */
+  background: var(--accent-yellow); /* Pendaran Accent Yellow di sisi kanan bawah */
   bottom: 8%;
   right: -8%;
 }
@@ -71,8 +82,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #ffffff;
-  border: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD agar batas badge terlihat tegas */
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   padding: 8px 16px;
   border-radius: 100px;
   width: fit-content;
@@ -80,14 +91,14 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+  color: var(--brand-green); /* Menggunakan warna hijau fungsional */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .badge-dot {
   width: 6px;
   height: 6px;
-  background-color: var(--accent-gold);
+  background-color: var(--accent-yellow);
   border-radius: 50%;
   display: inline-block;
 }
@@ -96,28 +107,28 @@
   font-size: 54px;
   font-weight: 700;
   line-height: 1.15;
-  color: var(--primary-dark);
+  color: var(--text-heading);
   margin-top: 24px;
   margin-bottom: 20px;
   letter-spacing: -0.02em;
 }
 
 .title-accent {
-  color: var(--accent-gold);
+  color: var(--accent-yellow); /* Judul sorotan menggunakan warna aksen kuning tinggi */
   position: relative;
   display: inline-block;
 }
 
 .hero-description {
   margin-bottom: 36px;
-  border-left: 3px solid var(--accent-gold);
+  border-left: 3px solid var(--brand-green); /* Garis vertikal pembatas kiri berwarna hijau daun */
   padding-left: 20px;
 }
 
 .hero-sub-id {
   font-size: 17px;
   line-height: 1.6;
-  color: var(--text-main);
+  color: var(--text-body);
   margin: 0 0 8px 0;
 }
 
@@ -149,29 +160,32 @@
   transition: all 0.3s var(--transition-smooth);
 }
 
+/* Tombol Primer (High Contrast Yellow CTA) */
 .btn-primary {
-  background-color: var(--primary-dark);
-  color: #ffffff;
-  border: 1px solid var(--primary-dark);
-  box-shadow: 0 10px 25px rgba(30, 27, 24, 0.12);
+  background-color: var(--accent-yellow);
+  color: var(--text-dark); /* Teks gelap untuk keterbacaan murni */
+  border: 1px solid var(--accent-yellow);
+  box-shadow: 0 10px 25px rgba(232, 225, 20, 0.15);
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-gold);
-  border-color: var(--accent-gold);
+  background-color: #FFFF33;
+  border-color: #FFFF33;
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(197, 168, 128, 0.25);
+  box-shadow: 0 12px 30px rgba(232, 225, 20, 0.3);
 }
 
+/* Tombol Sekunder (Minimalist Dark Outline) */
 .btn-secondary {
   background-color: transparent;
-  color: var(--primary-dark);
-  border: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD untuk border tombol sekunder */
+  color: var(--text-heading);
+  border: 1px solid var(--border-subtle);
 }
 
 .btn-secondary:hover {
-  background-color: #ffffff;
-  border-color: var(--primary-dark);
+  background-color: var(--bg-card);
+  border-color: var(--brand-green);
+  color: var(--brand-green);
   transform: translateY(-2px);
 }
 
@@ -188,13 +202,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  border-top: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD sebagai garis pembatas */
+  border-top: 1px solid var(--border-subtle);
   padding-top: 24px;
 }
 
 .rating-stars {
   display: flex;
   gap: 2px;
+  color: var(--accent-yellow); /* Bintang menyala kuning emas */
 }
 
 .rating-text {
@@ -217,7 +232,8 @@
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(30, 27, 24, 0.06);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-subtle);
 }
 
 .hero-image {
@@ -242,12 +258,13 @@
 .media-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(30,27,24,0.08) 0%, transparent 40%);
+  /* Gradien gelap di bagian bawah gambar agar menyatu dengan tema */
+  background: linear-gradient(to top, rgba(11, 11, 11, 0.4) 0%, transparent 40%);
   z-index: 3;
   pointer-events: none;
 }
 
-/* Slider Nav Dots */
+/* Slider Nav Dots (Premium Blur Component) */
 .hero-slider-dots {
   position: absolute;
   bottom: 24px;
@@ -255,12 +272,12 @@
   display: flex;
   gap: 10px;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.3); /* Dibuat sedikit lebih kontras untuk light mode */
+  background: rgba(11, 11, 11, 0.4); /* Gelap transparan */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 8px 14px;
   border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dot-indicator {
@@ -275,7 +292,7 @@
 .dot-line {
   width: 16px;
   height: 3px;
-  background-color: rgba(30, 27, 24, 0.25); /* Garis indikator tidak aktif diubah menjadi gelap transparan */
+  background-color: rgba(255, 255, 255, 0.2); /* Garis indikator non-aktif putih samar */
   border-radius: 2px;
   display: inline-block;
   transition: all 0.4s var(--transition-smooth);
@@ -283,28 +300,27 @@
 
 .dot-indicator.active .dot-line {
   width: 32px;
-  background-color: var(--primary-dark); /* Indikator aktif berwarna arang pekat */
+  background-color: var(--accent-yellow); /* Indikator aktif menyala kuning */
 }
 
 .dot-indicator:hover .dot-line {
-  background-color: var(--primary-dark);
+  background-color: var(--accent-yellow);
 }
 
 
-/* --- Bottom Panels: Floating Stats (High Glass Effect) --- */
+/* --- Bottom Panels: Floating Stats (Dark Glassmorphism) --- */
 .hero-stats-panel {
   margin-top: 80px;
 }
 
 .stats-container {
-  /* Menggunakan basis warna putih kristal di atas pendaran abu-abu */
-  background: rgba(255, 255, 255, 0.65);
+  background: var(--card-glass);
   backdrop-filter: blur(24px) saturate(140%);
   -webkit-backdrop-filter: blur(24px) saturate(140%);
-  border: 1px solid rgba(221, 221, 221, 0.7); /* Menggunakan warna dasar #DDDDDD untuk frame kaca */
+  border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: 30px 40px;
-  box-shadow: 0 16px 36px rgba(30, 27, 24, 0.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
 .stats-row {
@@ -322,14 +338,14 @@
 }
 
 .stat-item:not(:last-child) {
-  border-right: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD untuk sekat antar angka */
+  border-right: 1px solid var(--border-subtle); /* Sekat vertikal menggunakan garis samar */
   padding-right: 20px;
 }
 
 .stat-num {
   font-size: 38px;
   font-weight: 700;
-  color: var(--primary-dark);
+  color: var(--text-heading);
   letter-spacing: -0.03em;
 }
 
@@ -341,7 +357,7 @@
 .stat-label {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-body);
 }
 
 .stat-sub {
@@ -401,7 +417,7 @@
   }
   .stat-item:not(:last-child) {
     border-right: none;
-    border-bottom: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD pada mobile pembatas bawah */
+    border-bottom: 1px solid var(--border-subtle); /* Sekat horizontal mobile */
     padding-right: 0;
     padding-bottom: 16px;
     width: 100%;
@@ -410,7 +426,7 @@
 
 @media (max-width: 480px) {
   .hero-container {
-    padding: 0 20px;
+    padding: 0 24px;
   }
   .hero-title {
     font-size: 34px;

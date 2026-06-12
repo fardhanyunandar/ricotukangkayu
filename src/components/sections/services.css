@@ -1,41 +1,45 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   SERVICES COMPONENT STYLES — GRINT FURNITURE BUILD
-   Theme: Minimalist Gallery Light (Perfect Match with Hero Section)
+   SERVICES COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
+   Theme: Technical Dark Mode (High-Contrast Glass & Process Flow)
    ───────────────────────────────────────────────────────────────────────── */
 
 :root {
-  --primary-dark: #1e1b18;        /* Hitam arang kayu untuk teks utama & tombol */
-  --accent-gold: #c5a880;         /* Emas bronze kayu kustom */
-  --accent-gold-glow: rgba(197, 168, 128, 0.12);
+  /* Palette - Modern Dark Mode (Synchronized) */
+  --bg-main:       #0B0B0B; /* Primary Black */
+  --bg-card:       #242424; /* Dark Gray */
+  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
+  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
   
-  /* ─── PENYELARASAN WARNA DENGAN HERO COMPONENT ─── */
-  --bg-light-mewah: #f6f6f6;      /* Latar belakang section, disamakan dengan Hero */
-  --palette-light: #eeeeee;       /* Warna target 1 */
-  --palette-mid: #dddddd;         /* Warna target 2 */
+  /* Text Colors */
+  --text-heading:  #FFFFFF; /* White */
+  --text-body:     #F3F3F3; /* Light Gray */
+  --text-muted:    #A0A0A0; /* Medium Gray */
+  --text-dark:     #0B0B0B; /* Dark Text */
   
-  /* Kartu diubah menjadi kristal transparan terang bertekstur glassmorphic */
-  --card-light-glass: rgba(255, 255, 255, 0.75); 
-  --text-main: #2b2825;           /* Menggantikan text-light agar kontras tajam */
-  --text-muted: #66615c;
+  /* Borders & Glassmorphism Layering */
+  --border-subtle:      rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
+  --border-active:      rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
+  --card-dark-glass:    rgba(36, 36, 36, 0.55);    /* Premium Dark Glassmorphism */
+  --accent-yellow-glow: rgba(232, 225, 20, 0.08);
+  
   --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .services-section {
-  background-color: var(--bg-light-mewah);
-  color: var(--text-main);
+  background-color: var(--bg-main);
+  color: var(--text-body);
   padding: 140px 0;
   position: relative;
   overflow: hidden;
-  font-family: 'Inter', system-ui, sans-serif;
-  /* Garis batas atas abu-abu halus untuk pembatas antar bagian */
-  border-top: 1px solid var(--palette-mid); 
+  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
+  border-top: 1px solid var(--border-subtle); 
 }
 
-/* Tekstur Pola Latar Belakang Minimalis — Diubah menjadi titik-titik abu-abu transparan */
+/* Tekstur Pola Latar Belakang Minimalis — Titik-titik arang transparan kontras rendah */
 .services-bg-pattern {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(30, 27, 24, 0.04) 1.5px, transparent 0);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1.5px, transparent 0);
   background-size: 44px 44px;
   pointer-events: none;
   opacity: 0.8;
@@ -60,10 +64,10 @@
 
 .services-badge {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent-gold);
+  letter-spacing: 0.15em;
+  color: var(--brand-green); /* Menggunakan Clover Green */
   margin-bottom: 12px;
 }
 
@@ -72,21 +76,20 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: var(--primary-dark); /* Mengganti #ffffff agar teks terbaca jelas */
+  color: var(--text-heading);
   margin: 0;
 }
 
 .services-subtitle {
   font-size: 16px;
   color: var(--text-muted);
-  font-style: italic;
   margin: 6px 0 20px 0;
 }
 
 .services-decorator-line {
   width: 80px;
   height: 3px;
-  background-color: var(--accent-gold);
+  background-color: var(--accent-yellow); /* Titik fokus aksen kuning */
   border-radius: 2px;
 }
 
@@ -99,11 +102,10 @@
 }
 
 .service-card {
-  background: var(--card-light-glass);
+  background: var(--card-dark-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  /* Memakai warna #DDDDDD untuk bingkai kartu agar presisi arsitektural */
-  border: 1px solid var(--palette-mid); 
+  border: 1px solid var(--border-subtle); 
   border-radius: 16px;
   padding: 40px 32px;
   position: relative;
@@ -111,15 +113,15 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  box-shadow: 0 10px 30px rgba(30, 27, 24, 0.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
   transition: all 0.5s var(--transition-smooth);
 }
 
-/* Background overlay efek hover naik */
+/* Background overlay efek hover naik (Dark Tech Gradient) */
 .service-card-bg-hover {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(36, 36, 36, 1) 0%, rgba(11, 11, 11, 0.4) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 1;
@@ -127,9 +129,9 @@
 
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent-gold);
-  background: #ffffff;
-  box-shadow: 0 20px 40px rgba(30, 27, 24, 0.05), 0 0 25px var(--accent-gold-glow);
+  border-color: var(--border-active); /* Garis batas menyala hijau tipis */
+  background: var(--bg-card);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 30px var(--accent-yellow-glow);
 }
 
 .service-card:hover .service-card-bg-hover {
@@ -137,24 +139,24 @@
 }
 
 .service-icon-wrapper {
-  background: rgba(30, 27, 24, 0.03);
-  color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--accent-yellow); /* Ikon dasar menyala kuning */
   border-radius: 12px;
   width: 56px;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(197, 168, 128, 0.25);
+  border: 1px solid rgba(232, 225, 20, 0.2);
   position: relative;
   z-index: 2;
   transition: all 0.4s var(--transition-smooth);
 }
 
 .service-card:hover .service-icon-wrapper {
-  background: var(--primary-dark);
-  color: #ffffff;
-  border-color: var(--primary-dark);
+  background: var(--accent-yellow);
+  color: var(--text-dark); /* Kebalikan warna saat hover, teks ikon menjadi gelap kontras */
+  border-color: var(--accent-yellow);
   transform: scale(1.05);
 }
 
@@ -165,15 +167,15 @@
 
 .service-name {
   font-size: 20px;
-  font-weight: 700;
-  color: var(--primary-dark); /* Diubah dari putih menjadi arang pekat */
+  font-weight: 600;
+  color: var(--text-heading);
   margin: 0 0 4px 0;
 }
 
 .service-name-en {
   display: block;
   font-size: 13px;
-  color: var(--accent-gold);
+  color: var(--brand-green); /* Versi sub-bahasa inggris diselaraskan ke hijau daun miring */
   font-style: italic;
   margin-bottom: 16px;
 }
@@ -181,18 +183,17 @@
 .service-desc {
   font-size: 14.5px;
   line-height: 1.6;
-  color: var(--text-muted); /* Diubah dari light-muted */
+  color: var(--text-muted);
   margin: 0;
 }
 
 
 /* ─── TIMELINE KERJA (PROCESS SECTION) ─── */
 .process-wrapper {
-  /* Menggunakan basis warna putih kristal transparan di atas background abu-abu */
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(36, 36, 36, 0.3); /* Struktur dasar kapsul glassmorphism gelap */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--palette-mid); /* Menggunakan #DDDDDD */
+  border: 1px solid var(--border-subtle);
   border-radius: 24px;
   padding: 60px 40px;
 }
@@ -204,14 +205,14 @@
 
 .process-main-title {
   font-size: 28px;
-  font-weight: 700;
-  color: var(--primary-dark);
+  font-weight: 600;
+  color: var(--text-heading);
   margin: 0;
 }
 
 .process-sub-title {
   font-size: 14px;
-  color: var(--accent-gold);
+  color: var(--brand-green);
   font-style: italic;
   margin: 4px 0 0 0;
 }
@@ -243,29 +244,29 @@
 .step-node {
   width: 48px;
   height: 48px;
-  background-color: #ffffff; /* Berubah jadi putih jernih */
-  border: 2px solid rgba(197, 168, 128, 0.4);
+  background-color: var(--bg-card); /* Node boks abu gelap jernih */
+  border: 2px solid rgba(164, 207, 98, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 3;
-  box-shadow: 0 4px 10px rgba(30, 27, 24, 0.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.4s ease;
 }
 
 .step-num {
   font-size: 14px;
   font-weight: 700;
-  color: var(--accent-gold);
+  color: var(--brand-green);
 }
 
-/* Efek lingkaran denyut halus di sekeliling node angka */
+/* Efek lingkaran denyut halus di sekeliling node angka (Menggunakan Aksen Hijau Daun) */
 .step-node-pulse {
   position: absolute;
   inset: -6px;
-  border: 1px solid var(--accent-gold);
+  border: 1px solid var(--brand-green);
   border-radius: 50%;
   opacity: 0;
   transform: scale(0.9);
@@ -273,12 +274,12 @@
 }
 
 .process-step:hover .step-node {
-  border-color: var(--primary-dark);
-  background-color: var(--primary-dark);
+  border-color: var(--brand-green);
+  background-color: var(--brand-green);
 }
 
 .process-step:hover .step-num {
-  color: #ffffff;
+  color: var(--text-dark); /* Angka dalam node menjadi hitam pekat saat aktif */
 }
 
 .process-step:hover .step-node-pulse {
@@ -286,7 +287,7 @@
   transform: scale(1);
 }
 
-/* Garis penghubung horizontal antar lingkaran — Memakai #DDDDDD */
+/* Garis penghubung horizontal antar lingkaran murni arang dark mode */
 .step-connector-line {
   position: absolute;
   left: calc(50% + 24px);
@@ -294,14 +295,14 @@
   top: 50%;
   transform: translateY(-50%);
   height: 2px;
-  background: var(--palette-mid); 
+  background: rgba(255, 255, 255, 0.08); 
   z-index: 1;
 }
 
 .step-connector-progress {
   width: 0%;
   height: 100%;
-  background: linear-gradient(to right, var(--accent-gold), transparent);
+  background: linear-gradient(to right, var(--brand-green), transparent);
   transition: width 0.6s ease;
 }
 
@@ -316,7 +317,7 @@
 .step-title {
   font-size: 16px;
   font-weight: 600;
-  color: var(--primary-dark); /* Diubah jadi gelap pekat */
+  color: var(--text-heading);
   margin: 0 0 6px 0;
 }
 
@@ -360,10 +361,10 @@
     width: 2px;
     height: auto;
     transform: translateX(-50%);
-    background: var(--palette-mid); /* Integrasi warna baru di mobile breakpoint */
+    background: rgba(255, 255, 255, 0.08);
   }
   .step-connector-progress {
-    background: linear-gradient(to bottom, var(--accent-gold), transparent);
+    background: linear-gradient(to bottom, var(--brand-green), transparent);
     height: 0%;
     width: 100%;
   }

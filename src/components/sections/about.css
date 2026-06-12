@@ -1,43 +1,49 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   ABOUT COMPONENT STYLES — GRINT FURNITURE BUILD
-   Theme: Warm Industrial Studio (Contrasting Next Section Layout)
+   ABOUT COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
+   Theme: Premium Technical Dark Mode
    ───────────────────────────────────────────────────────────────────────── */
 
 :root {
-  --primary-dark: #1e1b18;      /* Hitam arang kayu pekat */
-  --accent-gold: #c5a880;       /* Emas/Bronze kustom */
-  --text-main: #3a3530;         /* Cokelat arang teks utama */
-  --text-muted: #706961;
+  /* Palette - Modern Dark Mode (Synchronized) */
+  --bg-main:       #0B0B0B; /* Primary Black */
+  --bg-card:       #242424; /* Dark Gray */
+  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
+  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
   
-  /* ─── KONTRASTING TRANSITION PALETTE ─── */
-  --bg-section: #f6f5f2;        /* Krem pasir galeri sangat tipis agar kontras dengan abu-abu Hero */
-  --bg-card: #ffffff;           /* Boks putih murni agar menonjol */
-  --border-subtle: #dddddd;     /* Integrasi palet penghubung agar transisi halus */
-  --border-warm: #e3dac9;       /* Bingkai elemen kayu hangat */
+  /* Text Colors */
+  --text-heading:  #FFFFFF; /* White */
+  --text-body:     #F3F3F3; /* Light Gray */
+  --text-muted:    #A0A0A0; /* Medium Gray */
+  --text-dark:     #0B0B0B; /* Dark Text */
   
+  /* Borders & Highlights */
+  --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis transparan */
+  --border-active: rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
+  
+  /* Typography & Animation */
+  --font-family:   'Poppins', sans-serif;
   --transition-cubic: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .about-section {
-  background-color: var(--bg-section);
-  padding: 140px 0;             /* Diperlebar sedikit untuk ruang bernapas antar bagian */
+  background-color: var(--bg-main);
+  padding: 140px 0;
   position: relative;
   overflow: hidden;
-  font-family: 'Inter', system-ui, sans-serif;
-  /* Garis pembatas atas halus menggunakan warna transisi #DDDDDD */
+  font-family: var(--font-family);
   border-top: 1px solid var(--border-subtle); 
 }
 
-/* Penambahan aksen arsitektural berupa bayangan geometris abstrak di pojok section */
+/* Aksen arsitektural bawah diubah menjadi gradasi neon gelap yang mewah */
 .about-section::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 8px;
-  background: linear-gradient(90deg, var(--accent-gold), var(--border-subtle), var(--primary-dark));
-  opacity: 0.15;
+  height: 4px; /* Sedikit lebih tipis agar lebih minimalis */
+  background: linear-gradient(90deg, var(--brand-green), var(--accent-yellow), transparent);
+  opacity: 0.3;
 }
 
 .about-container {
@@ -48,7 +54,7 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.12fr 0.88fr; /* Kalibrasi ulang rasio grid agar seimbang */
+  grid-template-columns: 1.12fr 0.88fr;
   gap: 80px;
   align-items: start;
 }
@@ -61,18 +67,18 @@
 .about-badge {
   display: inline-block;
   font-size: 12.5px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em; /* Jarak huruf dilebarkan agar berkarakter */
-  color: var(--accent-gold);
+  letter-spacing: 0.15em; 
+  color: var(--brand-green); /* Clover Green sebagai penanda sub-elemen */
   margin-bottom: 14px;
 }
 
 .about-title {
   font-size: 44px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
-  color: var(--primary-dark);
+  color: var(--text-heading);
   margin: 0;
   letter-spacing: -0.02em;
 }
@@ -80,14 +86,13 @@
 .about-subtitle {
   font-size: 15px;
   color: var(--text-muted);
-  font-style: italic;
   margin: 6px 0 20px 0;
 }
 
 .about-decorator-line {
-  width: 80px; /* Diperpanjang agar lebih tegas secara visual */
+  width: 80px;
   height: 3px;
-  background-color: var(--accent-gold);
+  background-color: var(--accent-yellow); /* Menggunakan aksen kuning agar kontras */
   border-radius: 2px;
 }
 
@@ -97,32 +102,31 @@
 
 .story-paragraph {
   font-size: 16px;
-  line-height: 1.75;
-  color: var(--text-main);
+  line-height: 1.8;
+  color: var(--text-body);
   margin-bottom: 20px;
 }
 
 .story-paragraph strong {
-  color: var(--primary-dark);
+  color: var(--text-heading);
   font-weight: 600;
 }
 
+/* Blok teks bahasa inggris disesuaikan untuk background gelap */
 .story-paragraph--en {
   font-size: 14.5px;
   line-height: 1.6;
   color: var(--text-muted);
   font-style: italic;
-  border-left: 3px solid var(--accent-gold); /* Menggunakan warna aksen emas */
+  border-left: 3px solid var(--brand-green);
   padding-left: 18px;
   margin: 24px 0;
-  background: rgba(255, 255, 255, 0.4); /* Efek highlight tipis di balik teks Inggris */
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-right: 12px;
+  background: rgba(255, 255, 255, 0.02); /* Kaca transparan gelap */
   border-radius: 0 8px 8px 0;
+  padding: 16px;
 }
 
-/* VALUES CARDS GRID (Sisi Kiri Bawah) */
+/* VALUES CARDS GRID */
 .values-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -130,40 +134,39 @@
 }
 
 .value-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle); /* Memakai #DDDDDD agar terlihat rapi dan presisi */
+  background: var(--bg-card); /* Dark Gray */
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 26px;
   display: flex;
   gap: 18px;
   align-items: flex-start;
-  box-shadow: 0 4px 20px rgba(30, 27, 24, 0.02);
-  /* Perbaikan struktur transisi dari kode asal */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: opacity 0.8s var(--transition-cubic), transform 0.8s var(--transition-cubic), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .value-card:hover {
-  transform: translateY(-6px) scale(1.01); /* Efek melayang dioptimalkan */
-  box-shadow: 0 20px 38px rgba(30, 27, 24, 0.07);
-  border-color: var(--accent-gold);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-color: var(--border-active); /* Menyala tipis hijau */
 }
 
 .value-icon-wrapper {
-  background: #f5ede0; /* Warna latar ikon diselaraskan lebih hangat */
-  color: var(--accent-gold);
+  background: rgba(164, 207, 98, 0.1); /* Lapisan hijau transparan */
+  color: var(--brand-green);
   border-radius: 8px;
   padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0; /* Mencegah ikon menyusut jika teks di samping terlalu panjang */
+  flex-shrink: 0;
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .value-card:hover .value-icon-wrapper {
-  background: var(--primary-dark);
-  color: #ffffff;
-  transform: rotate(-4deg); /* Efek interaksi mikro artistik */
+  background: var(--accent-yellow);
+  color: var(--text-dark); /* Ikon berubah hitam di atas warna kuning */
+  transform: rotate(-4deg);
 }
 
 .value-text-group {
@@ -174,8 +177,8 @@
 
 .value-title {
   font-size: 16px;
-  font-weight: 700;
-  color: var(--primary-dark);
+  font-weight: 600;
+  color: var(--text-heading);
   margin: 0;
 }
 
@@ -185,7 +188,6 @@
   color: var(--text-muted);
   margin: 0;
 }
-
 
 /* ─── RIGHT COLUMN: SIDE PROFILES & SOCIALS ─── */
 .about-side-content {
@@ -199,20 +201,20 @@
   background: var(--bg-card);
   border-radius: 16px;
   padding: 36px;
-  border: 1px solid var(--border-warm); /* Garis batas hangat khas material workshop */
+  border: 1px solid var(--border-subtle);
   position: relative;
-  box-shadow: 0 12px 40px rgba(30, 27, 24, 0.03);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Mengubah dekorator pinggir kiri menjadi indikator pilar kayu artistik */
+/* Indikator pilar vertikal samping kiri menggunakan Accent Yellow */
 .profile-card::before {
   content: '';
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 5px;
-  background-color: var(--accent-gold);
+  width: 4px;
+  background-color: var(--accent-yellow);
   border-radius: 16px 0 0 16px;
 }
 
@@ -223,48 +225,29 @@
   margin-bottom: 24px;
 }
 
-.profile-avatar {
-  width: 56px;
-  height: 56px;
-  background-color: var(--primary-dark);
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 3px solid #ffffff;
-  box-shadow: 0 6px 15px rgba(30,27,24,0.1);
-}
-
 .profile-avatar-img {
   width: 124px;
   height: 124px;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  border: 4px solid #ffffff;
-  box-shadow: 0 18px 36px rgba(30,27,24,0.22);
+  border: 4px solid var(--bg-card); /* Border luar disesuaikan warna card */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   display: block;
 }
 
-
-
-
-
 .profile-name {
   font-size: 19px;
-  font-weight: 700;
-  color: var(--primary-dark);
+  font-weight: 600;
+  color: var(--text-heading);
   margin: 0;
   letter-spacing: -0.01em;
 }
 
 .profile-role {
   font-size: 13px;
-  color: var(--accent-gold);
-  font-weight: 600;
+  color: var(--brand-green);
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 2px 0 0 0;
@@ -273,7 +256,7 @@
 .quote-id {
   font-size: 15.5px;
   line-height: 1.65;
-  color: var(--text-main);
+  color: var(--text-body);
   font-style: italic;
   margin-bottom: 14px;
   position: relative;
@@ -286,18 +269,18 @@
   font-style: italic;
 }
 
-/* Socials Link Card (Menggunakan warna kontras gelap-terang bergantian) */
+/* Socials Link Card */
 .socials-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle); /* Memakai #DDDDDD */
+  border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 6px 24px rgba(30, 27, 24, 0.01);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
 }
 
 .socials-title {
   font-size: 12.5px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
@@ -317,42 +300,41 @@
   padding: 15px 22px;
   border-radius: 8px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   box-sizing: border-box;
   transition: all 0.3s var(--transition-cubic);
 }
 
-/* Modifikasi tombol Instagram: Transisi ke skema warna premium modern */
+/* Tombol Instagram Dark Mode */
 .btn-ig {
-  background: #faf9f6;
-  color: var(--text-main);
-  border: 1px solid var(--border-warm);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-body);
+  border: 1px solid var(--border-subtle);
 }
 
 .btn-ig:hover {
-  background: #fff6f6;
+  background: rgba(225, 48, 108, 0.05);
   border-color: #e1306c;
   color: #e1306c;
   transform: translateX(6px);
-  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.1);
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.2);
 }
 
-/* Modifikasi tombol TikTok: Kontras monokrom industrial */
+/* Tombol TikTok Dark Mode (Kontras Monokrom Tech) */
 .btn-tt {
-  background: #faf9f6;
-  color: var(--text-main);
-  border: 1px solid var(--border-warm);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-body);
+  border: 1px solid var(--border-subtle);
 }
 
 .btn-tt:hover {
-  background: var(--primary-dark);
-  border-color: var(--primary-dark);
-  color: #ffffff;
+  background: var(--text-heading);
+  border-color: var(--text-heading);
+  color: var(--text-dark); /* Teks jadi hitam pekat saat dihover */
   transform: translateX(6px);
-  box-shadow: 0 6px 18px rgba(30, 27, 24, 0.15);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.15);
 }
-
 
 /* ─── ENGINE ANIMASI SCROLL ─── */
 .about-main-content,
@@ -373,13 +355,11 @@
   transition-delay: 0.2s;
 }
 
-/* Logika delay bertahap untuk masing-masing kartu value */
 .about-section.is-visible .value-card {
   opacity: 1;
   transform: scale(1) translateY(0);
   transition-delay: calc(0.3s + var(--delay));
 }
-
 
 /* ─── RESPONSIVITAS ELEGAN ─── */
 @media (max-width: 1024px) {
@@ -410,15 +390,13 @@
     font-size: 32px;
   }
 
-  /* Pastikan foto Rico tetap bulat di mode mobile */
-.profile-avatar-img {
+  .profile-avatar-img {
     width: 88px;
     height: 88px;
     display: block;
     object-fit: cover;
     object-position: center;
     border-radius: 9999px;
-    /* Anti lonjong: pastikan rasio selalu 1:1 */
     max-width: 100%;
     min-width: 88px;
   }

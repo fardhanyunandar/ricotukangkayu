@@ -1,28 +1,34 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   FOOTER COMPONENT STYLES — GRINT FURNITURE BUILD
-   Theme: Minimalist Gallery Light (Perfect Match with Portfolio & Services)
+   FOOTER COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
+   Theme: Technical Dark Mode (High-Contrast & Clean Layout)
    ───────────────────────────────────────────────────────────────────────── */
 
 :root {
-  --primary-dark: #1e1b18;          /* Hitam arang kayu untuk teks utama */
-  --ft-accent: #c5a880;             /* Emas industrial (Antique Gold) */
+  /* Palette - Modern Dark Mode (Synchronized) */
+  --bg-main:       #0B0B0B; /* Primary Black */
+  --bg-card:       #242424; /* Dark Gray */
+  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
+  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
   
-  --ft-bg-main: #f6f6f6;            /* Latar belakang abu-abu galeri cerah */
-  --ft-bg-bottom: #eeeeee;          /* Area copyright sewarna dengan #EEEEEE */
-  --palette-mid: #dddddd;           /* Warna pembatas arsitektural #DDDDDD */
+  /* Text Colors */
+  --text-heading:  #FFFFFF; /* White */
+  --text-body:     #F3F3F3; /* Light Gray */
+  --text-muted:    #A0A0A0; /* Medium Gray */
+  --text-dark:     #0B0B0B; /* Dark Text */
   
-  --ft-text-main: #2b2825;          /* Menggantikan ft-text-light agar kontras tajam */
-  --ft-text-muted: #66615c;         /* Menggantikan abu-abu pudar lama */
+  /* Borders & Background Layering */
+  --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
+  --ft-bg-bottom:  #141414;                   /* Area copyright sedikit lebih terang dari bg murni */
+  
   --ft-easing: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .footer-section {
-  background-color: var(--ft-bg-main);
-  color: var(--ft-text-main);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-body);
+  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
   padding-top: 100px;
-  /* Garis batas atas abu-abu tegas yang menyambung mulus dari section di atasnya */
-  border-top: 1px solid var(--palette-mid);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
 }
@@ -58,24 +64,24 @@
 
 .footer-logo-main {
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 700; /* Menggunakan standar tebal Poppins */
   letter-spacing: 0.1em;
-  color: var(--primary-dark); /* Diubah ke hitam arang agar logo menonjol */
+  color: var(--text-heading);
 }
 
 .footer-logo-sub {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.35em;
-  color: var(--ft-accent);
-  margin-top: 2px;
+  color: var(--accent-yellow); /* Menggunakan aksen kuning agar berkarakter kuat */
+  margin-top: 4px;
 }
 
 .footer-tagline-en {
   font-size: 15px;
   line-height: 1.6;
-  color: var(--ft-text-muted);
+  color: var(--text-muted);
   font-style: italic;
   margin: 0 0 12px 0;
   max-width: 320px;
@@ -84,7 +90,7 @@
 .footer-tagline-id {
   font-size: 13px;
   line-height: 1.5;
-  color: rgba(102, 97, 92, 0.7); /* Disesuaikan untuk keterbacaan di latar terang */
+  color: rgba(243, 243, 243, 0.5); /* Putih transparan agar terbaca jelas di latar gelap */
   margin: 0;
 }
 
@@ -102,10 +108,10 @@
 
 .footer-column-title {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--ft-accent);
+  color: var(--brand-green); /* Clover Green memberikan kesan teknis kontras */
   margin: 0 0 28px 0;
   position: relative;
   padding-bottom: 10px;
@@ -119,15 +125,15 @@
   left: 0;
   width: 24px;
   height: 2px;
-  background-color: var(--ft-accent);
-  opacity: 0.4;
+  background-color: var(--brand-green);
+  opacity: 0.3;
 }
 
 .footer-links-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  align-items: flex-start; /* Mengunci jangkauan klik tombol/link agar tidak melebar semu */
+  align-items: flex-start;
 }
 
 /* Link Interaktif (Navigasi & Socials) */
@@ -136,9 +142,9 @@
   border: none;
   padding: 0;
   margin: 0;
-  color: var(--ft-text-muted);
+  color: var(--text-muted);
   font-size: 14.5px;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   cursor: pointer;
   text-align: left;
@@ -149,13 +155,13 @@
 }
 
 .footer-action-link:hover {
-  color: var(--ft-accent); /* Berubah menjadi keemasan saat di-hover seperti elemen Portfolio */
-  transform: translateX(4px); /* Efek bergeser tipis saat disorot */
+  color: var(--accent-yellow); /* Menyala kuning saat di-hover */
+  transform: translateX(4px);
 }
 
 /* Teks Statis (Daftar Layanan) */
 .footer-plain-text {
-  color: var(--ft-text-main);
+  color: var(--text-body);
   font-size: 14.5px;
   font-weight: 400;
 }
@@ -163,7 +169,7 @@
 /* ─── BOTTOM BAR (COPYRIGHT) ─── */
 .footer-bottom-bar {
   background-color: var(--ft-bg-bottom);
-  border-top: 1px solid var(--palette-mid); /* Batas atas presisi #DDDDDD */
+  border-top: 1px solid var(--border-subtle);
   padding: 30px 0;
 }
 
@@ -175,26 +181,25 @@
 
 .footer-copyright-text {
   font-size: 13px;
-  color: var(--ft-text-muted);
+  color: var(--text-muted);
   letter-spacing: 0.02em;
 }
 
-/* Tombol Back To Top (Kombinasi style tombol filter non-aktif di Portfolio) */
+/* Tombol Back To Top (Kombinasi Style Minimalis Gelap Berbentuk Kapsul) */
 .footer-back-to-top-btn {
-  background: #ffffff;
-  border: 1px solid var(--palette-mid); /* Bingkai tegas #DDDDDD */
-  color: var(--primary-dark);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-heading);
   padding: 10px 20px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-radius: 30px; /* Diubah menjadi melingkar penuh agar serasi dengan filter-btn */
+  border-radius: 30px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   transition: all 0.3s var(--ft-easing);
 }
 
@@ -203,11 +208,11 @@
 }
 
 .footer-back-to-top-btn:hover {
-  border-color: var(--ft-accent);
-  color: var(--ft-accent);
-  background-color: #ffffff;
+  border-color: var(--brand-green);
+  color: var(--brand-green);
+  background-color: rgba(164, 207, 98, 0.05); /* Tint hijau transparan */
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 27, 24, 0.05);
+  box-shadow: 0 4px 12px rgba(164, 207, 98, 0.1);
 }
 
 /* Efek ikon panah melompat sedikit ke atas saat di-hover */
@@ -220,7 +225,7 @@
 
 @media (max-width: 1024px) {
   .footer-inner-layout {
-    grid-template-columns: 1fr; /* Tumpuk satu kolom penuh antara Brand dan Grid Link */
+    grid-template-columns: 1fr;
     gap: 60px;
     padding-bottom: 60px;
   }
@@ -240,12 +245,12 @@
   }
 
   .footer-links-grid {
-    grid-template-columns: repeat(2, 1fr); /* Ubah menjadi 2 kolom di tablet/layar sedang */
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px 30px;
   }
   
   .footer-bottom-inner {
-    flex-direction: column-reverse; /* Tombol naik ke atas teks copyright pada mobile */
+    flex-direction: column-reverse;
     gap: 20px;
     align-items: flex-start;
   }
@@ -253,7 +258,7 @@
 
 @media (max-width: 480px) {
   .footer-links-grid {
-    grid-template-columns: 1fr; /* Tumpuk semua kolom links secara vertikal pada mobile kecil */
+    grid-template-columns: 1fr;
     gap: 36px;
   }
 

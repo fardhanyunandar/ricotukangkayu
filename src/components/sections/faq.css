@@ -1,16 +1,34 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   FAQ COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
+   Theme: Technical Dark Mode (High-Contrast Accordion)
+   ───────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --bg-faq: #f8f6f2;             /* Warna bone/off-white cerah premium */
-  --primary-dark: #1e1b18;       /* Hitam arang */
-  --accent-gold: #c5a880;        /* Bronze kayu signature */
-  --text-main: #3a3530;          /* Hitam kayu redup */
-  --text-muted: #787066;         /* Abu-abu hangat */
+  /* Palette - Modern Dark Mode (Synchronized) */
+  --bg-main:       #0B0B0B; /* Primary Black */
+  --bg-card:       #242424; /* Dark Gray */
+  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
+  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  
+  /* Text Colors */
+  --text-heading:  #FFFFFF; /* White */
+  --text-body:     #F3F3F3; /* Light Gray */
+  --text-muted:    #A0A0A0; /* Medium Gray */
+  --text-dark:     #0B0B0B; /* Dark Text */
+  
+  /* Borders & Highlights */
+  --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis transparan */
+  --border-active: rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
+  
   --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .faq-section {
-  background-color: var(--bg-faq);
+  background-color: var(--bg-main);
   padding: 140px 0;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
+  color: var(--text-body);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .faq-container {
@@ -34,15 +52,15 @@
 
 .faq-sticky-content {
   position: sticky;
-  top: 100px; /* Menjaga komponen tetap di layar saat di-scroll */
+  top: 100px;
 }
 
 .faq-badge {
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--accent-gold);
+  letter-spacing: 0.15em;
+  color: var(--brand-green); /* Clover Green */
   margin-bottom: 12px;
   display: block;
 }
@@ -52,58 +70,59 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: var(--primary-dark);
+  color: var(--text-heading);
   margin: 0;
 }
 
 .faq-subtitle {
   font-size: 16px;
   color: var(--text-muted);
-  font-style: italic;
   margin: 6px 0 24px 0;
 }
 
 .faq-decorator-line {
   width: 60px;
   height: 3px;
-  background-color: var(--accent-gold);
+  background-color: var(--accent-yellow); /* Titik fokus aksen kuning */
   border-radius: 2px;
   margin-bottom: 40px;
 }
 
-/* Kotak Kontak WA */
+/* Kotak Kontak WA (Dark Mode Glass Card) */
 .faq-contact-card {
-  background-color: #ffffff;
-  border: 1px solid rgba(197, 168, 128, 0.2);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(58, 53, 48, 0.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
 .faq-contact-text {
   font-size: 14.5px;
   line-height: 1.6;
-  color: var(--text-main);
+  color: var(--text-body);
   margin: 0 0 20px 0;
 }
 
+/* Tombol WA Menggunakan Skema Primer Baru */
 .faq-wa-button {
   width: 100%;
-  background-color: var(--primary-dark);
-  color: #ffffff;
+  background-color: var(--accent-yellow);
+  color: var(--text-dark); /* Kontras tinggi teks gelap */
   border: none;
   padding: 14px 20px;
   font-size: 14px;
   font-weight: 600;
   border-radius: 30px;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(232, 225, 20, 0.15);
   transition: all 0.3s var(--transition-smooth);
 }
 
 .faq-wa-button:hover {
-  background-color: var(--accent-gold);
+  background-color: #FFFF33;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(197, 168, 128, 0.2);
+  box-shadow: 0 10px 20px rgba(232, 225, 20, 0.3);
 }
 
 /* --- Sisi Kanan: Accordion List --- */
@@ -114,16 +133,16 @@
 }
 
 .faq-row-item {
-  background: #ffffff;
-  border: 1px solid #edebe6;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 14px;
   overflow: hidden;
   transition: all 0.4s var(--transition-smooth);
 }
 
 .faq-row-item:hover {
-  border-color: var(--accent-gold);
-  box-shadow: 0 8px 24px rgba(58, 53, 48, 0.04);
+  border-color: var(--border-active); /* Batas menyala hijau tipis saat hover */
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
 }
 
 /* Tombol Trigger Akordeon */
@@ -143,7 +162,7 @@
 .faq-question-text {
   font-size: 17px;
   font-weight: 600;
-  color: var(--primary-dark);
+  color: var(--text-heading);
   line-height: 1.4;
 }
 
@@ -152,19 +171,21 @@
   color: var(--text-muted);
   font-weight: 400;
   font-style: italic;
+  display: block;
+  margin-top: 4px;
 }
 
 /* Wrapper Ikon Bulat */
 .faq-icon-wrapper {
   width: 36px;
   height: 36px;
-  background-color: #fcfbfa;
-  border: 1px solid #edebe6;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-dark);
+  color: var(--text-heading);
   flex-shrink: 0;
   transition: all 0.4s var(--transition-smooth);
 }
@@ -173,41 +194,56 @@
   transition: transform 0.4s var(--transition-smooth);
 }
 
-/* State Aktif Terbuka */
+/* State Aktif Terbuka (Menggunakan Aksen Hijau/Kuning yang Selaras) */
 .faq-row-item.is-open {
-  border-color: var(--accent-gold);
+  border-color: var(--border-active);
+  background-color: rgba(36, 36, 36, 0.9); /* Sedikit lebih solid saat terbuka */
 }
 
 .faq-row-item.is-open .faq-icon-wrapper {
-  background-color: var(--accent-gold);
-  color: #ffffff;
-  border-color: var(--accent-gold);
+  background-color: var(--brand-green);
+  color: var(--text-dark); /* Ikon panah menjadi gelap agar kontras */
+  border-color: var(--brand-green);
 }
 
 .faq-row-item.is-open .faq-chevron-icon {
   transform: rotate(180deg);
 }
 
-/* --- Animasi Transisi Konten (Trik CSS Grid) --- */
+/* --- Perbaikan Animasi Transisi & Keamanan Render (Sesuai Struktur Dom Asli) --- */
 .faq-panel-content {
   display: grid;
-  grid-template-rows: 0fr; /* Awalnya tertutup rapat */
-  transition: grid-template-rows 0.4s var(--transition-smooth);
+  grid-template-rows: 0fr; /* Tertutup total */
+  visibility: hidden;      /* Menyembunyikan elemen dari pembaca layar saat tertutup */
+  opacity: 0;
+  transition: 
+    grid-template-rows 0.4s var(--transition-smooth),
+    opacity 0.3s var(--transition-smooth),
+    visibility 0.4s;
 }
 
+/* Saat Akordeon Terbuka */
 .faq-row-item.is-open .faq-panel-content {
-  grid-template-rows: 1fr; /* Membuka mengikuti tinggi konten asli */
+  grid-template-rows: 1fr; /* Membuka penuh secara dinamis */
+  visibility: visible;     /* Memunculkan kembali secara aman */
+  opacity: 1;
 }
 
+/* Pastikan inner container memotong overflow dengan paksa */
 .faq-panel-inner {
-  overflow: hidden; /* Mencegah teks meluap saat animasi berproses */
-  padding: 0 30px 24px 30px;
+  overflow: hidden; 
+  padding: 0 30px 0 30px; /* Menghilangkan padding bawah secara transisi agar tidak patah */
+  transition: padding 0.4s var(--transition-smooth);
+}
+
+.faq-row-item.is-open .faq-panel-inner {
+  padding: 0 30px 24px 30px; /* Mengembalikan ruang padding bawah saat konten terbuka */
 }
 
 .faq-answer-id {
   font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-main);
+  line-height: 1.7;
+  color: var(--text-body);
   margin: 0 0 8px 0;
 }
 
@@ -222,7 +258,7 @@
 /* --- Responsive Breakpoints --- */
 @media (max-width: 1024px) {
   .faq-layout {
-    grid-template-columns: 1fr; /* Menjadi satu kolom pada tablet */
+    grid-template-columns: 1fr;
     gap: 50px;
   }
   .faq-sticky-content {
@@ -248,6 +284,9 @@
     padding: 20px;
   }
   .faq-panel-inner {
+    padding: 0 20px 0 20px;
+  }
+  .faq-row-item.is-open .faq-panel-inner {
     padding: 0 20px 20px 20px;
   }
   .faq-question-text {
@@ -256,33 +295,4 @@
   .faq-title {
     font-size: 30px;
   }
-}
-/* --- Cari bagian ini di faq.css Anda dan sesuaikan --- */
-.faq-panel-content {
-  display: grid;
-  grid-template-rows: 0fr; /* Tertutup total */
-  visibility: hidden;      /* Menyembunyikan elemen dari render layar */
-  opacity: 0;
-  transition: 
-    grid-template-rows 0.4s var(--transition-smooth),
-    opacity 0.3s var(--transition-smooth),
-    visibility 0.4s;
-}
-
-/* --- Saat Akordeon Terbuka --- */
-.faq-row-item.is-open .faq-panel-content {
-  grid-template-rows: 1fr; /* Membuka penuh */
-  visibility: visible;     /* Memunculkan kembali secara aman */
-  opacity: 1;
-}
-
-/* Pastikan inner container memotong overflow dengan paksa */
-.faq-panel-inner {
-  overflow: hidden; 
-  padding: 0 30px 0 30px; /* Hapus padding bawah saat tertutup */
-  transition: padding 0.4s var(--transition-smooth);
-}
-
-.faq-row-item.is-open .faq-panel-inner {
-  padding: 0 30px 24px 30px; /* Kembalikan padding bawah hanya saat terbuka */
 }
