@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './navbar.css';
+import { Analytics } from "@vercel/analytics/next"
 
 const links = [
   { label: 'Tentang', href: '#about' },
