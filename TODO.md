@@ -1,7 +1,6 @@
 # TODO
-
-## Navbar & Footer
-- [x] Ubah warna GRINT menjadi kuning dan Furniture Build menjadi putih di navbar dan footer.
-- [x] Tambahkan logo di navbar dan footer menggunakan logo favicon (src/assets/favicon.png).
-- [x] Update CSS agar layout logo + teks rapi (ukuran, jarak, responsif).
-- [ ] Jalankan build/dev untuk memastikan tidak ada error.
+- [ ] Tambahkan meta SEO profesional (description, robots, canonical placeholder, keywords)
+- [ ] Tambahkan OpenGraph (og:*, og:image) dan Twitter Card (twitter:*)
+- [ ] Tambahkan JSON-LD schema untuk Website/Organization (placeholder URL)
+- [ ] Pastikan `index.html` tetap valid untuk Vite/React
+- [ ] Jalankan `npm run dev` dan `npm run build` untuk validasi build
