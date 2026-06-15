@@ -7,9 +7,14 @@ import HeroImage1 from '/image/hero/hero1.webp?url';
 import HeroImage2 from '/image/hero/hero2.webp?url';
 import HeroImage3 from '/image/hero/hero3.webp?url';
 import HeroImage4 from '/image/hero/hero4.webp?url';
+import HeroImage5 from '/image/hero/hero5.webp?url';
+import HeroImage6 from '/image/hero/hero6.webp?url';
+import HeroImage7 from '/image/hero/hero7.webp?url';
+import HeroImage8 from '/image/hero/hero8.webp?url';
+import HeroImage9 from '/image/hero/hero9.webp?url';
 
 export default function Hero() {
-  const images = [HeroImage, HeroImage1, HeroImage2, HeroImage3, HeroImage4];
+  const images = [HeroImage, HeroImage1, HeroImage2, HeroImage3, HeroImage4, HeroImage5, HeroImage6, HeroImage7, HeroImage8, HeroImage9];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
