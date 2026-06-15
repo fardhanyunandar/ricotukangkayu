@@ -4,49 +4,67 @@ import './portofolio.css';
 const items = [
   {
     id: 1,
-    tag: 'Bedroom',
-    name: 'Ranjang Minimalis Kayu Jati',
-    mat: 'Solid Teak · Natural Oil Finish',
-    img: '/image/portofolio/bedroom.png',
+    tag: 'Kabinet',
+    name: '',
+    img: '/image/portofolio/Kabinet1.png',
   },
   {
     id: 2,
-    tag: 'Kitchen',
-    name: 'Kitchen Set Modern HPL',
-    mat: 'Multiplek HPL · Putih Doff',
-    img: '/image/portofolio/kitchen.png',
+    tag: 'Kabinet',
+    name: '',
+    img: '/image/portofolio/Kabinet2.png',
   },
   {
     id: 3,
-    tag: 'Living Room',
-    name: 'Meja Makan Kayu Solid',
-    mat: 'Mahoni · Stain Walnut',
-    img: '/image/portofolio/livingroom.png',
+    tag: 'Kabinet',
+    name: '',
+    img: '/image/portofolio/Kabinet3.png',
   },
   {
     id: 4,
-    tag: 'Storage',
-    name: 'Lemari Pakaian Sliding',
-    mat: 'Multiplek · HPL Kayu Walnut',
-    img: '/image/portofolio/storage.png',
+    tag: 'Kitchen',
+    name: '',
+    img: '/image/portofolio/Kitchen set1.png',
   },
   {
     id: 5,
-    tag: 'Commercial',
-    name: 'Meja Bar Cafe Custom',
-    mat: 'Solid Wood · Dark Stain',
-    img: '/image/portofolio/commercial.png',
+    tag: 'Kitchen',
+    name: '',
+    img: '/image/portofolio/Kitchen set2.png',
   },
   {
     id: 6,
-    tag: 'Office',
-    name: 'Rak Buku & Display',
-    mat: 'Kayu Pinus · Natural Finish',
-    img: '/image/portofolio/office.png',
+    tag: 'Resepsionis',
+    name: '',
+    img: '/image/portofolio/Resepsionis1.png',
+  },
+  {
+    id: 7,
+    tag: 'Resepsionis',
+    name: '',
+    img: '/image/portofolio/Resepsionis2.png',
+  },
+  {
+    id: 8,
+    tag: 'Restoran',
+    name: '',
+    img: '/image/portofolio/Restoran1.png',
+  },
+  {
+    id: 9,
+    tag: 'Restoran',
+    name: '',
+    img: '/image/portofolio/Restoran2.png',
+  },
+  {
+    id: 10,
+    tag: 'Restoran',
+    name: '',
+    img: '/image/portofolio/Restoran3.png',
   },
 ];
 
-const filters = ['Semua', 'Bedroom', 'Kitchen', 'Living Room', 'Storage', 'Commercial', 'Office'];
+const filters = ['Semua', 'Kabinet', 'Kitchen', 'Resepsionis', 'Restoran'];
 
 function Placeholder({ tag }) {
   return (
