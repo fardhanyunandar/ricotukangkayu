@@ -142,6 +142,7 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
+
 .portfolio-img {
   width: 100%;
   height: 100%;
@@ -162,7 +163,9 @@
   opacity: 0;
   transition: opacity 0.4s ease;
   padding: 24px;
+  pointer-events: none;
 }
+
 
 .overlay-content {
   text-align: center;
@@ -209,22 +212,23 @@
 /* Floating Corner Tag Badge (Floating on Card) */
 .portfolio-tag-badge {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(36, 36, 36, 0.85); /* Box gelap transparan */
+  top: 14px;
+  left: 14px;
+  background: rgba(36, 36, 36, 0.88); /* Box gelap transparan */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: var(--brand-green); /* Penanda teks kategori hijau */
-  padding: 6px 14px;
+  padding: 7px 14px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-radius: 20px;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  z-index: 3;
 }
+
 
 /* ─── TYPOGRAPHY META INFO ─── */
 .portfolio-meta-info {
@@ -234,18 +238,24 @@
   padding: 0 4px;
 }
 
+
 .portfolio-item-title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-heading);
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .portfolio-item-mat {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-muted);
   margin: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  text-transform: none;
 }
+
 
 /* ─── FALLBACK COMPONENT STYLE (SERAT KAYU ARTIFISIAL) ─── */
 .portfolio-fallback {
