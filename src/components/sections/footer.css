@@ -1,51 +1,83 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   FOOTER COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
-   Theme: Technical Dark Mode (High-Contrast & Clean Layout)
+   FOOTER COMPONENT STYLES — GRINT FURNITURE BUILD (PREMIUM DARK GLASS)
+   Theme: Technical Dark Mode (High-Contrast, Clean & Glassy Layout)
    ───────────────────────────────────────────────────────────────────────── */
 
+/* 1. IMPORT FONT PREMIUM (Inter: Konsisten dengan Navbar untuk kesan menyatu) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Palette - Modern Dark Mode (Synchronized) */
-  --bg-main:       #0B0B0B; /* Primary Black */
-  --bg-card:       #242424; /* Dark Gray */
-  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
-  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  /* Palette - Modern Dark Mode (TETAP SAMA) */
+  --bg-main:       #0B0B0B; 
+  --bg-card:       #242424; 
+  --accent-yellow: #E8E114; 
+  --brand-green:   #A4CF62; 
   
   /* Text Colors */
-  --text-heading:  #FFFFFF; /* White */
-  --text-body:     #F3F3F3; /* Light Gray */
-  --text-muted:    #A0A0A0; /* Medium Gray */
-  --text-dark:     #0B0B0B; /* Dark Text */
+  --text-heading:  #FFFFFF; 
+  --text-body:     #F3F3F3; 
+  --text-muted:    #A0A0A0; 
+  --text-dark:     #0B0B0B; 
   
   /* Borders & Background Layering */
-  --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
-  --ft-bg-bottom:  #141414;                   /* Area copyright sedikit lebih terang dari bg murni */
+  --border-subtle: rgba(255, 255, 255, 0.06); 
+  --ft-bg-bottom:  #0F0F0F; /* Sedikit lebih gelap untuk kontras halus */
   
-  --ft-easing: cubic-bezier(0.25, 1, 0.5, 1);
+  /* Easing Premium (Snappy & Smooth) */
+  --ft-easing: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ─── GLOBAL TYPOGRAPHY RESET FOR FOOTER ─── */
+.footer-section, 
+.footer-section * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── MAIN FOOTER CONTAINER (Glass Effect) ─── */
 .footer-section {
-  background-color: var(--bg-main);
+  background: linear-gradient(180deg, var(--bg-main) 0%, #080808 100%); /* Gradasi halus untuk kedalaman */
   color: var(--text-body);
-  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
-  padding-top: 100px;
-  border-top: 1px solid var(--border-subtle);
+  padding-top: 120px; /* Lebih lega dan bernapas */
   position: relative;
   overflow: hidden;
+  
+  /* Efek Kaca Premium di batas atas */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.05); /* Cahaya refleksi di tepi atas */
 }
 
-/* Container pembatas lebar konten */
+/* Dekorasi latar belakang halus (Opsional, menambah kesan 'tech') */
+.footer-section::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(164, 207, 98, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .footer-container {
-  max-width: 1280px;
+  max-width: 1320px; /* Selaras dengan navbar */
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Tata Letak Atas: Grid Brand vs Tautan */
+/* ─── LAYOUT UTAMA ─── */
 .footer-inner-layout {
   display: grid;
-  grid-template-columns: 4fr 7fr;
-  gap: 80px;
-  padding-bottom: 80px;
+  grid-template-columns: 1.2fr 2fr; /* Proporsi lebih seimbang */
+  gap: 100px;
+  padding-bottom: 100px;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 /* ─── KOLOM KIRI: BRAND PANEL ─── */
@@ -58,59 +90,60 @@
 .footer-logo-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  gap: 10px;
-  line-height: 1.1;
-  margin-bottom: 28px;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  cursor: default;
+}
+
+.footer-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
 .footer-logo-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  line-height: 1;
 }
-
-
-.footer-logo-img {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-  margin: 0;
-}
-
 
 .footer-logo-main {
-  font-size: 32px;
-  font-weight: 700; /* Menggunakan standar tebal Poppins */
-  letter-spacing: 0.1em;
-  color: var(--accent-yellow); /* GRINT: kuning */
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent-yellow);
+  text-shadow: 0 0 20px rgba(232, 225, 20, 0.15); /* Glow sangat halus */
 }
-
 
 .footer-logo-sub {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.35em;
-  color: var(--text-heading); /* Furniture Build: putih */
+  letter-spacing: 0.2em;
+  color: var(--text-heading);
   margin-top: 4px;
+  opacity: 0.9;
 }
 
-
 .footer-tagline-en {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  font-style: italic;
-  margin: 0 0 12px 0;
-  max-width: 320px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-body);
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  max-width: 340px;
 }
 
 .footer-tagline-id {
-  font-size: 13px;
-  line-height: 1.5;
-  color: rgba(243, 243, 243, 0.5); /* Putih transparan agar terbaca jelas di latar gelap */
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-weight: 400;
   margin: 0;
+  max-width: 340px;
 }
 
 /* ─── KOLOM KANAN: LINKS GRID ─── */
@@ -126,70 +159,96 @@
 }
 
 .footer-column-title {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--brand-green); /* Clover Green memberikan kesan teknis kontras */
-  margin: 0 0 28px 0;
+  letter-spacing: 0.15em;
+  color: var(--brand-green);
+  margin: 0 0 32px 0;
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
 }
 
-/* Garis aksen kecil di bawah judul kolom */
+/* Garis aksen yang lebih modern */
 .footer-column-title::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 24px;
+  width: 32px;
   height: 2px;
   background-color: var(--brand-green);
-  opacity: 0.3;
+  border-radius: 2px;
+  opacity: 0.6;
+  box-shadow: 0 0 8px rgba(164, 207, 98, 0.4);
 }
 
 .footer-links-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   align-items: flex-start;
 }
 
-/* Link Interaktif (Navigasi & Socials) */
+/* Link Interaktif dengan Micro-interaction Premium */
 .footer-action-link {
   background: none;
   border: none;
-  padding: 0;
+  padding: 6px 0;
   margin: 0;
   color: var(--text-muted);
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 400;
   text-decoration: none;
   cursor: pointer;
   text-align: left;
   font-family: inherit;
-  transition: color 0.3s var(--ft-easing), transform 0.3s var(--ft-easing);
+  transition: color 0.3s var(--ft-easing), transform 0.3s var(--ft-easing), padding-left 0.3s var(--ft-easing);
   display: inline-flex;
   align-items: center;
+  position: relative;
+}
+
+.footer-action-link::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent-yellow);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s var(--ft-easing);
 }
 
 .footer-action-link:hover {
-  color: var(--accent-yellow); /* Menyala kuning saat di-hover */
-  transform: translateX(4px);
+  color: var(--text-heading);
+  transform: translateX(8px);
+  padding-left: 4px; /* Memberi ruang untuk dot indicator */
 }
 
-/* Teks Statis (Daftar Layanan) */
+.footer-action-link:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .footer-plain-text {
-  color: var(--text-body);
-  font-size: 14.5px;
+  color: var(--text-muted);
+  font-size: 15px;
   font-weight: 400;
+  line-height: 1.6;
+  padding: 6px 0;
 }
 
-/* ─── BOTTOM BAR (COPYRIGHT) ─── */
+/* ─── BOTTOM BAR (COPYRIGHT & BACK TO TOP) ─── */
 .footer-bottom-bar {
   background-color: var(--ft-bg-bottom);
-  border-top: 1px solid var(--border-subtle);
-  padding: 30px 0;
+  /* Efek kaca tipis di area bottom */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 32px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .footer-bottom-inner {
@@ -201,40 +260,59 @@
 .footer-copyright-text {
   font-size: 13px;
   color: var(--text-muted);
+  font-weight: 400;
   letter-spacing: 0.02em;
 }
 
-/* Tombol Back To Top (Kombinasi Style Minimalis Gelap Berbentuk Kapsul) */
+.footer-copyright-text span {
+  color: var(--text-heading);
+  font-weight: 500;
+}
+
+/* Tombol Back To Top yang Dipoles */
 .footer-back-to-top-btn {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-subtle);
   color: var(--text-heading);
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-radius: 30px;
+  letter-spacing: 0.08em;
+  border-radius: 100px; /* Bentuk kapsul sempurna */
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: all 0.3s var(--ft-easing);
+  gap: 10px;
+  transition: all 0.4s var(--ft-easing);
+  position: relative;
+  overflow: hidden;
 }
 
-.back-to-top-icon {
-  transition: transform 0.3s var(--ft-easing);
+.footer-back-to-top-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(164, 207, 98, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
 .footer-back-to-top-btn:hover {
   border-color: var(--brand-green);
   color: var(--brand-green);
-  background-color: rgba(164, 207, 98, 0.05); /* Tint hijau transparan */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(164, 207, 98, 0.1);
+  background-color: rgba(164, 207, 98, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(164, 207, 98, 0.15);
 }
 
-/* Efek ikon panah melompat sedikit ke atas saat di-hover */
+.footer-back-to-top-btn:hover::before {
+  transform: translateX(100%);
+}
+
 .footer-back-to-top-btn:hover .back-to-top-icon {
   transform: translateY(-3px);
 }
@@ -250,7 +328,12 @@
   }
   
   .footer-brand-panel {
-    max-width: 500px;
+    max-width: 100%;
+    align-items: flex-start;
+  }
+  
+  .footer-tagline-en, .footer-tagline-id {
+    max-width: 100%;
   }
 }
 
@@ -265,23 +348,36 @@
 
   .footer-links-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px 30px;
+    gap: 48px 32px;
   }
   
   .footer-bottom-inner {
     flex-direction: column-reverse;
-    gap: 20px;
-    align-items: flex-start;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-copyright-text {
+    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .footer-links-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 40px;
   }
 
   .footer-column-title {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+  }
+  
+  .footer-logo-wrapper {
+    gap: 12px;
+  }
+  
+  .footer-logo-main {
+    font-size: 24px;
   }
 }

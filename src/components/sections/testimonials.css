@@ -1,48 +1,76 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   TESTIMONIALS COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
-   Theme: Technical Dark Mode (High-Contrast Glass & Dynamic Review Grid)
+   TESTIMONIALS COMPONENT STYLES — GRINT FURNITURE BUILD (PREMIUM DARK GLASS)
+   Theme: Technical Dark Mode (High-Contrast Glass & Refined Review Grid)
    ───────────────────────────────────────────────────────────────────────── */
 
+/* 1. IMPORT FONT PREMIUM (Inter: Konsisten dengan seluruh komponen) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Palette - Modern Dark Mode (Synchronized) */
-  --bg-main:       #0B0B0B; /* Primary Black */
-  --bg-card:       #242424; /* Dark Gray */
-  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
-  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  /* Palette - Modern Dark Mode (TETAP SAMA) */
+  --bg-main:       #0B0B0B; 
+  --bg-card:       #242424; 
+  --accent-yellow: #E8E114; 
+  --brand-green:   #A4CF62; 
   
   /* Text Colors */
-  --text-heading:  #FFFFFF; /* White */
-  --text-body:     #F3F3F3; /* Light Gray */
-  --text-muted:    #A0A0A0; /* Medium Gray */
-  --text-dark:     #0B0B0B; /* Dark Text */
+  --text-heading:  #FFFFFF; 
+  --text-body:     #F3F3F3; 
+  --text-muted:    #A0A0A0; 
+  --text-dark:     #0B0B0B; 
   
-  /* Borders & Layering */
-  --border-subtle:       rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
-  --border-active:       rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
-  --card-testi-glass:    rgba(36, 36, 36, 0.55);    /* Premium Dark Glassmorphism */
+  /* Borders & Layering (Ditingkatkan untuk Glassmorphism) */
+  --border-subtle:       rgba(255, 255, 255, 0.06); 
+  --border-active:       rgba(164, 207, 98, 0.4);   
+  --card-testi-glass:    rgba(25, 25, 25, 0.55);    /* Lebih gelap & transparan untuk kedalaman */
   
-  --transition-cubic: cubic-bezier(0.25, 1, 0.5, 1);
+  /* Easing Premium (Snappy & Smooth) */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ─── GLOBAL TYPOGRAPHY RESET FOR TESTIMONIALS ─── */
+.testimonials-section, 
+.testimonials-section * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── MAIN SECTION CONTAINER ─── */
 .testimonials-section {
   background-color: var(--bg-main);
   color: var(--text-body);
-  padding: 140px 0;
-  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
+  padding: 160px 0;
   overflow: hidden;
   position: relative;
   border-top: 1px solid var(--border-subtle); 
 }
 
+/* Ambient glow halus di background untuk kedalaman */
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(232, 225, 20, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .testimonials-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
+  position: relative;
+  z-index: 2;
 }
 
 /* ─── SECTION HEADER ─── */
 .testimonials-header {
-  margin-bottom: 70px;
+  margin-bottom: 80px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -50,19 +78,35 @@
 }
 
 .testimonials-badge {
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--brand-green); /* Menggunakan Clover Green */
-  margin-bottom: 12px;
+  letter-spacing: 0.12em;
+  color: var(--brand-green);
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  background: rgba(164, 207, 98, 0.05);
+  border: 1px solid rgba(164, 207, 98, 0.15);
+  border-radius: 100px;
+}
+
+.testimonials-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--brand-green);
 }
 
 .testimonials-title {
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: var(--text-heading);
   margin: 0;
 }
@@ -70,13 +114,16 @@
 .testimonials-subtitle {
   font-size: 16px;
   color: var(--text-muted);
-  margin: 6px 0 20px 0;
+  font-weight: 400;
+  margin: 16px 0 24px 0;
+  max-width: 600px;
+  line-height: 1.6;
 }
 
 .testimonials-decorator-line {
-  width: 80px;
+  width: 60px;
   height: 3px;
-  background-color: var(--accent-yellow); /* Titik fokus aksen kuning */
+  background: linear-gradient(90deg, var(--accent-yellow), transparent);
   border-radius: 2px;
 }
 
@@ -84,55 +131,85 @@
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  gap: 28px;
 }
 
-/* ─── CARD STYLES ─── */
+/* ─── CARD STYLES (Premium Glassmorphism) ─── */
 .testi-card {
   background: var(--card-testi-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   border: 1px solid var(--border-subtle); 
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Cahaya refleksi di tepi atas kaca */
   padding: 40px;
-  border-radius: 16px;
+  border-radius: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 30px;
+  gap: 28px;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s var(--transition-cubic);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s var(--transition-smooth);
 }
 
-/* Efek Glow & Angkat saat Hover (Sinkron dengan Service Card) */
-.testi-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--border-active); /* Batas menyala hijau daun tipis */
-  background: var(--bg-card); /* Berubah menjadi boks abu-abu jernih saat di-hover */
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
-}
-
-/* Dekorasi Tanda Petik Latar Belakang (Disesuaikan untuk tema gelap) */
-.testi-quote-bg {
+/* Efek glow halus di dalam card saat hover */
+.testi-card::before {
+  content: '';
   position: absolute;
-  top: 30px;
-  right: 30px;
-  color: rgba(255, 255, 255, 0.02); /* Putih transparan super tipis */
-  transition: color 0.4s ease, transform 0.4s var(--transition-cubic);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(164, 207, 98, 0.04), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
-.testi-card:hover .testi-quote-bg {
-  color: rgba(164, 207, 98, 0.06); /* Berubah menjadi semburat hijau daun saat di-hover */
-  transform: scale(1.05);
+/* Efek Glow & Angkat saat Hover */
+.testi-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-active);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(164, 207, 98, 0.1), 0 0 40px rgba(164, 207, 98, 0.05);
 }
 
-/* ─── STAR RATING ROW ─── */
+.testi-card:hover::before {
+  opacity: 1;
+}
+
+/* Dekorasi Tanda Petik Latar Belakang (Lebih Elegan) */
+.testi-quote-bg {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 120px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.025);
+  font-family: 'Georgia', serif;
+  transition: color 0.5s ease, transform 0.5s var(--transition-smooth);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.testi-card:hover .testi-quote-bg {
+  color: rgba(164, 207, 98, 0.08);
+  transform: scale(1.08) rotate(-5deg);
+}
+
+/* ─── STAR RATING ROW (Dengan Glow Halus) ─── */
 .testi-stars-row {
   display: flex;
   gap: 4px;
-  color: var(--accent-yellow); /* Bintang utama menyala kuning */
+  color: var(--accent-yellow);
+  filter: drop-shadow(0 0 4px rgba(232, 225, 20, 0.3));
+  position: relative;
+  z-index: 2;
+}
+
+.testi-star {
+  font-size: 16px;
+  transition: transform 0.3s var(--transition-smooth);
 }
 
 .testi-star.is-filled {
@@ -140,7 +217,23 @@
 }
 
 .testi-star.is-empty {
-  color: rgba(255, 255, 255, 0.1); /* Bintang kosong abu-abu redup transparan */
+  color: rgba(255, 255, 255, 0.1);
+  filter: none;
+}
+
+.testi-card:hover .testi-star.is-filled {
+  animation: starPulse 0.6s ease forwards;
+}
+
+.testi-card:hover .testi-star.is-filled:nth-child(1) { animation-delay: 0.05s; }
+.testi-card:hover .testi-star.is-filled:nth-child(2) { animation-delay: 0.10s; }
+.testi-card:hover .testi-star.is-filled:nth-child(3) { animation-delay: 0.15s; }
+.testi-card:hover .testi-star.is-filled:nth-child(4) { animation-delay: 0.20s; }
+.testi-card:hover .testi-star.is-filled:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
 }
 
 /* ─── QUOTE CONTENT ─── */
@@ -150,12 +243,13 @@
 }
 
 .testi-text {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 16.5px;
+  line-height: 1.75;
   color: var(--text-body);
   margin: 0;
   font-style: normal;
   font-weight: 400;
+  letter-spacing: -0.005em;
 }
 
 /* ─── AUTHOR PROFILE ─── */
@@ -163,49 +257,104 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  border-top: 1px solid var(--border-subtle); 
+  border-top: 1px solid rgba(255, 255, 255, 0.08); 
   padding-top: 24px;
   margin-top: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .testi-avatar {
-  width: 46px;
-  height: 46px;
-  background-color: rgba(255, 255, 255, 0.03); 
-  color: var(--accent-yellow); /* Inisial huruf menggunakan aksen kuning */
+  width: 52px;
+  height: 52px;
+  background-color: rgba(232, 225, 20, 0.08); 
+  color: var(--accent-yellow);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  border: 1px solid rgba(232, 225, 20, 0.2);
-  transition: all 0.4s var(--transition-cubic);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(232, 225, 20, 0.25);
+  transition: all 0.4s var(--transition-smooth);
+  flex-shrink: 0;
 }
 
 .testi-card:hover .testi-avatar {
   background-color: var(--accent-yellow);
-  color: var(--text-dark); /* Profil avatar bertukar menjadi kuning solid kontras tinggi saat di-hover */
+  color: var(--text-dark);
   border-color: var(--accent-yellow);
+  transform: scale(1.08) rotate(-5deg);
+  box-shadow: 0 8px 20px rgba(232, 225, 20, 0.25);
 }
 
 .testi-meta {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .testi-name {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 15.5px;
+  font-weight: 700;
   color: var(--text-heading);
   font-style: normal;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.testi-card:hover .testi-name {
+  color: var(--accent-yellow);
 }
 
 .testi-loc {
   font-size: 13px;
   color: var(--text-muted);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.testi-loc::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* ─── ENGINE ANIMASI SCROLL (AMAN: Default Visible) ─── */
+.testimonials-grid .testi-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonials-section.is-visible .testimonials-grid .testi-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 0.7s var(--transition-smooth) forwards;
+}
+
+/* Staggered delay untuk testimonial cards */
+.testimonials-section.is-visible .testi-card:nth-child(1) { animation-delay: 0.05s; }
+.testimonials-section.is-visible .testi-card:nth-child(2) { animation-delay: 0.15s; }
+.testimonials-section.is-visible .testi-card:nth-child(3) { animation-delay: 0.25s; }
+.testimonials-section.is-visible .testi-card:nth-child(4) { animation-delay: 0.35s; }
+.testimonials-section.is-visible .testi-card:nth-child(5) { animation-delay: 0.45s; }
+.testimonials-section.is-visible .testi-card:nth-child(6) { animation-delay: 0.55s; }
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ─── RESPONSIVE BREAKPOINTS ─── */
@@ -214,22 +363,52 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  
   .testimonials-title {
-    font-size: 38px;
+    font-size: 40px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .testimonials-section {
     padding: 100px 0;
   }
+  
   .testimonials-container {
     padding: 0 24px;
   }
+  
+  .testimonials-title {
+    font-size: 34px;
+  }
+  
   .testi-card {
     padding: 32px 24px;
   }
+  
+  .testi-text {
+    font-size: 15.5px;
+  }
+  
+  .testi-quote-bg {
+    font-size: 90px;
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
   .testimonials-title {
-    font-size: 32px;
+    font-size: 30px;
+  }
+  
+  .testi-avatar {
+    width: 46px;
+    height: 46px;
+    font-size: 14px;
+  }
+  
+  .testi-name {
+    font-size: 14.5px;
   }
 }

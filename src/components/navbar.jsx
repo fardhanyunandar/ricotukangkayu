@@ -59,7 +59,7 @@ export default function Navbar() {
               alt="GRINT logo"
             />
             <span className="brand-text">
-              <span className="brand-main">GRINT</span>
+              <span className="brand-main">GR_INT</span>
               <span className="brand-sub">Furniture Build</span>
             </span>
 

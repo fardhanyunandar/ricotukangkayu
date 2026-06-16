@@ -103,10 +103,10 @@ export default function About() {
               Grint Furniture Build didirikan sejak tahun 2015 oleh <strong>Rico</strong>, seorang pengrajin kayu berpengalaman yang mencintai setiap detail dalam proses pembuatan furniture. Kami percaya bahwa furniture yang baik bukan hanya soal fungsi — tapi juga cerita dan karakter.
             </p>
             <p className="story-paragraph story-paragraph--en" lang="en">
-              Founded by Rico, a passionate woodworker who believes great furniture tells a story. Every piece is crafted with care, precision, and a deep respect for natural materials.
+              Grint Furniture Build was founded in 2015 by Rico, an experienced woodworker who loves every detail in the furniture-making process. We believe that good furniture is not just about function — it's also about story and character.
             </p>
             <p className="story-paragraph">
-              Dengan menggunakan bahan kayu solid pilihan dan teknik tradisional yang dipadukan dengan desain modern, kami menghadirkan furniture yang tahan lama dan estetik untuk hunian maupun komersial.
+              Dengan menggunakan bahan yang di pakai dari multipleks sampai dengan kayu solid, kami menghadirkan furniture yang tahan lama dan estetik untuk hunian maupun komersial.
             </p>
           </div>
 
@@ -155,10 +155,10 @@ export default function About() {
               
               <blockquote className="profile-blockquote">
                 <p className="quote-id">
-                  "Saya mulai dari rasa cinta terhadap kayu dan keinginan untuk membuat sesuatu yang bertahan lama — bukan hanya furniture, tapi karya yang bisa diwariskan."
+                  "Berawal dari kecintaan pada dunia perkayuan, saya menghadirkan solusi furnitur dengan beragam material, dari multipleks berkualitas hingga kayu solid premium, yang memadukan estetika, fungsi, dan ketahanan dalam satu karya."
                 </p>
                 <p className="quote-en" lang="en">
-                  "I started from a love of wood and a desire to create things that last — not just furniture, but pieces worth passing down."
+                  "Starting from a love of the world of wood, I present furniture solutions with a variety of materials, from quality plywood to premium solid wood, which combine aesthetics, function, and durability in one work."
                 </p>
               </blockquote>
             </div>

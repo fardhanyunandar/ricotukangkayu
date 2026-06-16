@@ -1,61 +1,89 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   SERVICES COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
-   Theme: Technical Dark Mode (High-Contrast Glass & Process Flow)
+   SERVICES COMPONENT STYLES — GRINT FURNITURE BUILD (PREMIUM DARK GLASS)
+   Theme: Technical Dark Mode (High-Contrast Glass & Refined Process Flow)
    ───────────────────────────────────────────────────────────────────────── */
 
+/* 1. IMPORT FONT PREMIUM (Inter: Konsisten dengan seluruh komponen) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Palette - Modern Dark Mode (Synchronized) */
-  --bg-main:       #0B0B0B; /* Primary Black */
-  --bg-card:       #242424; /* Dark Gray */
-  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
-  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  /* Palette - Modern Dark Mode (TETAP SAMA) */
+  --bg-main:       #0B0B0B; 
+  --bg-card:       #242424; 
+  --accent-yellow: #E8E114; 
+  --brand-green:   #A4CF62; 
   
   /* Text Colors */
-  --text-heading:  #FFFFFF; /* White */
-  --text-body:     #F3F3F3; /* Light Gray */
-  --text-muted:    #A0A0A0; /* Medium Gray */
-  --text-dark:     #0B0B0B; /* Dark Text */
+  --text-heading:  #FFFFFF; 
+  --text-body:     #F3F3F3; 
+  --text-muted:    #A0A0A0; 
+  --text-dark:     #0B0B0B; 
   
-  /* Borders & Glassmorphism Layering */
-  --border-subtle:      rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
-  --border-active:      rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
-  --card-dark-glass:    rgba(36, 36, 36, 0.55);    /* Premium Dark Glassmorphism */
+  /* Borders & Glassmorphism Layering (Ditingkatkan) */
+  --border-subtle:      rgba(255, 255, 255, 0.06); 
+  --border-active:      rgba(164, 207, 98, 0.4);   
+  --card-dark-glass:    rgba(25, 25, 25, 0.50);    
   --accent-yellow-glow: rgba(232, 225, 20, 0.08);
   
-  --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  /* Easing Premium (Snappy & Smooth) */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ─── GLOBAL TYPOGRAPHY RESET FOR SERVICES ─── */
+.services-section, 
+.services-section * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── MAIN SECTION CONTAINER ─── */
 .services-section {
   background-color: var(--bg-main);
   color: var(--text-body);
-  padding: 140px 0;
+  padding: 160px 0;
   position: relative;
   overflow: hidden;
-  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
   border-top: 1px solid var(--border-subtle); 
 }
 
-/* Tekstur Pola Latar Belakang Minimalis — Titik-titik arang transparan kontras rendah */
+/* Tekstur Pola Latar Belakang (Diperhalus) */
 .services-bg-pattern {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1.5px, transparent 0);
-  background-size: 44px 44px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.6;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+/* Ambient glow halus di tengah untuk kedalaman */
+.services-section::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(164, 207, 98, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .services-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
   position: relative;
   z-index: 2;
 }
 
 /* ─── SECTION HEADER ─── */
 .services-header {
-  margin-bottom: 70px;
+  margin-bottom: 80px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -63,19 +91,35 @@
 }
 
 .services-badge {
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--brand-green); /* Menggunakan Clover Green */
-  margin-bottom: 12px;
+  letter-spacing: 0.12em;
+  color: var(--brand-green);
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  background: rgba(164, 207, 98, 0.05);
+  border: 1px solid rgba(164, 207, 98, 0.15);
+  border-radius: 100px;
+}
+
+.services-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--brand-green);
 }
 
 .services-title {
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: var(--text-heading);
   margin: 0;
 }
@@ -83,13 +127,16 @@
 .services-subtitle {
   font-size: 16px;
   color: var(--text-muted);
-  margin: 6px 0 20px 0;
+  font-weight: 400;
+  margin: 16px 0 24px 0;
+  max-width: 600px;
+  line-height: 1.6;
 }
 
 .services-decorator-line {
-  width: 80px;
+  width: 60px;
   height: 3px;
-  background-color: var(--accent-yellow); /* Titik fokus aksen kuning */
+  background: linear-gradient(90deg, var(--accent-yellow), transparent);
   border-radius: 2px;
 }
 
@@ -97,57 +144,61 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 100px;
+  gap: 24px;
+  margin-bottom: 120px;
 }
 
 .service-card {
   background: var(--card-dark-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   border: 1px solid var(--border-subtle); 
-  border-radius: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
   padding: 40px 32px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
   transition: all 0.5s var(--transition-smooth);
 }
 
-/* Background overlay efek hover naik (Dark Tech Gradient) */
-.service-card-bg-hover {
+/* Efek glow halus di dalam card saat hover */
+.service-card::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(36, 36, 36, 1) 0%, rgba(11, 11, 11, 0.4) 100%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top center, rgba(232, 225, 20, 0.04), transparent 70%);
   opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: var(--border-active); /* Garis batas menyala hijau tipis */
-  background: var(--bg-card);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 30px var(--accent-yellow-glow);
+  border-color: var(--border-active);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(164, 207, 98, 0.1), 0 0 40px rgba(232, 225, 20, 0.05);
 }
 
-.service-card:hover .service-card-bg-hover {
+.service-card:hover::before {
   opacity: 1;
 }
 
 .service-icon-wrapper {
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--accent-yellow); /* Ikon dasar menyala kuning */
-  border-radius: 12px;
-  width: 56px;
-  height: 56px;
+  background: rgba(232, 225, 20, 0.05);
+  color: var(--accent-yellow);
+  border-radius: 14px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(232, 225, 20, 0.2);
+  border: 1px solid rgba(232, 225, 20, 0.15);
   position: relative;
   z-index: 2;
   transition: all 0.4s var(--transition-smooth);
@@ -155,9 +206,10 @@
 
 .service-card:hover .service-icon-wrapper {
   background: var(--accent-yellow);
-  color: var(--text-dark); /* Kebalikan warna saat hover, teks ikon menjadi gelap kontras */
+  color: var(--text-dark);
   border-color: var(--accent-yellow);
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(-3deg);
+  box-shadow: 0 8px 20px rgba(232, 225, 20, 0.2);
 }
 
 .service-info {
@@ -167,61 +219,70 @@
 
 .service-name {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-heading);
-  margin: 0 0 4px 0;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
 }
 
 .service-name-en {
   display: block;
   font-size: 13px;
-  color: var(--brand-green); /* Versi sub-bahasa inggris diselaraskan ke hijau daun miring */
+  color: var(--brand-green);
   font-style: italic;
+  font-weight: 500;
   margin-bottom: 16px;
+  opacity: 0.8;
 }
 
 .service-desc {
   font-size: 14.5px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--text-muted);
   margin: 0;
+  font-weight: 400;
 }
-
 
 /* ─── TIMELINE KERJA (PROCESS SECTION) ─── */
 .process-wrapper {
-  background: rgba(36, 36, 36, 0.3); /* Struktur dasar kapsul glassmorphism gelap */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
   border: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
-  padding: 60px 40px;
+  padding: 64px 48px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .process-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 64px;
 }
 
 .process-main-title {
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
   color: var(--text-heading);
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .process-sub-title {
   font-size: 14px;
   color: var(--brand-green);
   font-style: italic;
-  margin: 4px 0 0 0;
+  font-weight: 500;
+  margin: 8px 0 0 0;
+  opacity: 0.8;
 }
 
 .process-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
+  gap: 16px;
+  position: relative;
 }
 
 .process-step {
@@ -230,21 +291,23 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .step-node-container {
   display: flex;
   align-items: center;
-  width: 100%;
-  position: relative;
   justify-content: center;
-  margin-bottom: 24px;
+  width: 100%;
+  margin-bottom: 28px;
+  position: relative;
 }
 
 .step-node {
-  width: 48px;
-  height: 48px;
-  background-color: var(--bg-card); /* Node boks abu gelap jernih */
+  width: 52px;
+  height: 52px;
+  background-color: var(--bg-main);
   border: 2px solid rgba(164, 207, 98, 0.3);
   border-radius: 50%;
   display: flex;
@@ -252,80 +315,145 @@
   justify-content: center;
   position: relative;
   z-index: 3;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s var(--transition-smooth);
 }
 
 .step-num {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--brand-green);
+  transition: color 0.4s ease;
 }
 
-/* Efek lingkaran denyut halus di sekeliling node angka (Menggunakan Aksen Hijau Daun) */
+/* Efek lingkaran denyut halus di sekeliling node */
 .step-node-pulse {
   position: absolute;
-  inset: -6px;
+  inset: -8px;
   border: 1px solid var(--brand-green);
   border-radius: 50%;
   opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.4s ease;
+  transform: scale(0.8);
+  transition: all 0.4s var(--transition-smooth);
 }
 
 .process-step:hover .step-node {
   border-color: var(--brand-green);
   background-color: var(--brand-green);
+  box-shadow: 0 0 20px rgba(164, 207, 98, 0.3);
+  transform: scale(1.1);
 }
 
 .process-step:hover .step-num {
-  color: var(--text-dark); /* Angka dalam node menjadi hitam pekat saat aktif */
+  color: var(--text-dark);
 }
 
 .process-step:hover .step-node-pulse {
-  opacity: 0.35;
+  opacity: 0.4;
   transform: scale(1);
 }
 
-/* Garis penghubung horizontal antar lingkaran murni arang dark mode */
+/* Garis penghubung horizontal antar lingkaran */
 .step-connector-line {
   position: absolute;
-  left: calc(50% + 24px);
-  right: calc(-50% + 24px);
+  left: calc(50% + 26px);
+  right: calc(-50% + 26px);
   top: 50%;
   transform: translateY(-50%);
   height: 2px;
-  background: rgba(255, 255, 255, 0.08); 
+  background: rgba(255, 255, 255, 0.06); 
   z-index: 1;
+  border-radius: 2px;
+  overflow: hidden;
 }
 
 .step-connector-progress {
   width: 0%;
   height: 100%;
-  background: linear-gradient(to right, var(--brand-green), transparent);
-  transition: width 0.6s ease;
+  background: linear-gradient(90deg, var(--brand-green), rgba(164, 207, 98, 0.2));
+  transition: width 0.6s var(--transition-smooth);
+  box-shadow: 0 0 8px rgba(164, 207, 98, 0.4);
 }
 
 .process-step:hover .step-connector-progress {
   width: 100%;
 }
 
+.process-step:last-child .step-connector-line {
+  display: none;
+}
+
 .step-text-content {
-  padding: 0 10px;
+  padding: 0 12px;
 }
 
 .step-title {
   font-size: 16px;
   font-weight: 600;
   color: var(--text-heading);
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.process-step:hover .step-title {
+  color: var(--brand-green);
 }
 
 .step-sub {
-  font-size: 12.5px;
+  font-size: 13px;
   color: var(--text-muted);
   font-style: italic;
   margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── ENGINE ANIMASI SCROLL (AMAN: Default Visible) ─── */
+/* 
+   PERBAIKAN PENTING: 
+   Default state sekarang VISIBLE (opacity 1). 
+   Animasi hanya berjalan jika JavaScript menambahkan class '.is-visible'.
+   Ini mencegah konten hilang total jika JS belum/kurang berjalan.
+*/
+
+/* Default: semua card dan step LANGSUNG terlihat */
+.services-grid .service-card,
+.process-row .process-step {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animasi staggered HANYA jika class .is-visible ditambahkan oleh JS */
+.services-section.is-visible .services-grid .service-card,
+.services-section.is-visible .process-row .process-step {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 0.7s var(--transition-smooth) forwards;
+}
+
+/* Staggered delay untuk service cards */
+.services-section.is-visible .service-card:nth-child(1) { animation-delay: 0.05s; }
+.services-section.is-visible .service-card:nth-child(2) { animation-delay: 0.15s; }
+.services-section.is-visible .service-card:nth-child(3) { animation-delay: 0.25s; }
+.services-section.is-visible .service-card:nth-child(4) { animation-delay: 0.35s; }
+.services-section.is-visible .service-card:nth-child(5) { animation-delay: 0.45s; }
+.services-section.is-visible .service-card:nth-child(6) { animation-delay: 0.55s; }
+
+/* Staggered delay untuk process steps */
+.services-section.is-visible .process-step:nth-child(1) { animation-delay: 0.1s; }
+.services-section.is-visible .process-step:nth-child(2) { animation-delay: 0.25s; }
+.services-section.is-visible .process-step:nth-child(3) { animation-delay: 0.4s; }
+.services-section.is-visible .process-step:nth-child(4) { animation-delay: 0.55s; }
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -339,37 +467,66 @@
 @media (max-width: 900px) {
   .process-row {
     flex-direction: column;
-    gap: 40px;
+    gap: 0;
     align-items: flex-start;
-    padding-left: 30px;
+    padding-left: 20px;
   }
+  
   .process-step {
     flex-direction: row;
     text-align: left;
     gap: 24px;
     width: 100%;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   }
+  
+  .process-step:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
   .step-node-container {
     width: auto;
     margin-bottom: 0;
+    flex-shrink: 0;
   }
+  
+  /* Ubah connector menjadi vertikal di mobile */
   .step-connector-line {
     position: absolute;
-    left: 50%;
-    top: 48px;
-    bottom: -48px;
+    left: 26px;
+    top: 52px;
+    bottom: -24px;
     width: 2px;
     height: auto;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.08);
+    transform: none;
+    background: rgba(255, 255, 255, 0.06);
   }
+  
   .step-connector-progress {
-    background: linear-gradient(to bottom, var(--brand-green), transparent);
-    height: 0%;
     width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, var(--brand-green), rgba(164, 207, 98, 0.2));
   }
+  
   .process-step:hover .step-connector-progress {
+    width: 100%;
     height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    padding: 0 24px;
+  }
+  
+  .services-title {
+    font-size: 36px;
+  }
+  
+  .process-wrapper {
+    padding: 40px 24px;
   }
 }
 
@@ -377,13 +534,26 @@
   .services-grid {
     grid-template-columns: 1fr;
   }
-  .services-container {
-    padding: 0 24px;
-  }
+  
   .services-title {
-    font-size: 34px;
+    font-size: 32px;
   }
+  
   .service-card {
     padding: 32px 24px;
+  }
+  
+  .process-step {
+    gap: 20px;
+  }
+  
+  .step-node {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .step-connector-line {
+    left: 22px;
+    top: 44px;
   }
 }

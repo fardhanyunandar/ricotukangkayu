@@ -1,155 +1,247 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   CONTACT COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
-   Theme: Minimalist Gallery Dark (High-Contrast & Premium Functional)
+   CONTACT COMPONENT STYLES — GRINT FURNITURE BUILD (PREMIUM DARK GLASS)
+   Theme: Minimalist Gallery Dark (High-Contrast, Glassy & Functional)
    ───────────────────────────────────────────────────────────────────────── */
 
+/* 1. IMPORT FONT PREMIUM (Inter: Konsisten dengan seluruh komponen) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Palette - Modern Dark Mode (Synchronized) */
-  --bg-main:       #0B0B0B; /* Primary Black */
-  --bg-card:       #242424; /* Dark Gray */
-  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
-  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  /* Palette - Modern Dark Mode (TETAP SAMA) */
+  --bg-main:       #0B0B0B; 
+  --bg-card:       #242424; 
+  --accent-yellow: #E8E114; 
+  --brand-green:   #A4CF62; 
   
   /* Text Colors */
-  --text-heading:  #FFFFFF; /* White */
-  --text-body:     #F3F3F3; /* Light Gray */
-  --text-muted:    #A0A0A0; /* Medium Gray */
-  --text-dark:     #0B0B0B; /* Dark Text */
+  --text-heading:  #FFFFFF; 
+  --text-body:     #F3F3F3; 
+  --text-muted:    #A0A0A0; 
+  --text-dark:     #0B0B0B; 
   
-  /* Borders & Glassmorphism */
-  --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
-  --border-active: rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
-  --card-form-glass: rgba(36, 36, 36, 0.7);    /* Glassmorphism gelap premium */
+  /* Borders & Glassmorphism (Ditingkatkan) */
+  --border-subtle: rgba(255, 255, 255, 0.06); 
+  --border-active: rgba(164, 207, 98, 0.4);   
+  --card-form-glass: rgba(20, 20, 20, 0.60);  /* Lebih gelap & transparan untuk kedalaman */
   
-  --transition-bezier: cubic-bezier(0.25, 1, 0.5, 1);
+  /* Easing Premium (Snappy & Smooth) */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ─── GLOBAL TYPOGRAPHY RESET FOR CONTACT ─── */
+.contact-section, 
+.contact-section * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── MAIN SECTION CONTAINER ─── */
 .contact-section {
   background-color: var(--bg-main);
-  padding: 140px 0;
-  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan tipografi global */
+  padding: 160px 0;
   color: var(--text-body);
   border-top: 1px solid var(--border-subtle); 
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow halus di background untuk kedalaman */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(164, 207, 98, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .contact-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 5fr 6fr;
+  grid-template-columns: 1fr 1.2fr; /* Proporsi lebih seimbang untuk form */
   gap: 100px;
   align-items: start;
 }
 
-/* ── Info Kolom Kiri ── */
+/* ─── INFO KOLOM KIRI ─── */
 .contact-badge {
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--brand-green); /* Clover Green sebagai penanda sub-elemen */
-  margin-bottom: 12px;
-  display: block;
+  letter-spacing: 0.12em;
+  color: var(--brand-green);
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  background: rgba(164, 207, 98, 0.05);
+  border: 1px solid rgba(164, 207, 98, 0.15);
+  border-radius: 100px;
+}
+
+.contact-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--brand-green);
 }
 
 .contact-title {
-  font-size: 44px;
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
   color: var(--text-heading);
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .contact-subtitle {
   font-size: 16px;
   color: var(--text-muted);
-  margin: 6px 0 24px 0;
+  font-weight: 400;
+  margin: 16px 0 28px 0;
+  max-width: 90%;
+  line-height: 1.6;
 }
 
 .contact-decorator-line {
-  width: 70px;
+  width: 60px;
   height: 3px;
-  background-color: var(--accent-yellow); /* Kuning aksen sebagai titik fokus */
-  margin-bottom: 50px;
+  background: linear-gradient(90deg, var(--accent-yellow), transparent);
+  margin-bottom: 48px;
   border-radius: 2px;
 }
 
 .contact-items {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  margin-bottom: 44px;
+  gap: 28px;
+  margin-bottom: 48px;
 }
 
 .contact-item {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  transition: all 0.3s var(--transition-smooth);
 }
 
-/* Penyesuaian Ikon Kontak */
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--border-subtle);
+  transform: translateX(6px);
+}
+
+/* Penyesuaian Ikon Kontak (Premium Glass) */
 .contact-icon {
   font-size: 20px;
-  background-color: rgba(255, 255, 255, 0.03); 
-  width: 44px;
-  height: 44px;
+  background-color: rgba(164, 207, 98, 0.08); 
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 12px;
   flex-shrink: 0;
   border: 1px solid rgba(164, 207, 98, 0.2);
   color: var(--brand-green);
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.contact-item:hover .contact-icon {
+  background-color: var(--brand-green);
+  color: var(--text-dark);
+  border-color: var(--brand-green);
+  transform: rotate(-6deg) scale(1.05);
+  box-shadow: 0 8px 16px rgba(164, 207, 98, 0.2);
+}
+
+.contact-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .contact-label {
-  font-size: 13px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
   font-weight: 600;
-  margin-bottom: 4px;
 }
 
 .contact-val {
   font-size: 16px;
   color: var(--text-heading);
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-/* Tombol WhatsApp / Kontak Utama Kiri (Outline Mode) */
+/* Tombol WhatsApp (Shine Effect) */
 .wa-primary-btn {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   background-color: transparent;
   color: var(--brand-green);
-  border: 1px solid var(--brand-green);
+  border: 1px solid rgba(164, 207, 98, 0.3);
   padding: 16px 32px;
   font-size: 15px;
   font-weight: 600;
-  border-radius: 30px;
+  border-radius: 100px;
   cursor: pointer;
-  transition: all 0.3s var(--transition-bezier);
-  margin-bottom: 40px;
+  transition: all 0.4s var(--transition-smooth);
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wa-primary-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(164, 207, 98, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
 .wa-primary-btn:hover {
   background-color: rgba(164, 207, 98, 0.1);
+  border-color: var(--brand-green);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(164, 207, 98, 0.1);
+  box-shadow: 0 12px 24px rgba(164, 207, 98, 0.15);
+}
+
+.wa-primary-btn:hover::before {
+  transform: translateX(100%);
 }
 
 /* Baris Sosial Media */
 .socials-contact-row {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   border-top: 1px solid var(--border-subtle);
-  padding-top: 30px;
+  padding-top: 32px;
 }
 
 .social-contact-link {
@@ -160,30 +252,36 @@
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: color 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s var(--transition-smooth);
 }
 
 .social-contact-link:hover {
   color: var(--accent-yellow);
+  border-color: rgba(232, 225, 20, 0.3);
+  background: rgba(232, 225, 20, 0.05);
+  transform: translateY(-2px);
 }
 
-/* ── Kotak Formulir Kanan (Glassmorphism Gelap Modern) ── */
+/* ─── KOTAK FORMULIR KANAN (Premium Glassmorphism) ─── */
 .contact-form-card {
   background: var(--card-form-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
   border: 1px solid var(--border-subtle);
-  padding: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Refleksi kaca di tepi atas */
+  padding: 48px;
   border-radius: 24px;
   color: var(--text-body);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-  transition: all 0.4s var(--transition-bezier);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s var(--transition-smooth);
 }
 
 .contact-form-card:hover {
-  background: var(--bg-card); /* Menjadi abu-abu solid saat di-hover */
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
-  border-color: var(--border-active);
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(164, 207, 98, 0.1);
 }
 
 .form-header-node {
@@ -192,15 +290,17 @@
 
 .form-card-title {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-heading);
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .form-card-sub {
   font-size: 14px;
   color: var(--text-muted);
-  margin: 4px 0 0 0;
+  margin: 8px 0 0 0;
+  font-weight: 400;
 }
 
 .form-group-field {
@@ -214,21 +314,29 @@
   font-size: 13px;
   font-weight: 600;
   color: var(--text-heading);
+  letter-spacing: 0.02em;
 }
 
+/* Input Fields Premium */
 .form-group-field input,
 .form-group-field select,
 .form-group-field textarea {
   width: 100%;
-  padding: 14px 18px;
+  padding: 16px 20px;
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 15px;
   color: var(--text-heading);
-  background-color: rgba(11, 11, 11, 0.5); /* Hitam transparan di dalam kolom */
+  background-color: rgba(11, 11, 11, 0.6);
   font-family: inherit;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.3s var(--transition-smooth);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow untuk kedalaman */
+}
+
+.form-group-field input::placeholder,
+.form-group-field textarea::placeholder {
+  color: rgba(160, 160, 160, 0.5);
 }
 
 .form-group-field input:focus,
@@ -236,81 +344,166 @@
 .form-group-field textarea:focus {
   outline: none;
   border-color: var(--accent-yellow);
-  background-color: var(--bg-main);
-  box-shadow: 0 0 0 4px rgba(232, 225, 20, 0.15);
+  background-color: rgba(11, 11, 11, 0.9);
+  box-shadow: 0 0 0 4px rgba(232, 225, 20, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Area Status Box Dark Mode (Keterbacaan & Kontras Tinggi) */
+/* Area Status Box */
 .form-status-box {
-  padding: 20px;
+  padding: 16px 20px;
   border-radius: 12px;
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.6;
   margin-bottom: 24px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
+  font-weight: 500;
 }
 
 .form-status-box.is-success {
-  background-color: rgba(22, 101, 52, 0.15);
-  border: 1px solid rgba(164, 207, 98, 0.4);
-  color: #A4CF62;
+  background-color: rgba(164, 207, 98, 0.08);
+  border: 1px solid rgba(164, 207, 98, 0.3);
+  color: var(--brand-green);
 }
 
 .form-status-box.is-error {
-  background-color: rgba(153, 27, 27, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.4);
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
   color: #f87171;
 }
 
-/* Tombol Submit Utama (Accent Yellow CTA) */
+/* Tombol Submit Utama (Shine Effect) */
 .action-btn-submit {
   width: 100%;
   background-color: var(--accent-yellow);
-  color: var(--text-dark); /* Teks hitam untuk kontras maksimal */
+  color: var(--text-dark);
   border: none;
-  padding: 16px;
+  padding: 18px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(232, 225, 20, 0.15);
-  transition: all 0.3s var(--transition-bezier);
+  box-shadow: 0 8px 24px rgba(232, 225, 20, 0.2);
+  transition: all 0.4s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.action-btn-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
 .action-btn-submit:hover {
-  background-color: #FFFF33;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(232, 225, 20, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(232, 225, 20, 0.35);
 }
 
-/* ── Responsif ── */
+.action-btn-submit:hover::before {
+  transform: translateX(100%);
+}
+
+.action-btn-submit:active {
+  transform: translateY(-1px);
+}
+
+/* ─── ENGINE ANIMASI SCROLL (AMAN: Default Visible) ─── */
+.contact-items .contact-item,
+.contact-form-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-section.is-visible .contact-items .contact-item,
+.contact-section.is-visible .contact-form-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 0.7s var(--transition-smooth) forwards;
+}
+
+/* Staggered delay untuk contact items */
+.contact-section.is-visible .contact-item:nth-child(1) { animation-delay: 0.05s; }
+.contact-section.is-visible .contact-item:nth-child(2) { animation-delay: 0.12s; }
+.contact-section.is-visible .contact-item:nth-child(3) { animation-delay: 0.19s; }
+
+/* Form card muncul sedikit lebih lambat */
+.contact-section.is-visible .contact-form-card { animation-delay: 0.25s; }
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─── */
 @media (max-width: 1024px) {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 60px;
   }
+  
   .contact-title {
-    font-size: 38px;
+    font-size: 40px;
   }
+  
   .contact-form-card {
-    padding: 40px 30px;
+    padding: 40px 32px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .contact-section {
     padding: 100px 0;
   }
+  
   .contact-container {
     padding: 0 24px;
   }
+  
   .contact-title {
-    font-size: 32px;
+    font-size: 34px;
   }
+  
+  .contact-form-card {
+    padding: 32px 24px;
+  }
+  
   .socials-contact-row {
     flex-wrap: wrap;
-    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 30px;
+  }
+  
+  .contact-item {
+    padding: 12px 16px;
+  }
+  
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .wa-primary-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

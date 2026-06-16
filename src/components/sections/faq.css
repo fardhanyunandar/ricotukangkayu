@@ -1,75 +1,122 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   FAQ COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
-   Theme: Technical Dark Mode (High-Contrast Accordion)
+   FAQ COMPONENT STYLES — GRINT FURNITURE BUILD (PREMIUM DARK GLASS)
+   Theme: Technical Dark Mode (High-Contrast Glass & Refined Accordion)
    ───────────────────────────────────────────────────────────────────────── */
 
+/* 1. IMPORT FONT PREMIUM (Inter: Konsisten dengan seluruh komponen) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Palette - Modern Dark Mode (Synchronized) */
-  --bg-main:       #0B0B0B; /* Primary Black */
-  --bg-card:       #242424; /* Dark Gray */
-  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
-  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  /* Palette - Modern Dark Mode (TETAP SAMA) */
+  --bg-main:       #0B0B0B; 
+  --bg-card:       #242424; 
+  --accent-yellow: #E8E114; 
+  --brand-green:   #A4CF62; 
   
   /* Text Colors */
-  --text-heading:  #FFFFFF; /* White */
-  --text-body:     #F3F3F3; /* Light Gray */
-  --text-muted:    #A0A0A0; /* Medium Gray */
-  --text-dark:     #0B0B0B; /* Dark Text */
+  --text-heading:  #FFFFFF; 
+  --text-body:     #F3F3F3; 
+  --text-muted:    #A0A0A0; 
+  --text-dark:     #0B0B0B; 
   
-  /* Borders & Highlights */
-  --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis transparan */
-  --border-active: rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
+  /* Borders & Highlights (Ditingkatkan untuk Glassmorphism) */
+  --border-subtle: rgba(255, 255, 255, 0.06); 
+  --border-active: rgba(164, 207, 98, 0.4);   
+  --card-faq-glass: rgba(25, 25, 25, 0.55);   /* Premium Dark Glassmorphism */
   
-  --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  /* Easing Premium (Snappy & Smooth) */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ─── GLOBAL TYPOGRAPHY RESET FOR FAQ ─── */
+.faq-section, 
+.faq-section * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── MAIN SECTION CONTAINER ─── */
 .faq-section {
   background-color: var(--bg-main);
-  padding: 140px 0;
-  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
+  padding: 160px 0;
   color: var(--text-body);
   border-top: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow halus di background untuk kedalaman */
+.faq-section::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(164, 207, 98, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .faq-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
+  position: relative;
+  z-index: 2;
 }
 
-/* --- Layout Grid (Split 2 Kolom) --- */
+/* ─── LAYOUT GRID (Split 2 Kolom) ─── */
 .faq-layout {
   display: grid;
-  grid-template-columns: 4fr 7fr;
+  grid-template-columns: 1fr 1.8fr; /* Proporsi lebih seimbang */
   gap: 80px;
   align-items: start;
 }
 
-/* --- Sisi Kiri: Sticky Panel --- */
+/* ─── SISI KIRI: STICKY PANEL ─── */
 .faq-header-panel {
   position: relative;
 }
 
 .faq-sticky-content {
   position: sticky;
-  top: 100px;
+  top: 120px;
 }
 
+/* Badge Premium dengan Dot Indicator */
 .faq-badge {
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--brand-green); /* Clover Green */
-  margin-bottom: 12px;
-  display: block;
+  letter-spacing: 0.12em;
+  color: var(--brand-green);
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  background: rgba(164, 207, 98, 0.05);
+  border: 1px solid rgba(164, 207, 98, 0.15);
+  border-radius: 100px;
+}
+
+.faq-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--brand-green);
 }
 
 .faq-title {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: var(--text-heading);
   margin: 0;
 }
@@ -77,55 +124,86 @@
 .faq-subtitle {
   font-size: 16px;
   color: var(--text-muted);
-  margin: 6px 0 24px 0;
+  font-weight: 400;
+  margin: 16px 0 28px 0;
+  max-width: 90%;
+  line-height: 1.6;
 }
 
 .faq-decorator-line {
   width: 60px;
   height: 3px;
-  background-color: var(--accent-yellow); /* Titik fokus aksen kuning */
+  background: linear-gradient(90deg, var(--accent-yellow), transparent);
   border-radius: 2px;
   margin-bottom: 40px;
 }
 
-/* Kotak Kontak WA (Dark Mode Glass Card) */
+/* Kotak Kontak WA (Premium Glass Card) */
 .faq-contact-card {
-  background-color: var(--bg-card);
+  background: var(--card-faq-glass);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   border: 1px solid var(--border-subtle);
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Refleksi kaca di tepi atas */
+  padding: 36px;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s var(--transition-smooth);
+}
+
+.faq-contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(164, 207, 98, 0.1);
 }
 
 .faq-contact-text {
-  font-size: 14.5px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.7;
   color: var(--text-body);
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
+  font-weight: 400;
 }
 
-/* Tombol WA Menggunakan Skema Primer Baru */
+/* Tombol WA dengan Shine Effect */
 .faq-wa-button {
   width: 100%;
   background-color: var(--accent-yellow);
-  color: var(--text-dark); /* Kontras tinggi teks gelap */
+  color: var(--text-dark);
   border: none;
-  padding: 14px 20px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 30px;
+  padding: 16px 24px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border-radius: 100px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(232, 225, 20, 0.15);
-  transition: all 0.3s var(--transition-smooth);
+  box-shadow: 0 8px 24px rgba(232, 225, 20, 0.2);
+  transition: all 0.4s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-wa-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
 .faq-wa-button:hover {
-  background-color: #FFFF33;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(232, 225, 20, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(232, 225, 20, 0.35);
 }
 
-/* --- Sisi Kanan: Accordion List --- */
+.faq-wa-button:hover::before {
+  transform: translateX(100%); /* Efek kilau saat hover */
+}
+
+/* ─── SISI KANAN: ACCORDION LIST ─── */
 .faq-accordion-list {
   display: flex;
   flex-direction: column;
@@ -133,16 +211,21 @@
 }
 
 .faq-row-item {
-  background: var(--bg-card);
+  background: var(--card-faq-glass);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Refleksi kaca */
+  border-radius: 16px;
   overflow: hidden;
   transition: all 0.4s var(--transition-smooth);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .faq-row-item:hover {
-  border-color: var(--border-active); /* Batas menyala hijau tipis saat hover */
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+  border-color: var(--border-active);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(164, 207, 98, 0.1);
 }
 
 /* Tombol Trigger Akordeon */
@@ -150,149 +233,244 @@
   width: 100%;
   background: none;
   border: none;
-  padding: 24px 30px;
+  padding: 28px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: left;
   cursor: pointer;
-  gap: 20px;
+  gap: 24px;
+  transition: padding 0.3s ease;
 }
 
 .faq-question-text {
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-heading);
   line-height: 1.4;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.faq-row-item:hover .faq-question-text {
+  color: var(--accent-yellow);
 }
 
 .faq-question-en {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text-muted);
   font-weight: 400;
   font-style: italic;
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
+  opacity: 0.8;
 }
 
-/* Wrapper Ikon Bulat */
+/* Wrapper Ikon Bulat (Premium) */
 .faq-icon-wrapper {
-  width: 36px;
-  height: 36px;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(164, 207, 98, 0.08);
+  border: 1px solid rgba(164, 207, 98, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-heading);
+  color: var(--brand-green);
   flex-shrink: 0;
   transition: all 0.4s var(--transition-smooth);
+}
+
+.faq-row-item:hover .faq-icon-wrapper {
+  background-color: rgba(164, 207, 98, 0.15);
+  border-color: var(--brand-green);
+  transform: scale(1.05);
 }
 
 .faq-chevron-icon {
   transition: transform 0.4s var(--transition-smooth);
 }
 
-/* State Aktif Terbuka (Menggunakan Aksen Hijau/Kuning yang Selaras) */
+/* State Aktif Terbuka (Premium Glass Effect) */
 .faq-row-item.is-open {
   border-color: var(--border-active);
-  background-color: rgba(36, 36, 36, 0.9); /* Sedikit lebih solid saat terbuka */
+  background-color: rgba(36, 36, 36, 0.85); /* Sedikit lebih solid saat terbuka */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(164, 207, 98, 0.2), 0 0 30px rgba(164, 207, 98, 0.05);
 }
 
 .faq-row-item.is-open .faq-icon-wrapper {
   background-color: var(--brand-green);
-  color: var(--text-dark); /* Ikon panah menjadi gelap agar kontras */
+  color: var(--text-dark);
   border-color: var(--brand-green);
+  transform: scale(1.1) rotate(180deg); /* Icon berputar bersama chevron */
+  box-shadow: 0 8px 20px rgba(164, 207, 98, 0.3);
 }
 
 .faq-row-item.is-open .faq-chevron-icon {
   transform: rotate(180deg);
 }
 
-/* --- Perbaikan Animasi Transisi & Keamanan Render (Sesuai Struktur Dom Asli) --- */
-.faq-panel-content {
-  display: grid;
-  grid-template-rows: 0fr; /* Tertutup total */
-  visibility: hidden;      /* Menyembunyikan elemen dari pembaca layar saat tertutup */
-  opacity: 0;
-  transition: 
-    grid-template-rows 0.4s var(--transition-smooth),
-    opacity 0.3s var(--transition-smooth),
-    visibility 0.4s;
+.faq-row-item.is-open .faq-question-text {
+  color: var(--brand-green);
 }
 
-/* Saat Akordeon Terbuka */
+/* ─── ANIMASI TRANSISI ACCORDION (Smooth & Aman) ─── */
+.faq-panel-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  opacity: 0;
+  transition: 
+    grid-template-rows 0.5s var(--transition-smooth),
+    opacity 0.4s var(--transition-smooth),
+    visibility 0.5s;
+}
+
 .faq-row-item.is-open .faq-panel-content {
-  grid-template-rows: 1fr; /* Membuka penuh secara dinamis */
-  visibility: visible;     /* Memunculkan kembali secara aman */
+  grid-template-rows: 1fr;
+  visibility: visible;
   opacity: 1;
 }
 
-/* Pastikan inner container memotong overflow dengan paksa */
 .faq-panel-inner {
   overflow: hidden; 
-  padding: 0 30px 0 30px; /* Menghilangkan padding bawah secara transisi agar tidak patah */
-  transition: padding 0.4s var(--transition-smooth);
+  padding: 0 32px 0 32px;
+  transition: padding 0.5s var(--transition-smooth);
 }
 
 .faq-row-item.is-open .faq-panel-inner {
-  padding: 0 30px 24px 30px; /* Mengembalikan ruang padding bawah saat konten terbuka */
+  padding: 0 32px 28px 32px;
 }
 
 .faq-answer-id {
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 15.5px;
+  line-height: 1.75;
   color: var(--text-body);
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
+  font-weight: 400;
 }
 
 .faq-answer-en {
-  font-size: 13.5px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.65;
   color: var(--text-muted);
   font-style: italic;
   margin: 0;
+  opacity: 0.8;
 }
 
-/* --- Responsive Breakpoints --- */
+/* ─── ENGINE ANIMASI SCROLL (AMAN: Default Visible) ─── */
+.faq-accordion-list .faq-row-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-section.is-visible .faq-accordion-list .faq-row-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 0.7s var(--transition-smooth) forwards;
+}
+
+/* Staggered delay untuk FAQ items */
+.faq-section.is-visible .faq-row-item:nth-child(1) { animation-delay: 0.05s; }
+.faq-section.is-visible .faq-row-item:nth-child(2) { animation-delay: 0.12s; }
+.faq-section.is-visible .faq-row-item:nth-child(3) { animation-delay: 0.19s; }
+.faq-section.is-visible .faq-row-item:nth-child(4) { animation-delay: 0.26s; }
+.faq-section.is-visible .faq-row-item:nth-child(5) { animation-delay: 0.33s; }
+.faq-section.is-visible .faq-row-item:nth-child(6) { animation-delay: 0.40s; }
+.faq-section.is-visible .faq-row-item:nth-child(7) { animation-delay: 0.47s; }
+.faq-section.is-visible .faq-row-item:nth-child(8) { animation-delay: 0.54s; }
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─── */
 @media (max-width: 1024px) {
   .faq-layout {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 60px;
   }
+  
   .faq-sticky-content {
     position: relative;
     top: 0;
   }
+  
   .faq-title {
-    font-size: 36px;
+    font-size: 40px;
   }
+  
   .faq-decorator-line {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .faq-section {
     padding: 100px 0;
   }
+  
   .faq-container {
     padding: 0 24px;
   }
+  
+  .faq-title {
+    font-size: 34px;
+  }
+  
   .faq-trigger {
-    padding: 20px;
+    padding: 24px;
   }
+  
   .faq-panel-inner {
-    padding: 0 20px 0 20px;
+    padding: 0 24px 0 24px;
   }
+  
   .faq-row-item.is-open .faq-panel-inner {
-    padding: 0 20px 20px 20px;
+    padding: 0 24px 24px 24px;
   }
+  
   .faq-question-text {
-    font-size: 15.5px;
+    font-size: 16px;
   }
+  
+  .faq-icon-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
   .faq-title {
     font-size: 30px;
+  }
+  
+  .faq-trigger {
+    padding: 20px;
+    gap: 16px;
+  }
+  
+  .faq-question-text {
+    font-size: 15px;
+  }
+  
+  .faq-question-en {
+    font-size: 12.5px;
+  }
+  
+  .faq-answer-id {
+    font-size: 14.5px;
+  }
+  
+  .faq-answer-en {
+    font-size: 13px;
   }
 }

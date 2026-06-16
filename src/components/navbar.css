@@ -1,29 +1,42 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   NAVBAR COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
+   NAVBAR COMPONENT STYLES — GRINT FURNITURE BUILD (PREMIUM DARK GLASS)
    Theme: Technical Dark Glassmorphism (High-Contrast Cyber-Minimalist Nav)
    ───────────────────────────────────────────────────────────────────────── */
 
+/* 1. IMPORT FONT PREMIUM (Inter: Sangat bersih, modern, dan nyaman dibaca) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Palette - Modern Dark Mode (Synchronized) */
-  --bg-main:       #0B0B0B; /* Primary Black */
-  --bg-card:       #242424; /* Dark Gray */
-  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
-  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  /* Palette - Modern Dark Mode (TETAP SAMA SESUAI PERMINTAAN) */
+  --bg-main:       #0B0B0B; 
+  --bg-card:       #242424; 
+  --accent-yellow: #E8E114; 
+  --brand-green:   #A4CF62; 
   
   /* Text Colors */
-  --text-heading:  #FFFFFF; /* White */
-  --text-body:     #F3F3F3; /* Light Gray */
-  --text-muted:    #A0A0A0; /* Medium Gray */
-  --text-dark:     #0B0B0B; /* Dark Text */
+  --text-heading:  #FFFFFF; 
+  --text-body:     #F3F3F3; 
+  --text-muted:    #A0A0A0; 
+  --text-dark:     #0B0B0B; 
   
-  --nv-easing: cubic-bezier(0.25, 1, 0.5, 1);
+  /* Easing & Animation */
+  --nv-easing: cubic-bezier(0.16, 1, 0.3, 1); /* Easing yang lebih 'snappy' dan premium */
   
-  /* Efek Kaca Kristal Gelap Premium */
-  --nv-glass-bg:       rgba(11, 11, 11, 0.75);  /* Kaca hitam arang transparan */
-  --nv-glass-bg-scroll: rgba(11, 11, 11, 0.92);  /* Lebih rapat pekat saat di-scroll */
-  --nv-glass-blur:     20px;                     /* Pemburaman kaca super jernih */
-  --nv-glass-border:   rgba(255, 255, 255, 0.05);/* Garis batas transparan tipis khas dark mode */
-  --nv-glass-shadow:   0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  /* Efek Kaca Kristal Gelap Premium (Ditingkatkan) */
+  --nv-glass-bg:       rgba(11, 11, 11, 0.65);  /* Sedikit lebih transparan untuk efek kaca nyata */
+  --nv-glass-bg-scroll: rgba(11, 11, 11, 0.85);  
+  --nv-glass-blur:     24px;                     /* Blur lebih tinggi untuk kesan kaca frosted premium */
+  --nv-glass-border:   rgba(255, 255, 255, 0.06);
+  --nv-glass-shadow:   0 8px 32px 0 rgba(0, 0, 0, 0.5), 
+                       inset 0 1px 0 rgba(255, 255, 255, 0.05); /* Inset shadow memberi ilusi ketebalan kaca */
+}
+
+/* ─── GLOBAL TYPOGRAPHY RESET FOR NAVBAR ─── */
+.navbar-section, 
+.navbar-section * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ─── MAIN BAR CONTAINER ─── */
@@ -32,34 +45,36 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 90px;
+  height: 88px; /* Sedikit disesuaikan agar lebih proporsional */
   z-index: 1000;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  transition: all 0.4s var(--nv-easing);
+  transition: all 0.5s var(--nv-easing);
   
-  /* Efek Kaca Transparan Gelap */
+  /* Glass Effect Premium */
   background-color: var(--nv-glass-bg);
-  backdrop-filter: blur(var(--nv-glass-blur)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--nv-glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--nv-glass-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--nv-glass-blur)) saturate(150%);
   border-bottom: 1px solid var(--nv-glass-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.04); /* Cahaya halus di tepi atas kaca */
   box-shadow: var(--nv-glass-shadow);
 }
 
-/* Saat di-scroll, navbar menjadi sedikit lebih ramping & padat */
+/* Saat di-scroll */
 .navbar-section.is-scrolled {
-  height: 76px;
+  height: 72px;
   background-color: var(--nv-glass-bg-scroll);
   border-bottom-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .navbar-container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px; /* Sedikit lebih lebar untuk layar modern */
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,76 +84,52 @@
 .navbar-brand-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  gap: 10px;
-  line-height: 1.1;
+  align-items: center; /* Di-center secara vertikal agar lebih rapi */
+  gap: 12px;
   cursor: pointer;
   user-select: none;
+  transition: transform 0.3s var(--nv-easing);
+}
+
+.navbar-brand-wrapper:active {
+  transform: scale(0.97);
+}
+
+.navbar-brand-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  line-height: 1;
 }
-
-.brand-text .brand-main {
-  margin: 0;
-}
-
-.brand-text .brand-sub {
-  margin-top: 2px;
-}
-
-
-
-.navbar-brand-logo {
-  width: 34px;
-  height: 34px;
-  object-fit: contain;
-  margin: 0 0 6px 0;
-}
-
-@media (max-width: 900px) {
-  .navbar-brand-logo {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 4px;
-  }
-}
-
-
 
 .brand-main {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--accent-yellow); /* GRINT: kuning */
-  transition: color 0.3s ease;
+  letter-spacing: 0.08em;
+  color: var(--accent-yellow);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-
-
 .brand-sub {
-
   font-size: 9px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.35em;
-  color: var(--text-heading); /* Furniture Build: putih */
-  margin-top: 2px;
+  letter-spacing: 0.25em; /* Spasi huruf lebih rapat agar terlihat mahal */
+  color: var(--text-heading);
+  margin-top: 3px;
+  opacity: 0.9;
 }
-
 
 .navbar-brand-wrapper:hover .brand-main {
-  color: var(--accent-yellow); /* GRINT tetap kuning saat hover */
+  text-shadow: 0 0 12px rgba(232, 225, 20, 0.3); /* Glow halus pada hover */
 }
-
-.brand-text .brand-sub {
-  margin-top: 2px;
-}
-
-
 
 /* ─── MENU LINKS (Kontras Tinggi Minimalis) ─── */
 .navbar-menu-links {
@@ -146,7 +137,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 36px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -154,20 +145,20 @@
   background: none;
   border: none;
   padding: 8px 0;
-  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
   font-size: 14px;
-  font-weight: 600;
-  color: var(--text-muted); /* Warna abu-abu medium aman */
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
 }
 
 .navbar-link-btn:hover {
-  color: var(--text-heading); /* Berubah menjadi putih jernih saat disorot */
+  color: var(--text-heading);
 }
 
-/* Garis bawah meluncur menyala (Accent Yellow) */
+/* Garis bawah meluncur menyala dengan Glow Effect */
 .navbar-link-btn::after {
   content: '';
   position: absolute;
@@ -176,46 +167,66 @@
   width: 100%;
   height: 2px;
   background-color: var(--accent-yellow);
+  border-radius: 2px;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.4s var(--nv-easing);
+  transition: transform 0.4s var(--nv-easing), box-shadow 0.4s ease;
 }
 
 .navbar-link-btn:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+  box-shadow: 0 2px 8px rgba(232, 225, 20, 0.5); /* Glow kuning saat hover */
 }
 
-.mobile-only-cta {
-  display: none;
-}
-
-/* ─── BUTTON CTA DESKTOP (High Contrast Outline) ─── */
+/* ─── BUTTON CTA DESKTOP ─── */
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .navbar-desktop-cta {
   background-color: transparent;
   color: var(--text-heading);
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Bingkai tipis transparan putih */
-  padding: 10px 22px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 13.5px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 24px;
+  font-size: 14px;
   font-weight: 600;
-  border-radius: 6px;
+  letter-spacing: 0.02em;
+  border-radius: 8px; /* Radius sedikit lebih besar untuk kesan modern */
   cursor: pointer;
   transition: all 0.3s var(--nv-easing);
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-desktop-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
 .navbar-desktop-cta:hover {
   background-color: var(--accent-yellow);
   border-color: var(--accent-yellow);
-  color: var(--text-dark); /* Teks menjadi hitam pekat agar terbaca murni */
-  box-shadow: 0 8px 24px rgba(232, 225, 20, 0.2);
-  transform: translateY(-1px);
+  color: var(--text-dark);
+  box-shadow: 0 8px 24px rgba(232, 225, 20, 0.25);
+  transform: translateY(-2px);
+}
+
+.navbar-desktop-cta:hover::before {
+  transform: translateX(100%); /* Efek kilau saat hover */
+}
+
+.mobile-only-cta {
+  display: none;
 }
 
 /* ─── HAMBURGER TRIGGER (MOBILE) ─── */
@@ -223,8 +234,8 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 22px;
-  height: 16px;
+  width: 24px;
+  height: 18px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -235,23 +246,25 @@
 .hamburger-line {
   width: 100%;
   height: 2px;
-  background-color: var(--text-heading); /* Garis hamburger putih terang */
-  transition: all 0.3s var(--nv-easing);
-  transform-origin: left center;
+  background-color: var(--text-heading);
+  border-radius: 2px;
+  transition: all 0.4s var(--nv-easing);
+  transform-origin: center;
 }
 
 .navbar-hamburger-trigger.is-transformed .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(1px, -1px);
-  background-color: var(--accent-yellow); /* Berubah kuning saat dibuka */
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--accent-yellow);
 }
 
 .navbar-hamburger-trigger.is-transformed .hamburger-line:nth-child(2) {
   width: 0%;
   opacity: 0;
+  transform: translateX(-10px);
 }
 
 .navbar-hamburger-trigger.is-transformed .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(1px, 1px);
+  transform: translateY(-8px) rotate(-45deg);
   background-color: var(--accent-yellow);
 }
 
@@ -273,66 +286,93 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 100%; /* Full width di mobile terasa lebih modern */
+    max-width: 360px;
     height: 100vh;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 32px;
-    padding: 40px;
+    gap: 28px;
+    padding: 40px 32px;
     box-sizing: border-box;
     z-index: 1050;
     
-    /* Efek Kaca Gelap Premium khusus Laci Mobile */
-    background-color: rgba(36, 36, 36, 0.95);
-    backdrop-filter: blur(24px) saturate(140%);
-    -webkit-backdrop-filter: blur(24px) saturate(140%);
-    border-left: 1px solid var(--border-subtle);
+    background-color: rgba(18, 18, 18, 0.95); /* Sedikit lebih gelap agar teks kontras */
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7);
     
     transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s var(--nv-easing);
   }
 
   .navbar-menu-links.is-open {
     transform: translateX(0);
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
   }
 
   .navbar-item {
     width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s var(--nv-easing);
   }
 
+  /* Staggered Animation untuk menu mobile (Muncul berurutan) */
+  .navbar-menu-links.is-open .navbar-item:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+  .navbar-menu-links.is-open .navbar-item:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+  .navbar-menu-links.is-open .navbar-item:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+  .navbar-menu-links.is-open .navbar-item:nth-child(4) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+  .navbar-menu-links.is-open .navbar-item:nth-child(5) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+
   .navbar-link-btn {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 600;
     width: 100%;
     text-align: left;
-    padding: 10px 0;
-    color: var(--text-muted);
+    padding: 12px 0;
+    color: var(--text-heading);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
   
-  .navbar-link-btn:active, .navbar-link-btn:hover {
+  .navbar-link-btn:hover, .navbar-link-btn:active {
     color: var(--accent-yellow);
+    padding-left: 8px; /* Geser sedikit ke kanan saat hover di mobile */
   }
 
   .mobile-only-cta {
     display: block;
-    margin-top: 20px;
+    margin-top: 32px;
     width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease 0.35s, transform 0.4s var(--nv-easing) 0.35s;
+  }
+
+  .navbar-menu-links.is-open .mobile-only-cta {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .navbar-mobile-cta {
     width: 100%;
     background-color: var(--accent-yellow);
-    color: var(--text-dark); /* Tombol penuh kuning pekat dengan teks hitam murni */
+    color: var(--text-dark);
     border: none;
-    padding: 14px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
+    padding: 16px;
+    font-size: 16px;
     font-weight: 700;
-    border-radius: 6px;
+    letter-spacing: 0.02em;
+    border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(232, 225, 20, 0.15);
+    box-shadow: 0 8px 24px rgba(232, 225, 20, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .navbar-mobile-cta:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(232, 225, 20, 0.15);
   }
 }
 
@@ -343,14 +383,16 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Bayangan gelap murni penutup konten latar belakang */
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 999;
-  animation: fadeIn 0.3s ease forwards;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px); /* Blur lebih kuat untuk fokus ke menu */
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1040;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.navbar-menu-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
 }

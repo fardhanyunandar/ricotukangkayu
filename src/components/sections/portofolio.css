@@ -1,45 +1,76 @@
 /* ─────────────────────────────────────────────────────────────────────────
-   PORTFOLIO COMPONENT STYLES — GRINT FURNITURE BUILD (DARK MODE UPGRADE)
-   Theme: Minimalist Gallery Dark (High-Contrast Grid Showcase)
+   PORTFOLIO COMPONENT STYLES — GRINT FURNITURE BUILD (PREMIUM DARK GLASS)
+   Theme: Minimalist Gallery Dark (High-Contrast, Glassy & Cinematic Grid)
    ───────────────────────────────────────────────────────────────────────── */
 
+/* 1. IMPORT FONT PREMIUM (Inter: Konsisten dengan seluruh komponen) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Palette - Modern Dark Mode (Synchronized) */
-  --bg-main:       #0B0B0B; /* Primary Black */
-  --bg-card:       #242424; /* Dark Gray */
-  --accent-yellow: #E8E114; /* Accent Yellow (High Contrast CTA) */
-  --brand-green:   #A4CF62; /* Clover Green (Icons & Sub-headings) */
+  /* Palette - Modern Dark Mode (TETAP SAMA) */
+  --bg-main:       #0B0B0B; 
+  --bg-card:       #242424; 
+  --accent-yellow: #E8E114; 
+  --brand-green:   #A4CF62; 
   
   /* Text Colors */
-  --text-heading:  #FFFFFF; /* White */
-  --text-body:     #F3F3F3; /* Light Gray */
-  --text-muted:    #A0A0A0; /* Medium Gray */
-  --text-dark:     #0B0B0B; /* Dark Text */
+  --text-heading:  #FFFFFF; 
+  --text-body:     #F3F3F3; 
+  --text-muted:    #A0A0A0; 
+  --text-dark:     #0B0B0B; 
   
-  /* Borders & Highlights */
-  --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis khas dark mode */
-  --border-active: rgba(164, 207, 98, 0.3);   /* Border menyala Clover Green */
+  /* Borders & Highlights (Ditingkatkan untuk Glassmorphism) */
+  --border-subtle: rgba(255, 255, 255, 0.06); 
+  --border-active: rgba(164, 207, 98, 0.4);   
   
-  --transition-cubic: cubic-bezier(0.25, 1, 0.5, 1);
+  /* Easing Premium (Snappy & Smooth) */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ─── GLOBAL TYPOGRAPHY RESET FOR PORTFOLIO ─── */
+.portfolio-section, 
+.portfolio-section * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── MAIN SECTION CONTAINER ─── */
 .portfolio-section {
   background-color: var(--bg-main);
-  padding: 140px 0;
-  font-family: 'Poppins', sans-serif; /* Diselaraskan dengan hierarki global */
+  padding: 160px 0;
+  font-family: 'Inter', sans-serif;
   color: var(--text-body);
   border-top: 1px solid var(--border-subtle); 
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow halus di background untuk kedalaman */
+.portfolio-section::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(232, 225, 20, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .portfolio-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
+  position: relative;
+  z-index: 2;
 }
 
 /* ─── SECTION HEADER ─── */
 .portfolio-header {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -47,19 +78,35 @@
 }
 
 .portfolio-badge {
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--brand-green); /* Clover Green sebagai penanda sub-elemen */
-  margin-bottom: 12px;
+  letter-spacing: 0.12em;
+  color: var(--brand-green);
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  background: rgba(164, 207, 98, 0.05);
+  border: 1px solid rgba(164, 207, 98, 0.15);
+  border-radius: 100px;
+}
+
+.portfolio-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--brand-green);
 }
 
 .portfolio-title {
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: var(--text-heading);
   margin: 0;
 }
@@ -67,58 +114,65 @@
 .portfolio-subtitle {
   font-size: 16px;
   color: var(--text-muted);
-  margin: 6px 0 20px 0;
+  font-weight: 400;
+  margin: 16px 0 24px 0;
+  max-width: 600px;
+  line-height: 1.6;
 }
 
 .portfolio-decorator-line {
-  width: 80px;
+  width: 60px;
   height: 3px;
-  background-color: var(--accent-yellow); /* Kuning aksen sebagai titik fokus */
+  background: linear-gradient(90deg, var(--accent-yellow), transparent);
   border-radius: 2px;
 }
 
-/* ─── PREMIUM NAVIGATION FILTERS ─── */
+/* ─── PREMIUM NAVIGATION FILTERS (Glassmorphism) ─── */
 .portfolio-filters {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 60px;
+  margin-bottom: 64px;
   flex-wrap: wrap;
 }
 
 .filter-btn {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle); 
+  background: rgba(36, 36, 36, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-body);
   padding: 10px 24px;
-  border-radius: 30px;
+  border-radius: 100px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s var(--transition-cubic);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s var(--transition-smooth);
 }
 
 .filter-btn:hover {
   border-color: var(--brand-green);
   color: var(--brand-green);
   transform: translateY(-2px);
-  background: var(--bg-card);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(164, 207, 98, 0.1);
 }
 
 .filter-btn.is-active {
   background: var(--accent-yellow);
   border-color: var(--accent-yellow);
-  color: var(--text-dark); /* Teks gelap kontras tinggi saat filter aktif */
-  font-weight: 600;
-  box-shadow: 0 10px 20px rgba(232, 225, 20, 0.2);
+  color: var(--text-dark);
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(232, 225, 20, 0.25);
+  transform: translateY(-1px);
 }
 
 /* ─── PORTFOLIO GRID ─── */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px 30px;
+  gap: 32px;
 }
 
 /* ─── PORTFOLIO CARD ─── */
@@ -128,35 +182,41 @@
   gap: 20px;
   opacity: 1;
   transform: translateY(0);
-  transition: transform 0.4s var(--transition-cubic);
+  transition: transform 0.4s var(--transition-smooth);
 }
 
 .portfolio-thumb-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
-  background-color: #141414; /* Dasar hitam pekat sebelum gambar ter-load sepenuhnya */
+  background-color: #141414;
   border: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s var(--transition-smooth);
 }
 
+.portfolio-card:hover .portfolio-thumb-wrapper {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
 
 .portfolio-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--transition-cubic);
+  transition: transform 0.7s var(--transition-smooth);
 }
 
-/* ─── HOVER OVERLAY MECHANICS ─── */
+/* ─── HOVER OVERLAY MECHANICS (Cinematic) ─── */
 .portfolio-hover-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 11, 11, 0.75); /* Kaca gelap transparan arang */
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(11, 11, 11, 0.85);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,39 +226,47 @@
   pointer-events: none;
 }
 
-
 .overlay-content {
   text-align: center;
-  transform: translateY(15px);
-  transition: transform 0.4s var(--transition-cubic);
+  transform: translateY(20px);
+  transition: transform 0.5s var(--transition-smooth);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .overlay-zoom-icon {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  color: var(--accent-yellow); /* Ikon zoom berubah menjadi aksen kuning menyala */
+  color: var(--accent-yellow);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 300;
+  background: rgba(232, 225, 20, 0.05);
+  box-shadow: 0 0 20px rgba(232, 225, 20, 0.15);
+  transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .overlay-zoom-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(232, 225, 20, 0.3);
 }
 
 .portfolio-mat-tag {
   color: var(--text-muted);
   font-size: 13px;
   letter-spacing: 0.04em;
+  font-weight: 500;
 }
 
 /* Card Hover States */
 .portfolio-card:hover .portfolio-img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .portfolio-card:hover .portfolio-hover-overlay {
@@ -209,26 +277,26 @@
   transform: translateY(0);
 }
 
-/* Floating Corner Tag Badge (Floating on Card) */
+/* Floating Corner Tag Badge (Premium Glass) */
 .portfolio-tag-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(36, 36, 36, 0.88); /* Box gelap transparan */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--brand-green); /* Penanda teks kategori hijau */
-  padding: 7px 14px;
+  top: 16px;
+  left: 16px;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  color: var(--brand-green);
+  padding: 8px 16px;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-radius: 999px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.08em;
+  border-radius: 100px;
+  border: 1px solid rgba(164, 207, 98, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   z-index: 3;
 }
-
 
 /* ─── TYPOGRAPHY META INFO ─── */
 .portfolio-meta-info {
@@ -238,40 +306,45 @@
   padding: 0 4px;
 }
 
-
 .portfolio-item-title {
   font-size: 18px;
   font-weight: 700;
   color: var(--text-heading);
   margin: 0;
   letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-item-title {
+  color: var(--accent-yellow);
 }
 
 .portfolio-item-mat {
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--text-muted);
   margin: 0;
   letter-spacing: 0.02em;
-  line-height: 1.5;
-  text-transform: none;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-
-/* ─── FALLBACK COMPONENT STYLE (SERAT KAYU ARTIFISIAL) ─── */
+/* ─── FALLBACK COMPONENT STYLE (Premium Glass) ─── */
 .portfolio-fallback {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #141414;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   position: relative;
 }
 
 .fallback-grain-pattern {
   position: absolute;
   inset: 0;
-  opacity: 0.08; /* Opasitas dinaikkan agar tekstur noise arang kayu kontras di latar gelap */
+  opacity: 0.06;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -279,27 +352,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  border: 1px dashed rgba(255, 255, 255, 0.1); 
-  padding: 24px 40px;
-  border-radius: 8px;
+  gap: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.15); 
+  padding: 28px 44px;
+  border-radius: 12px;
+  background: rgba(11, 11, 11, 0.4);
 }
 
 .fallback-tag {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--accent-yellow);
+  letter-spacing: -0.01em;
 }
 
 .fallback-text {
   font-size: 12px;
   color: var(--text-muted);
   letter-spacing: 0.02em;
+  font-weight: 500;
 }
 
 /* ─── FOOTER INSTAGRAM CTA ─── */
 .portfolio-cta-wrapper {
-  margin-top: 70px;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
 }
@@ -309,61 +385,129 @@
   align-items: center;
   gap: 12px;
   background-color: var(--accent-yellow);
-  color: var(--text-dark); /* Teks gelap murni di atas tombol kuning */
-  padding: 16px 36px;
-  border-radius: 40px;
+  color: var(--text-dark);
+  padding: 16px 40px;
+  border-radius: 100px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 10px 25px rgba(232, 225, 20, 0.15);
-  transition: all 0.3s var(--transition-cubic);
+  box-shadow: 0 10px 30px rgba(232, 225, 20, 0.2);
+  transition: all 0.4s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
 .portfolio-cta-button:hover {
-  background-color: #FFFF33;
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(232, 225, 20, 0.3);
+  box-shadow: 0 16px 40px rgba(232, 225, 20, 0.35);
+}
+
+.portfolio-cta-button:hover::before {
+  transform: translateX(100%);
 }
 
 .cta-ig-icon {
-  transition: transform 0.3s ease;
+  transition: transform 0.4s var(--transition-smooth);
 }
 
 .portfolio-cta-button:hover .cta-ig-icon {
-  transform: rotate(15deg) scale(1.1);
+  transform: rotate(15deg) scale(1.15);
+}
+
+/* ─── ENGINE ANIMASI SCROLL (AMAN: Default Visible) ─── */
+.portfolio-grid .portfolio-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-section.is-visible .portfolio-grid .portfolio-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 0.7s var(--transition-smooth) forwards;
+}
+
+/* Staggered delay untuk portfolio cards */
+.portfolio-section.is-visible .portfolio-card:nth-child(1) { animation-delay: 0.05s; }
+.portfolio-section.is-visible .portfolio-card:nth-child(2) { animation-delay: 0.12s; }
+.portfolio-section.is-visible .portfolio-card:nth-child(3) { animation-delay: 0.19s; }
+.portfolio-section.is-visible .portfolio-card:nth-child(4) { animation-delay: 0.26s; }
+.portfolio-section.is-visible .portfolio-card:nth-child(5) { animation-delay: 0.33s; }
+.portfolio-section.is-visible .portfolio-card:nth-child(6) { animation-delay: 0.40s; }
+.portfolio-section.is-visible .portfolio-card:nth-child(7) { animation-delay: 0.47s; }
+.portfolio-section.is-visible .portfolio-card:nth-child(8) { animation-delay: 0.54s; }
+.portfolio-section.is-visible .portfolio-card:nth-child(9) { animation-delay: 0.61s; }
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ─── RESPONSIVE BREAKPOINTS ─── */
 @media (max-width: 1024px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 28px;
   }
+  
   .portfolio-title {
-    font-size: 38px;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    padding: 0 24px;
+  }
+  
+  .portfolio-title {
+    font-size: 36px;
+  }
+  
+  .portfolio-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 12px;
+    margin-bottom: 48px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .portfolio-filters::-webkit-scrollbar {
+    display: none;
   }
 }
 
 @media (max-width: 640px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
-  .portfolio-container {
-    padding: 0 24px;
+  
+  .portfolio-title {
+    font-size: 32px;
   }
-  .portfolio-filters {
-    justify-content: flex-start;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding-bottom: 12px;
-    margin-bottom: 40px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .portfolio-filters::-webkit-scrollbar {
-    display: none;
-  }
-  .portfolio-filters {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  
+  .portfolio-thumb-wrapper {
+    border-radius: 12px;
   }
 }

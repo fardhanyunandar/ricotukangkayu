@@ -34,7 +34,7 @@ export default function Footer() {
               alt="GRINT logo"
             />
             <span className="footer-logo-text">
-              <span className="footer-logo-main">GRINT</span>
+              <span className="footer-logo-main">GR_INT</span>
               <span className="footer-logo-sub">Furniture Build</span>
             </span>
           </div>
