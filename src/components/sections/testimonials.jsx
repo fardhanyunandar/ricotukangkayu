@@ -6,7 +6,7 @@ const reviews = [
     name: 'Dewi Susanti',  
     loc: 'Surabaya · Kitchen Set',    
     stars: 5, 
-    text: '"Kitchen set dari Grint kualitasnya luar biasa. Finishing rapih, ukuran pas, dan prosesnya transparan dari awal sampai selesai. Highly recommended!"' 
+    text: '"Kitchen set dari Gr_int kualitasnya luar biasa. Finishing rapih, ukuran pas, dan prosesnya transparan dari awal sampai selesai. Highly recommended!"' 
   },
   { 
     initials: 'AR', 

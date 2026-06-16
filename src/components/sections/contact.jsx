@@ -4,7 +4,7 @@ import './contact.css';
 // ─── CONFIG — Nomor WA Asli Rico Workshop ───────────────────────────────
 const WA_NUMBER = '6281513135325'; 
 const WA_DEFAULT_MSG = encodeURIComponent(
-  'Halo Grint Furniture Build! Saya ingin konsultasi mengenai furniture custom.'
+  'Halo Gr_int Furniture Build! Saya ingin konsultasi mengenai furniture custom.'
 );
 
 const furnitureTypes = [

@@ -113,7 +113,7 @@ export default function Footer() {
       <div className="footer-bottom-bar">
         <div className="footer-container footer-bottom-inner">
           <span className="footer-copyright-text">
-            © {year} Grint Furniture Build · @ricotukangkayuindonesia_
+            © {year} Gr_int Furniture Build · @ricotukangkayuindonesia_
           </span>
           <button className="footer-back-to-top-btn" onClick={scrollTop} aria-label="Kembali ke atas">
             <svg 

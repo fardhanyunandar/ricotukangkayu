@@ -100,10 +100,10 @@ export default function About() {
 
           <div className="about-story">
             <p className="story-paragraph">
-              Grint Furniture Build didirikan sejak tahun 2015 oleh <strong>Rico</strong>, seorang pengrajin kayu berpengalaman yang mencintai setiap detail dalam proses pembuatan furniture. Kami percaya bahwa furniture yang baik bukan hanya soal fungsi — tapi juga cerita dan karakter.
+              Gr_int Furniture Build didirikan sejak tahun 2015 oleh <strong>Rico Aris Sunaryo</strong>, seorang pengrajin kayu berpengalaman yang mencintai setiap detail dalam proses pembuatan furniture. Kami percaya bahwa furniture yang baik bukan hanya soal fungsi — tapi juga cerita dan karakter.
             </p>
             <p className="story-paragraph story-paragraph--en" lang="en">
-              Grint Furniture Build was founded in 2015 by Rico, an experienced woodworker who loves every detail in the furniture-making process. We believe that good furniture is not just about function — it's also about story and character.
+              Gr_int Furniture Build was founded in 2015 by Rico Aris Sunaryo, an experienced woodworker who loves every detail in the furniture-making process. We believe that good furniture is not just about function — it's also about story and character.
             </p>
             <p className="story-paragraph">
               Dengan menggunakan bahan yang di pakai dari multipleks sampai dengan kayu solid, kami menghadirkan furniture yang tahan lama dan estetik untuk hunian maupun komersial.
@@ -143,12 +143,12 @@ export default function About() {
                   <img
                     className="profile-avatar-img"
                     src="/image/about/ricoaris.png"
-                    alt="Foto Rico - Founder Grint Furniture Build"
+                    alt="Foto Rico - Founder Gr_int Furniture Build"
                     loading="lazy"
                   />
                 </div>
                 <div className="profile-info">
-                  <h3 className="profile-name">Rico</h3>
+                  <h3 className="profile-name">Rico Aris Sunaryo</h3>
                   <p className="profile-role">Founder & Master Craftsman</p>
                 </div>
               </div>

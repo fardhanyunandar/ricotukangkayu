@@ -55,7 +55,7 @@ export default function FAQ() {
               </p>
               <button
                 className="faq-wa-button"
-                onClick={() => window.open('https://wa.me/6281513135325?text=Halo%20Grint%20Furniture%20Build!%20Saya%20ingin%20konsultasi%20mengenai%20furniture%20custom.', '_blank')}
+                onClick={() => window.open('https://wa.me/6281513135325?text=Halo%20Gr_int%20Furniture%20Build!%20Saya%20ingin%20konsultasi%20mengenai%20furniture%20custom.', '_blank')}
               >
                 Hubungi via WhatsApp
               </button>
